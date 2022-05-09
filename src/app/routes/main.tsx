@@ -1,5 +1,6 @@
 import * as Router from "react-router-dom";
 import * as Pages from "src/app/pages";
+import * as Layouts from "src/app/layouts";
 import * as Components from "src/app/components";
 
 export const Main = () =>
@@ -10,9 +11,10 @@ export const Main = () =>
     },
     {
       path: "/*",
+      element: <Layouts.Master.Main />,
       children: [
         {
-          index: true,
+          path: "/*",
           element: <Pages.Home.Main />,
         },
       ],
