@@ -45,8 +45,9 @@ export const Appbar = () => {
                 }}
               >
                 <Mui.Typography
-                  variant="h6"
                   sx={{
+                    fontSize: "15px",
+                    fontWeight: 500,
                     color: (theme) =>
                       pathList.includes(navigation.value)
                         ? theme.palette.primary.main

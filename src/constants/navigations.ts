@@ -13,5 +13,10 @@ export const Navigations = [
         name: 'Contact',
         value: 'contact',
         path: '/contact',
+    },
+    {
+        name: 'Fun Zone',
+        value: 'funZone',
+        path: '/funZone',
     }
 ]

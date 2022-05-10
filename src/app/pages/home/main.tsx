@@ -3,7 +3,7 @@ import * as Pages from "src/app/pages";
 
 export const Main = () => {
   return (
-    <Mui.Box>
+    <Mui.Box position="relative">
       <Pages.Home.Views.Content />
     </Mui.Box>
   );
