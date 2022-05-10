@@ -14,7 +14,15 @@ export const Main = () =>
       element: <Layouts.Master.Main />,
       children: [
         {
-          path: "/*",
+          index: true,
+          element: <Router.Navigate to="/home" />,
+        },
+        {
+          path: "home",
+          element: <Pages.Home.Main />,
+        },
+        {
+          path: "*",
           element: <Pages.Home.Main />,
         },
       ],
