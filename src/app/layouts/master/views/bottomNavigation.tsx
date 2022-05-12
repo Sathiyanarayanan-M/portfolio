@@ -23,28 +23,41 @@ export function BottomNavigation() {
         background: (theme) => theme.palette.primary.main,
       }}
     >
-      <Mui.BottomNavigation>
+      <Mui.Stack direction="row" alignItems="center">
         {Constants.Navigations.map((navigation) => (
-          <Mui.BottomNavigationAction
+          <Mui.Box
             key={navigation.value}
-            label={navigation.name}
-            icon={<navigation.icon sx={{ marginBottom: "2px" }} />}
-            showLabel={pathList.includes(navigation.value) ? true : false}
-            onClick={() => handleNavigation(navigation.path)}
-            sx={{
-              backgroundColor: (theme) =>
-                pathList.includes(navigation.value)
-                  ? "white"
-                  : theme.palette.primary.main,
-              color: (theme) =>
-                pathList.includes(navigation.value)
-                  ? theme.palette.primary.main
-                  : "rgba(255, 255, 255, 0.5)",
-              transition: "all 0.3s",
-            }}
-          />
+            sx={{ width: "100%", height: "100%", p: 2 }}
+          >
+            <Mui.Stack
+              direction="row"
+              alignItems="center"
+              justifyContent="center"
+              spacing={1}
+              sx={{
+                backgroundColor: (theme) =>
+                  pathList.includes(navigation.value)
+                    ? "white"
+                    : theme.palette.primary.main,
+                color: (theme) =>
+                  pathList.includes(navigation.value)
+                    ? theme.palette.primary.main
+                    : "rgba(255, 255, 255, 0.5)",
+                transition: "all 0.3s",
+                cursor: "pointer",
+                borderRadius: "15px",
+                p: 1,
+              }}
+              onClick={() => handleNavigation(navigation.path)}
+            >
+              <navigation.icon sx={{ marginBottom: "2px" }} />
+              {pathList.includes(navigation.value) ? (
+                <Mui.Typography>{navigation.name}</Mui.Typography>
+              ) : null}
+            </Mui.Stack>
+          </Mui.Box>
         ))}
-      </Mui.BottomNavigation>
+      </Mui.Stack>
     </Mui.Box>
   );
 }
