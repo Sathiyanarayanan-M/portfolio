@@ -1,7 +1,7 @@
 import React from "react";
+import * as Router from "react-router-dom";
 import * as Mui from "@mui/material";
 import * as Constants from "src/constants";
-import * as Router from "react-router-dom";
 
 export const Appbar = () => {
   const { pathname } = Router.useLocation();
@@ -13,9 +13,32 @@ export const Appbar = () => {
     navigate(path);
   };
 
+  const TabBoxStyles = (open: boolean) =>
+    open
+      ? {
+          "&:before, &:after": {
+            content: "''",
+            position: "absolute",
+            height: "10px",
+            width: "20px",
+            bottom: 0,
+          },
+          "&:after": {
+            right: "-20px",
+            borderRadius: "0 0 0 20px",
+            boxShadow: "-10px 0 0 0 #fff",
+          },
+          "&:before": {
+            left: "-20px",
+            borderRadius: "0 0 20px 0",
+            boxShadow: "10px 0 0 0 #fff",
+          },
+        }
+      : {};
+
   return (
     <React.Fragment>
-      <Mui.AppBar color="primary">
+      <Mui.AppBar color="primary" elevation={0}>
         <Mui.Toolbar>
           <Mui.Stack
             direction="row"
@@ -30,28 +53,27 @@ export const Appbar = () => {
           >
             {Constants.Navigations.map((navigation) => (
               <Mui.Box
+                key={navigation.value}
                 component={Mui.ButtonBase}
                 onClick={() => handleNavigation(navigation.path)}
+                className="appbar-box"
                 sx={{
-                  p: 2,
-                  backgroundColor: (theme) =>
-                    pathList.includes(navigation.value)
-                      ? "white"
-                      : theme.palette.primary.main,
-                  borderRadius: pathList.includes(navigation.value)
-                    ? "20px 20px 6px 6px"
-                    : 0,
-                  transition: "all 0.3s",
+                  bgcolor: pathList.includes(navigation.value)
+                    ? "white"
+                    : "primary.main",
+                  position: "relative",
+                  borderRadius: "20px 20px 0 0",
+                  px: 3,
+                  ...TabBoxStyles(pathList.includes(navigation.value)),
                 }}
               >
                 <Mui.Typography
                   sx={{
                     fontSize: "15px",
                     fontWeight: 500,
-                    color: (theme) =>
-                      pathList.includes(navigation.value)
-                        ? theme.palette.primary.main
-                        : "rgba(255, 255, 255, 0.5)",
+                    color: pathList.includes(navigation.value)
+                      ? "primary.main"
+                      : "rgba(255, 255, 255, 0.5)",
                   }}
                 >
                   {navigation.name}
