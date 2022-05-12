@@ -11,8 +11,13 @@ export const Main = () => {
   });
   return (
     <React.Fragment>
-      <Layouts.Master.Views.Appbar />
+      <Mui.Box display={{ md: "block", xs: "none" }}>
+        <Layouts.Master.Views.Appbar />
+      </Mui.Box>
       <Router.Outlet />
+      <Mui.Box display={{ md: "none", xs: "block" }}>
+        <Layouts.Master.Views.BottomNavigation />
+      </Mui.Box>
     </React.Fragment>
   );
 };
