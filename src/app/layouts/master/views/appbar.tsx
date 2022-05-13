@@ -61,19 +61,21 @@ export const Appbar = () => {
                   bgcolor: pathList.includes(navigation.value)
                     ? "white"
                     : "primary.main",
+                  color: pathList.includes(navigation.value)
+                    ? "primary.main"
+                    : "rgba(255, 255, 255, 0.5)",
                   position: "relative",
                   borderRadius: "20px 20px 0 0",
                   px: 3,
                   ...TabBoxStyles(pathList.includes(navigation.value)),
                 }}
               >
+                <navigation.icon />
                 <Mui.Typography
                   sx={{
                     fontSize: "15px",
                     fontWeight: 500,
-                    color: pathList.includes(navigation.value)
-                      ? "primary.main"
-                      : "rgba(255, 255, 255, 0.5)",
+                    marginLeft: "6px",
                   }}
                 >
                   {navigation.name}
