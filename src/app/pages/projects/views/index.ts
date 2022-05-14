@@ -1,1 +1,2 @@
-export * from './content'
+export * from './content';
+export * from './card';
