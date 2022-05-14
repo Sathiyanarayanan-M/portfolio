@@ -55,6 +55,7 @@ export const Appbar = () => {
               <Mui.Box
                 key={navigation.value}
                 component={Mui.ButtonBase}
+                disableTouchRipple
                 onClick={() => handleNavigation(navigation.path)}
                 className="appbar-box"
                 sx={{
