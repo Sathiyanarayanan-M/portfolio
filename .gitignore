@@ -23,3 +23,13 @@ dist-ssr
 *.sln
 *.sw?
 .env
+
+### Firebase ###
+.idea
+**/node_modules/*
+**/.firebaserc
+**/firebase.json
+
+### Firebase Patch ###
+.runtimeconfig.json
+.firebase/
