@@ -10,9 +10,13 @@ export const useFirebaseStorage = () => {
     return snapshot;
   };
 
-  const uploadFile = async (file: File | Blob, filePath: string) => {
+  const uploadFile = async (file: string, filePath: string) => {
     const storageRef = FirebaseStorage.ref(storage, filePath);
-    const uploadTask = await FirebaseStorage.uploadBytes(storageRef, file);
+    const uploadTask = await FirebaseStorage.uploadString(
+      storageRef,
+      file,
+      "data_url"
+    );
     return uploadTask;
   };
 

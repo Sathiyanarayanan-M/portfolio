@@ -6,6 +6,7 @@ body,
   margin: 0px;
   padding: 0px;
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 ::-webkit-scrollbar-track {
   background-color: transparent;

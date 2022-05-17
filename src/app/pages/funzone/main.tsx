@@ -4,7 +4,7 @@ import * as Hooks from "src/app/hooks";
 
 export const Main = () => {
   return (
-    <Mui.Box sx={{ height: `calc(100% - ${Hooks.useAppBarHeight()}px)` }}>
+    <Mui.Box sx={{ height: "100%" }}>
       <Pages.Funzone.Views.Content />
     </Mui.Box>
   );

@@ -35,10 +35,10 @@ export const Main = () =>
           element: <Pages.Funzone.Main />,
         },
         {
-          path: "admin",
+          path: "admin/*",
           element: (
             <Routes.PrivateRoute>
-              <Pages.Admin.Main />
+              <Pages.Admin.Routes />
             </Routes.PrivateRoute>
           ),
         },
