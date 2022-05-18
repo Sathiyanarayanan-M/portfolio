@@ -18,8 +18,14 @@ export const ProjectCard = (props: CardType.Props) => {
         </Mui.Typography>
       </Mui.CardContent>
       <Mui.CardActions>
-        <Mui.Button size="small" variant="outlined">
-          {props.actionUrl}
+        <Mui.Button
+          component={Mui.Link}
+          href={props.actionUrl}
+          target="_blank"
+          size="small"
+          variant="outlined"
+        >
+          Details
         </Mui.Button>
       </Mui.CardActions>
     </Mui.Card>

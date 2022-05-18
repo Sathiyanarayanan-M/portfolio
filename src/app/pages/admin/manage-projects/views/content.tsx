@@ -8,7 +8,10 @@ import Thinking from "src/assets/img/thinking.svg";
 
 export const Content = () => {
   const [data, setData] = React.useState<Firestore.DocumentData[]>([]);
-  const [showDialogue, setShowDialogue] = React.useState(false);
+  const [showAddProjectDialog, setShowAddProjectDialog] = React.useState(false);
+  const [showEditProjectDialog, setShowEditProjectDialog] =
+    React.useState(false);
+  const [editProjectTitle, setEditProjectTitle] = React.useState("");
 
   const { getData } = Hooks.useFirestore();
 
@@ -16,22 +19,39 @@ export const Content = () => {
     getData("projects").then((data) => setData(data));
   }, []);
 
-  const handleShowDialogue = () => {
-    setShowDialogue(!showDialogue);
+  const handleAddProjectDialog = () =>
+    setShowAddProjectDialog(!showAddProjectDialog);
+
+  const handleShowEditDialog = (editProjectTitle: string) => {
+    setEditProjectTitle(editProjectTitle);
+    setShowEditProjectDialog(!showEditProjectDialog);
   };
+
+  const handleCloseEditProjectDialog = () =>
+    setShowEditProjectDialog(!showEditProjectDialog);
+
   return (
     <Mui.Box
       sx={{
         height: "100%",
         width: "100%",
-        // m: 2,
         p: 2,
       }}
     >
-      <Pages.Admin.ManageProjects.Views.AddNewProjectDialog
-        showDialogue={showDialogue}
-        handleShowDialogue={handleShowDialogue}
-      />
+      {showAddProjectDialog ? (
+        <Pages.Admin.ManageProjects.Views.AddNewProjectDialog
+          showDialogue={showAddProjectDialog}
+          handleShowDialogue={handleAddProjectDialog}
+        />
+      ) : null}
+
+      {showEditProjectDialog ? (
+        <Pages.Admin.ManageProjects.Views.UpdateProjectDialog
+          showDialogue={showEditProjectDialog}
+          handleCloseEditDialog={handleCloseEditProjectDialog}
+          editProjectTitle={editProjectTitle}
+        />
+      ) : null}
       <Mui.Grid container spacing={3}>
         {data.map((item, index) => (
           <Mui.Grid xs={12} md={3} item key={index}>
@@ -40,6 +60,7 @@ export const Content = () => {
               image={item.image}
               description={item.description}
               actionUrl=""
+              handleShowEditDialogue={handleShowEditDialog}
             />
           </Mui.Grid>
         ))}
@@ -51,7 +72,7 @@ export const Content = () => {
             variant="outlined"
             fullWidth
             sx={{ height: "100%" }}
-            onClick={handleShowDialogue}
+            onClick={handleAddProjectDialog}
           >
             <MuiIcons.Add />
             <Mui.Typography variant="h5">Add New</Mui.Typography>

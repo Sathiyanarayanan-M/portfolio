@@ -13,25 +13,26 @@ export const Content = () => {
     getData("projects").then((data) => setData(data));
   }, []);
   return (
-    <Mui.Container
+    <Mui.Box
       sx={{
         height: "100%",
         width: "100%",
+        p: 3,
       }}
     >
       <Mui.Grid container spacing={3}>
         {data.map((item, index) => (
-          <Mui.Grid xs={12} md={6} item key={index}>
+          <Mui.Grid xs={12} md={3} item key={index}>
             <Pages.Projects.Views.ProjectCard
               title={item.title}
               image={item.image}
               description={item.description}
-              actionUrl=""
+              actionUrl={item.detailsUrl}
             />
           </Mui.Grid>
         ))}
         {/* <Mui.Typography variant="h5">Projects Page</Mui.Typography> */}
       </Mui.Grid>
-    </Mui.Container>
+    </Mui.Box>
   );
 };

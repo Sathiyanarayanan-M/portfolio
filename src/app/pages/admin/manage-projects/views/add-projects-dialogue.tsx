@@ -4,39 +4,63 @@ import * as MuiLab from "@mui/lab";
 import * as Formik from "formik";
 import * as Hooks from "src/app/hooks";
 import * as Pages from "src/app/pages";
+import * as Contexts from "src/app/contexts";
 
 export const AddNewProjectDialog = (props: ManageProjectDialogue.Props) => {
   const { uploadFile, getDownloadURL } = Hooks.useFirebaseStorage();
-  const { addData } = Hooks.useFirestore();
+  const { addData, getSingleDoc } = Hooks.useFirestore();
+  const { setSnack } = React.useContext(Contexts.SnackbarContext);
 
   const handleSubmitValues = async (
     values: ManageProjectDialogue.FormValues,
     actions: Formik.FormikHelpers<ManageProjectDialogue.FormValues>
   ) => {
-    const formatedData = {
-      ...values,
-      techsUsed: values.techsUsed.split(",").filter(Boolean),
-    };
     actions.setSubmitting(true);
-    if (formatedData.image) {
-      try {
+
+    const isDocAvailable = await getSingleDoc(`projects/${values.title}`);
+    if (isDocAvailable) {
+      actions.setSubmitting(false);
+      setSnack({
+        open: true,
+        message: "Project already exists!",
+        severity: "error",
+      });
+      return;
+    }
+    try {
+      if (values.image) {
         const uploadedFile = await uploadFile(
-          formatedData.image,
-          `projects/${Hooks.useGenerateUniqueId(formatedData.title || "")}`
+          values.image,
+          `projects/${Hooks.useGenerateUniqueId(values.title || "")}`
         );
         const downloadUrl = await getDownloadURL(
           uploadedFile.metadata.fullPath
         );
 
-        addData("projects", {
-          ...formatedData,
+        addData(`projects/${values.title}`, {
+          ...values,
           image: downloadUrl,
         });
-      } catch (e) {
-        console.log(e);
+        setSnack({
+          open: true,
+          message: "Project Added",
+          severity: "success",
+        });
+      } else {
+        addData(`projects/${values.title}`, values);
+        setSnack({
+          open: true,
+          message: "Project Added",
+          severity: "success",
+        });
       }
-    } else {
-      addData(`projects`, formatedData);
+    } catch (e: any) {
+      console.log(e);
+      setSnack({
+        open: true,
+        message: e.message,
+        severity: "error",
+      });
     }
     actions.setSubmitting(false);
     props.handleShowDialogue();

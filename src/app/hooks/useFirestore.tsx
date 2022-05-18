@@ -13,11 +13,23 @@ export const useFirestore = () => {
     return listData;
   };
 
-  const addData = async (collectionName: string, data: any) => {
-    const collection = Firestore.collection(db, collectionName);
-    const snapshot = await Firestore.addDoc(collection, data);
+  const getSingleDoc = async (docPath: string) => {
+    const document = Firestore.doc(db, docPath);
+    const doc = await Firestore.getDoc(document);
+    return doc.data();
+  };
+
+  const addData = async (docPath: string, data: any) => {
+    const document = Firestore.doc(db, docPath);
+    const snapshot = await Firestore.setDoc(document, data);
     return snapshot;
   };
 
-  return { getData, addData };
+  const updateData = async (docPath: string, data: any) => {
+    const document = Firestore.doc(db, docPath);
+    const snapshot = await Firestore.updateDoc(document, data);
+    return snapshot;
+  };
+
+  return { getData, addData, getSingleDoc, updateData };
 };

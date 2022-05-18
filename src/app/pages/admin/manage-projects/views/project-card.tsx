@@ -1,4 +1,5 @@
 import * as Mui from "@mui/material";
+import NoImage from "src/assets/img/no-image.svg";
 
 export const AdminProjectsCard = (props: CardType.Props) => {
   return (
@@ -6,8 +7,9 @@ export const AdminProjectsCard = (props: CardType.Props) => {
       <Mui.CardMedia
         height={100}
         component="img"
-        image={props.image}
+        image={props.image || NoImage}
         alt={props.title}
+        sx={{ objectFit: props.image ? "cover" : "contain" }}
       />
       <Mui.CardContent>
         <Mui.Typography gutterBottom variant="h5" component="div">
@@ -21,8 +23,7 @@ export const AdminProjectsCard = (props: CardType.Props) => {
         <Mui.Button
           size="small"
           variant="outlined"
-          href={props.actionUrl}
-          target="_blank"
+          onClick={() => props.handleShowEditDialogue(props.title)}
         >
           Edit
         </Mui.Button>
@@ -46,5 +47,6 @@ export declare namespace CardType {
     title: string;
     description: string;
     actionUrl: string;
+    handleShowEditDialogue: (T: string) => void;
   }
 }
