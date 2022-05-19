@@ -13,10 +13,12 @@ export const Content = () => {
     React.useState(false);
   const [editProjectTitle, setEditProjectTitle] = React.useState("");
 
-  const { getData } = Hooks.useFirestore();
+  const { dataSnapShot } = Hooks.useFirestore();
 
   React.useEffect(() => {
-    getData("projects").then((data) => setData(data));
+    dataSnapShot("projects", (snapshot) => {
+      setData(snapshot.docs.map((doc) => doc.data()));
+    });
   }, []);
 
   const handleAddProjectDialog = () =>

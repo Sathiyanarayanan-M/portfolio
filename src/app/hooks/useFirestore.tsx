@@ -31,5 +31,27 @@ export const useFirestore = () => {
     return snapshot;
   };
 
-  return { getData, addData, getSingleDoc, updateData };
+  const deleteData = async (docPath: string) => {
+    const document = Firestore.doc(db, docPath);
+    const snapshot = await Firestore.deleteDoc(document);
+    return snapshot;
+  };
+
+  const dataSnapShot = (
+    collectionName: string,
+    observer: (doc: Firestore.QuerySnapshot<Firestore.DocumentData>) => void
+  ) => {
+    const collection = Firestore.collection(db, collectionName);
+    const snapshot = Firestore.onSnapshot(collection, observer);
+    return snapshot;
+  };
+
+  return {
+    getData,
+    addData,
+    getSingleDoc,
+    updateData,
+    deleteData,
+    dataSnapShot,
+  };
 };

@@ -28,32 +28,13 @@ export const AddNewProjectDialog = (props: ManageProjectDialogue.Props) => {
       return;
     }
     try {
-      if (values.image) {
-        const uploadedFile = await uploadFile(
-          values.image,
-          `projects/${Hooks.useGenerateUniqueId(values.title || "")}`
-        );
-        const downloadUrl = await getDownloadURL(
-          uploadedFile.metadata.fullPath
-        );
-
-        addData(`projects/${values.title}`, {
-          ...values,
-          image: downloadUrl,
-        });
-        setSnack({
-          open: true,
-          message: "Project Added",
-          severity: "success",
-        });
-      } else {
-        addData(`projects/${values.title}`, values);
-        setSnack({
-          open: true,
-          message: "Project Added",
-          severity: "success",
-        });
-      }
+      addData(`projects/${values.title}`, values);
+      setSnack({
+        open: true,
+        message: "Project Added",
+        severity: "success",
+      });
+      props.handleShowDialogue();
     } catch (e: any) {
       console.log(e);
       setSnack({
@@ -63,7 +44,6 @@ export const AddNewProjectDialog = (props: ManageProjectDialogue.Props) => {
       });
     }
     actions.setSubmitting(false);
-    props.handleShowDialogue();
   };
 
   return (

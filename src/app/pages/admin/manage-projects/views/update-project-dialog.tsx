@@ -7,7 +7,6 @@ import * as Pages from "src/app/pages";
 import * as Contexts from "src/app/contexts";
 
 export const UpdateProjectDialog = (props: UpdateProjectDialogType.Props) => {
-  const { uploadFile, getDownloadURL } = Hooks.useFirebaseStorage();
   const { addData, getSingleDoc } = Hooks.useFirestore();
   const { setSnack } = React.useContext(Contexts.SnackbarContext);
   const [docData, setDocData] =
@@ -25,36 +24,13 @@ export const UpdateProjectDialog = (props: UpdateProjectDialogType.Props) => {
     actions: Formik.FormikHelpers<UpdateProjectDialogType.FormValues>
   ) => {
     actions.setSubmitting(true);
-    console.log(values);
-    return;
-
     try {
-      if (values.image) {
-        const uploadedFile = await uploadFile(
-          values.image,
-          `projects/${Hooks.useGenerateUniqueId(values.title || "")}`
-        );
-        const downloadUrl = await getDownloadURL(
-          uploadedFile.metadata.fullPath
-        );
-
-        addData(`projects/${values.title}`, {
-          ...values,
-          image: downloadUrl,
-        });
-        setSnack({
-          open: true,
-          message: "Project Updated",
-          severity: "success",
-        });
-      } else {
-        addData(`projects/${values.title}`, values);
-        setSnack({
-          open: true,
-          message: "Project Updated",
-          severity: "success",
-        });
-      }
+      addData(`projects/${values.title}`, values);
+      setSnack({
+        open: true,
+        message: "Project Updated",
+        severity: "success",
+      });
     } catch (e: any) {
       console.log(e);
       setSnack({

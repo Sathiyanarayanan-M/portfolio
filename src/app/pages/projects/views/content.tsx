@@ -7,10 +7,12 @@ import Thinking from "src/assets/img/thinking.svg";
 
 export const Content = () => {
   const [data, setData] = React.useState<Firestore.DocumentData[]>([]);
-  const { getData } = Hooks.useFirestore();
+  const { dataSnapShot } = Hooks.useFirestore();
 
   React.useEffect(() => {
-    getData("projects").then((data) => setData(data));
+    dataSnapShot("projects", (snapshot) => {
+      setData(snapshot.docs.map((doc) => doc.data()));
+    });
   }, []);
   return (
     <Mui.Box

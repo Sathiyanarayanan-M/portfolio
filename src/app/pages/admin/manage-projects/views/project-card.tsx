@@ -1,7 +1,25 @@
+import React from "react";
 import * as Mui from "@mui/material";
+import * as Hooks from "src/app/hooks";
+import * as Contexts from "src/app/contexts";
 import NoImage from "src/assets/img/no-image.svg";
 
 export const AdminProjectsCard = (props: CardType.Props) => {
+  const { deleteData } = Hooks.useFirestore();
+  const { confirmSwal } = Hooks.useSwal();
+
+  const handleDelete = async () => {
+    const result = await confirmSwal({
+      title: "Are you sure?",
+      text: "Once deleted, you will not be able to recover this project!",
+      icon: "warning",
+      buttons: ["Cancel", "Confirm"],
+    });
+    if (result) {
+      deleteData(`projects/${props.title}`);
+    }
+  };
+
   return (
     <Mui.Card>
       <Mui.CardMedia
@@ -31,8 +49,7 @@ export const AdminProjectsCard = (props: CardType.Props) => {
           size="small"
           variant="contained"
           color="error"
-          href={props.actionUrl}
-          target="_blank"
+          onClick={handleDelete}
         >
           Delete
         </Mui.Button>
