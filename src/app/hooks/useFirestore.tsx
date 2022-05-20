@@ -19,9 +19,20 @@ export const useFirestore = () => {
     return doc.data();
   };
 
+  const querySnapshot = async (
+    collectionName: string,
+    query: Firestore.QueryConstraint
+  ) => {
+    const collection = Firestore.collection(db, collectionName);
+    const querySnapshot = Firestore.query(collection, query);
+    const snapshot = await Firestore.getDocs(querySnapshot);
+    const listData = snapshot.docs.map((doc) => doc.data());
+    return { data: listData, docIDs: snapshot.docs.map((doc) => doc.id) };
+  };
+
   const addData = async (docPath: string, data: any) => {
-    const document = Firestore.doc(db, docPath);
-    const snapshot = await Firestore.setDoc(document, data);
+    const document = Firestore.collection(db, docPath);
+    const snapshot = await Firestore.addDoc(document, data);
     return snapshot;
   };
 
@@ -53,5 +64,6 @@ export const useFirestore = () => {
     updateData,
     deleteData,
     dataSnapShot,
+    querySnapshot,
   };
 };

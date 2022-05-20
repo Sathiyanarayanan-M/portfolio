@@ -1,4 +1,5 @@
 import * as Mui from "@mui/material";
+import NoImage from "src/assets/img/no-image.svg";
 
 export const ProjectCard = (props: CardType.Props) => {
   return (
@@ -6,11 +7,12 @@ export const ProjectCard = (props: CardType.Props) => {
       <Mui.CardMedia
         height={100}
         component="img"
-        image={props.image}
+        image={props.image || NoImage}
         alt={props.title}
+        sx={{ objectFit: props.image ? "cover" : "contain" }}
       />
       <Mui.CardContent>
-        <Mui.Typography gutterBottom variant="h5" component="div">
+        <Mui.Typography gutterBottom variant="h5">
           {props.title}
         </Mui.Typography>
         <Mui.Typography variant="body2" color="text.secondary">
@@ -24,6 +26,7 @@ export const ProjectCard = (props: CardType.Props) => {
           target="_blank"
           size="small"
           variant="outlined"
+          rel="noopener noreferrer"
         >
           Details
         </Mui.Button>

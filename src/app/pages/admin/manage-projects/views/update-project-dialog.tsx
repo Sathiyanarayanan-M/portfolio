@@ -7,10 +7,10 @@ import * as Pages from "src/app/pages";
 import * as Contexts from "src/app/contexts";
 
 export const UpdateProjectDialog = (props: UpdateProjectDialogType.Props) => {
-  const { addData, getSingleDoc } = Hooks.useFirestore();
+  const { updateData } = Hooks.useFirestore();
   const { setSnack } = React.useContext(Contexts.SnackbarContext);
   const [docData, setDocData] =
-    React.useState<UpdateProjectDialogType.FormValues>({
+    React.useState<Pages.Admin.ManageProjects.MainTypes.FormValues>({
       title: "",
       description: "",
       role: "",
@@ -18,14 +18,15 @@ export const UpdateProjectDialog = (props: UpdateProjectDialogType.Props) => {
       detailsUrl: "",
       image: "",
     });
+  const [docID, setDocId] = React.useState<string>("");
 
   const handleSubmitValues = async (
-    values: UpdateProjectDialogType.FormValues,
-    actions: Formik.FormikHelpers<UpdateProjectDialogType.FormValues>
+    values: Pages.Admin.ManageProjects.MainTypes.FormValues,
+    actions: Formik.FormikHelpers<Pages.Admin.ManageProjects.MainTypes.FormValues>
   ) => {
     actions.setSubmitting(true);
     try {
-      addData(`projects/${values.title}`, values);
+      updateData(`projects/${docID}`, values);
       setSnack({
         open: true,
         message: "Project Updated",
@@ -46,11 +47,14 @@ export const UpdateProjectDialog = (props: UpdateProjectDialogType.Props) => {
   React.useEffect(() => {
     if (props.editProjectTitle) {
       (async function () {
-        const doc = (await getSingleDoc(
-          `projects/${props.editProjectTitle}`
-        )) as UpdateProjectDialogType.FormValues;
-        if (doc) {
-          setDocData(doc);
+        const projectData =
+          await Pages.Admin.ManageProjects.Hooks.useGetSingleProjectByTitle(
+            props.editProjectTitle
+          );
+        const docData = projectData.data;
+        setDocId(projectData.docID);
+        if (docData) {
+          setDocData(docData);
         } else {
           setSnack({
             open: true,
@@ -88,13 +92,5 @@ export namespace UpdateProjectDialogType {
     showDialogue: boolean;
     handleCloseEditDialog: () => void;
     editProjectTitle: string;
-  }
-  export interface FormValues {
-    title: string;
-    description: string;
-    role: string;
-    techsUsed: string;
-    detailsUrl: string;
-    image: string;
   }
 }

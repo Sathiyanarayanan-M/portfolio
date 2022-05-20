@@ -7,11 +7,14 @@ import Thinking from "src/assets/img/thinking.svg";
 
 export const Content = () => {
   const [data, setData] = React.useState<Firestore.DocumentData[]>([]);
+  const [isLoading, setIsLoading] = React.useState(false);
   const { dataSnapShot } = Hooks.useFirestore();
 
   React.useEffect(() => {
+    setIsLoading(true);
     dataSnapShot("projects", (snapshot) => {
       setData(snapshot.docs.map((doc) => doc.data()));
+      setIsLoading(false);
     });
   }, []);
   return (
@@ -23,17 +26,24 @@ export const Content = () => {
       }}
     >
       <Mui.Grid container spacing={3}>
-        {data.map((item, index) => (
-          <Mui.Grid xs={12} md={3} item key={index}>
-            <Pages.Projects.Views.ProjectCard
-              title={item.title}
-              image={item.image}
-              description={item.description}
-              actionUrl={item.detailsUrl}
-            />
-          </Mui.Grid>
-        ))}
-        {/* <Mui.Typography variant="h5">Projects Page</Mui.Typography> */}
+        {isLoading
+          ? [...Array(10).keys()].map((index) => (
+              <Mui.Grid item xs={12} md={3} key={index}>
+                <Mui.Skeleton variant="rectangular" height={150} />
+                <Mui.Skeleton />
+                <Mui.Skeleton width="60%" />
+              </Mui.Grid>
+            ))
+          : data.map((item, index) => (
+              <Mui.Grid xs={12} md={3} item key={index}>
+                <Pages.Projects.Views.ProjectCard
+                  title={item.title}
+                  image={item.image}
+                  description={item.description}
+                  actionUrl={item.detailsUrl}
+                />
+              </Mui.Grid>
+            ))}
       </Mui.Grid>
     </Mui.Box>
   );

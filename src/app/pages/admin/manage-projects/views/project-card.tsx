@@ -1,7 +1,7 @@
 import React from "react";
 import * as Mui from "@mui/material";
 import * as Hooks from "src/app/hooks";
-import * as Contexts from "src/app/contexts";
+import * as Pages from "src/app/pages";
 import NoImage from "src/assets/img/no-image.svg";
 
 export const AdminProjectsCard = (props: CardType.Props) => {
@@ -16,7 +16,11 @@ export const AdminProjectsCard = (props: CardType.Props) => {
       buttons: ["Cancel", "Confirm"],
     });
     if (result) {
-      deleteData(`projects/${props.title}`);
+      const projectData =
+        await Pages.Admin.ManageProjects.Hooks.useGetSingleProjectByTitle(
+          props.title
+        );
+      deleteData(`projects/${projectData.docID}`);
     }
   };
 
@@ -30,7 +34,7 @@ export const AdminProjectsCard = (props: CardType.Props) => {
         sx={{ objectFit: props.image ? "cover" : "contain" }}
       />
       <Mui.CardContent>
-        <Mui.Typography gutterBottom variant="h5" component="div">
+        <Mui.Typography gutterBottom variant="h5">
           {props.title}
         </Mui.Typography>
         <Mui.Typography variant="body2" color="text.secondary">
