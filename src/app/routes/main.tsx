@@ -42,6 +42,10 @@ export const Main = () =>
             </Routes.PrivateRoute>
           ),
         },
+        {
+          path: "auth/*",
+          element: <Pages.Auth.Main />,
+        },
       ],
     },
   ]);

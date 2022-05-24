@@ -52,7 +52,7 @@ export function BottomNavigation() {
             >
               <navigation.icon sx={{ marginBottom: "2px" }} />
               {pathList.includes(navigation.value) ? (
-                <Mui.Typography>{navigation.name}</Mui.Typography>
+                <Mui.Typography noWrap>{navigation.name}</Mui.Typography>
               ) : null}
             </Mui.Stack>
           </Mui.Box>

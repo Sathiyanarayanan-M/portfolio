@@ -2,8 +2,18 @@ import React from "react";
 import * as Mui from "@mui/material";
 import * as MuiLab from "@mui/lab";
 import * as Formik from "formik";
+import * as Yup from "yup";
 import * as Hooks from "src/app/hooks";
 import * as Contexts from "src/app/contexts";
+
+export const ProjectFormSchema = Yup.object().shape({
+  title: Yup.string().required("Required").min(3, "Too Short!"),
+  description: Yup.string().required("Required").min(3, "Too Short!"),
+  detailsUrl: Yup.string().matches(
+    /^(http(s)?:\/\/)[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/gm,
+    "Url must start with http/https"
+  ),
+});
 
 export const ProjectForm = () => {
   const [isFileUploading, setIsFileUploading] = React.useState(false);
@@ -52,6 +62,7 @@ export const ProjectForm = () => {
     <Formik.Form>
       <Mui.Stack spacing={3}>
         <Mui.TextField
+          error={!!formikContext.errors.title && !!formikContext.touched.title}
           label="Title"
           name="title"
           type="text"
@@ -60,8 +71,14 @@ export const ProjectForm = () => {
           onChange={formikContext.handleChange}
           value={formikContext.values.title}
           required
+          helperText={<Formik.ErrorMessage name="title" />}
         />
+
         <Mui.TextField
+          error={
+            !!formikContext.errors.description &&
+            !!formikContext.touched.description
+          }
           label="Description"
           name="description"
           type="text"
@@ -70,8 +87,10 @@ export const ProjectForm = () => {
           value={formikContext.values.description}
           fullWidth
           required
+          helperText={<Formik.ErrorMessage name="description" />}
         />
         <Mui.TextField
+          error={!!formikContext.errors.role && !!formikContext.touched.role}
           label="Role"
           name="role"
           type="text"
@@ -80,8 +99,13 @@ export const ProjectForm = () => {
           value={formikContext.values.role}
           fullWidth
           required
+          helperText={<Formik.ErrorMessage name="role" />}
         />
         <Mui.TextField
+          error={
+            !!formikContext.errors.techsUsed &&
+            !!formikContext.touched.techsUsed
+          }
           label="Tech Used"
           name="techsUsed"
           type="text"
@@ -90,8 +114,13 @@ export const ProjectForm = () => {
           value={formikContext.values.techsUsed}
           fullWidth
           required
+          helperText={<Formik.ErrorMessage name="techsUsed" />}
         />
         <Mui.TextField
+          error={
+            !!formikContext.errors.detailsUrl &&
+            !!formikContext.touched.detailsUrl
+          }
           label="Details url"
           name="detailsUrl"
           type="text"
@@ -100,6 +129,7 @@ export const ProjectForm = () => {
           value={formikContext.values.detailsUrl}
           fullWidth
           required
+          helperText={<Formik.ErrorMessage name="detailsUrl" />}
         />
         <Mui.Stack
           direction="row"

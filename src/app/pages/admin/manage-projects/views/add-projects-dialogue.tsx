@@ -69,6 +69,7 @@ export const AddNewProjectDialog = (props: ManageProjectDialogue.Props) => {
             image: "",
           }}
           onSubmit={handleSubmitValues}
+          validationSchema={Pages.Admin.ManageProjects.Views.ProjectFormSchema}
         >
           <Pages.Admin.ManageProjects.Views.ProjectForm />
         </Formik.Formik>

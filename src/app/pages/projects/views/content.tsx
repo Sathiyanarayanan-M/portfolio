@@ -3,7 +3,6 @@ import * as Mui from "@mui/material";
 import * as Firestore from "firebase/firestore";
 import * as Pages from "src/app/pages";
 import * as Hooks from "src/app/hooks";
-import Thinking from "src/assets/img/thinking.svg";
 
 export const Content = () => {
   const [data, setData] = React.useState<Firestore.DocumentData[]>([]);

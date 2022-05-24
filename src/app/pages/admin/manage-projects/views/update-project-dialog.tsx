@@ -79,6 +79,7 @@ export const UpdateProjectDialog = (props: UpdateProjectDialogType.Props) => {
           enableReinitialize
           initialValues={docData}
           onSubmit={handleSubmitValues}
+          validationSchema={Pages.Admin.ManageProjects.Views.ProjectFormSchema}
         >
           <Pages.Admin.ManageProjects.Views.ProjectForm />
         </Formik.Formik>
