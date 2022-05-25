@@ -7,6 +7,8 @@ import * as Pages from "src/app/pages";
 import * as Contexts from "src/app/contexts";
 
 export const Content = () => {
+  const { signInWithEmailAndPassword } = Hooks.useFirebaseAuth();
+
   return (
     <Mui.Box sx={{ m: 3 }}>
       <Formik.Formik
@@ -14,7 +16,14 @@ export const Content = () => {
           email: "",
           password: "",
         }}
-        onSubmit={() => {}}
+        onSubmit={async (values, actions) => {
+          const result = await signInWithEmailAndPassword(
+            values.email,
+            values.password
+          );
+          actions.setSubmitting(false);
+          console.log(result);
+        }}
       >
         <Formik.Form>
           <Pages.Auth.Views.LoginForm />

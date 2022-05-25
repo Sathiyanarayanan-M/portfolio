@@ -4,25 +4,26 @@ import * as Hooks from "src/app/hooks";
 export const useFirebaseAuth = () => {
   const auth = Firebase.getAuth(Hooks.useFirebaseApp());
 
-  const signInWithEmailAndPassword = async (
-    email: string,
-    password: string
-  ) => {
-    const result = await Firebase.signInWithEmailAndPassword(
-      auth,
-      email,
-      password
-    );
-    return result;
+  const signInWithEmailAndPassword = (email: string, password: string) => {
+    return Firebase.signInWithEmailAndPassword(auth, email, password);
   };
 
-  const getUser = () => {
-    const user = auth.currentUser;
-    return user;
+  const getUser = () => auth.currentUser;
+
+  const authStateChanged = (callback: (user: Firebase.User | null) => void) => {
+    Firebase.onAuthStateChanged(auth, (user) => {
+      if (user) {
+        const uid = user.uid;
+        return callback(user);
+      } else {
+        return callback(null);
+      }
+    });
   };
 
   return {
     signInWithEmailAndPassword,
     getUser,
+    authStateChanged,
   };
 };

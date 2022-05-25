@@ -34,18 +34,18 @@ export const Main = () =>
           path: "funZone",
           element: <Pages.Funzone.Main />,
         },
-        {
-          path: "admin/*",
-          element: (
-            <Routes.PrivateRoute>
-              <Pages.Admin.Routes />
-            </Routes.PrivateRoute>
-          ),
-        },
-        {
-          path: "auth/*",
-          element: <Pages.Auth.Main />,
-        },
       ],
+    },
+    {
+      path: "admin/*",
+      element: (
+        <Routes.PrivateRoute>
+          <Pages.Admin.Routes />
+        </Routes.PrivateRoute>
+      ),
+    },
+    {
+      path: "auth/*",
+      element: <Pages.Auth.Main />,
     },
   ]);
