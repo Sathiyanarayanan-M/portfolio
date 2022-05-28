@@ -1,5 +1,7 @@
 import * as Mui from "@mui/material";
-import Thinking from "src/assets/img/thinking.svg";
+import * as ReactSwiper from "swiper/react";
+import * as Swiper from "swiper";
+import * as Pages from "src/app/pages";
 
 export const Content = () => {
   return (
@@ -9,32 +11,23 @@ export const Content = () => {
         width: "100%",
       }}
     >
-      <Mui.Stack
-        direction={{ xs: "column", md: "row" }}
-        alignItems="center"
-        justifyContent="center"
-        sx={{ height: "100%" }}
+      <ReactSwiper.Swiper
+        direction="vertical"
+        slidesPerView={1}
+        mousewheel={true}
+        modules={[Swiper.Mousewheel]}
+        style={{
+          width: "100%",
+          height: "100%",
+        }}
       >
-        <Mui.Box>
-          <Mui.Typography variant="h4">
-            Hi, I am Sathiyanarayanan
-          </Mui.Typography>
-          <Mui.Typography variant="h5">
-            A Software Engineer based in Kumbakonam, Tamil Nadu.
-          </Mui.Typography>
-        </Mui.Box>
-        <Mui.Box>
-          <Mui.CardMedia
-            component="img"
-            src={Thinking}
-            sx={{
-              width: { md: 510, xs: 310 },
-              height: { md: 218, xs: 180 },
-              objectFit: "contain",
-            }}
-          />
-        </Mui.Box>
-      </Mui.Stack>
+        <ReactSwiper.SwiperSlide style={{ position: "relative" }}>
+          <Pages.Home.Views.HomeSection />
+        </ReactSwiper.SwiperSlide>
+        <ReactSwiper.SwiperSlide>
+          <Pages.Home.Views.AboutSection />
+        </ReactSwiper.SwiperSlide>
+      </ReactSwiper.Swiper>
     </Mui.Container>
   );
 };

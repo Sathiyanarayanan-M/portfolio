@@ -1,18 +1,35 @@
-import * as React from "react";
+import React from "react";
 import * as Mui from "@mui/material";
 import * as MuiIcons from "@mui/icons-material";
-import * as Constants from "src/constants";
 import * as Router from "react-router-dom";
+import * as Constants from "src/constants";
+import * as Hooks from "src/app/hooks";
+import * as Contexts from "src/app/contexts";
 
 export function BottomNavigation() {
+  const containerRef = React.useRef();
+  const { setUtils } = React.useContext(Contexts.UtilsContext);
+
   const { pathname } = Router.useLocation();
   const pathList = pathname.split("/");
+  const isWidowChanged = Mui.useMediaQuery(
+    Mui.useTheme().breakpoints.down("md")
+  );
 
   const navigate = Router.useNavigate();
 
   const handleNavigation = (path: string) => {
     navigate(path);
   };
+
+  React.useEffect(() => {
+    if (containerRef.current) {
+      setUtils({
+        "bottom-navigation-height": (containerRef.current as any)
+          ?.clientHeight as string,
+      });
+    }
+  }, [containerRef, isWidowChanged]);
   return (
     <Mui.Box
       sx={{
@@ -21,9 +38,10 @@ export function BottomNavigation() {
         left: 0,
         right: 0,
         background: (theme) => theme.palette.primary.main,
+        zIndex: (theme) => theme.zIndex.appBar,
       }}
     >
-      <Mui.Stack direction="row" alignItems="center">
+      <Mui.Stack direction="row" alignItems="center" ref={containerRef}>
         {Constants.Navigations.map((navigation) => (
           <Mui.Box
             key={navigation.value}

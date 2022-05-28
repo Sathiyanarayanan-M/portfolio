@@ -23,10 +23,6 @@ export const Main = () =>
           element: <Pages.Home.Main />,
         },
         {
-          path: "about",
-          element: <Pages.About.Main />,
-        },
-        {
           path: "projects",
           element: <Pages.Projects.Main />,
         },
@@ -34,15 +30,15 @@ export const Main = () =>
           path: "funZone",
           element: <Pages.Funzone.Main />,
         },
+        {
+          path: "admin/*",
+          element: (
+            <Routes.PrivateRoute>
+              <Pages.Admin.Routes />
+            </Routes.PrivateRoute>
+          ),
+        },
       ],
-    },
-    {
-      path: "admin/*",
-      element: (
-        <Routes.PrivateRoute>
-          <Pages.Admin.Routes />
-        </Routes.PrivateRoute>
-      ),
     },
     {
       path: "auth/*",

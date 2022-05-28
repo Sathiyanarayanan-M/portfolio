@@ -2,10 +2,18 @@ import React from "react";
 import * as Router from "react-router-dom";
 import * as Mui from "@mui/material";
 import * as Constants from "src/constants";
+import * as Hooks from "src/app/hooks";
+import * as Contexts from "src/app/contexts";
 
 export const Appbar = () => {
+  const containerRef = React.useRef(null);
+  const { setUtils } = React.useContext(Contexts.UtilsContext);
+
   const { pathname } = Router.useLocation();
   const pathList = pathname.split("/");
+  const isWidowChanged = Mui.useMediaQuery(
+    Mui.useTheme().breakpoints.down("md")
+  );
 
   const navigate = Router.useNavigate();
 
@@ -36,9 +44,18 @@ export const Appbar = () => {
         }
       : {};
 
+  React.useEffect(() => {
+    if (containerRef.current) {
+      setUtils({
+        "top-navigation-height": (containerRef.current as any)
+          ?.clientHeight as string,
+      });
+    }
+  }, [containerRef, isWidowChanged]);
+
   return (
     <React.Fragment>
-      <Mui.AppBar color="primary" elevation={0}>
+      <Mui.AppBar color="primary" elevation={0} ref={containerRef}>
         <Mui.Toolbar>
           <Mui.Stack
             direction="row"

@@ -6,3 +6,4 @@ export * from './use-convert-base64';
 export * from './use-generate-unique-id';
 export * from './useSwal';
 export * from './use-firebase-auth';
+export * from './use-local-storage';

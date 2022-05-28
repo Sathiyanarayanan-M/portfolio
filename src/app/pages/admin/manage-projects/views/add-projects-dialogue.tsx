@@ -55,8 +55,8 @@ export const AddNewProjectDialog = (props: ManageProjectDialogue.Props) => {
     <Mui.Dialog open={props.showDialogue} onClose={props.handleShowDialogue}>
       <Mui.Box
         sx={{
-          m: 5,
-          minWidth: "300px",
+          m: 4,
+          minWidth: "30vw",
         }}
       >
         <Formik.Formik

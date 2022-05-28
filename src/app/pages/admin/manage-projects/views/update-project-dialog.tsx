@@ -71,8 +71,8 @@ export const UpdateProjectDialog = (props: UpdateProjectDialogType.Props) => {
     <Mui.Dialog open={props.showDialogue} onClose={props.handleCloseEditDialog}>
       <Mui.Box
         sx={{
-          m: 5,
-          minWidth: "300px",
+          m: 4,
+          minWidth: "30vw",
         }}
       >
         <Formik.Formik
