@@ -1,10 +1,11 @@
 import React from "react";
 import * as Mui from "@mui/material";
+import * as ReactSwiper from "swiper/react";
 import * as Firestore from "firebase/firestore";
 import * as Pages from "src/app/pages";
 import * as Hooks from "src/app/hooks";
 
-export const Content = () => {
+export const ProjectsSection = () => {
   const [data, setData] = React.useState<Firestore.DocumentData[]>([]);
   const [isLoading, setIsLoading] = React.useState(false);
   const { dataSnapShot } = Hooks.useFirestore();
@@ -26,16 +27,16 @@ export const Content = () => {
     >
       <Mui.Grid container spacing={3}>
         {isLoading
-          ? [...Array(10).keys()].map((index) => (
-              <Mui.Grid item xs={12} md={3} key={index}>
+          ? [...Array(5).keys()].map((index) => (
+              <Mui.Grid item xs={12} md={4} key={index}>
                 <Mui.Skeleton variant="rectangular" height={150} />
                 <Mui.Skeleton />
                 <Mui.Skeleton width="60%" />
               </Mui.Grid>
             ))
           : data.map((item, index) => (
-              <Mui.Grid xs={12} md={3} item key={index}>
-                <Pages.Projects.Views.ProjectCard
+              <Mui.Grid xs={12} md={4} item key={index}>
+                <Pages.Home.Views.ProjectCard
                   title={item.title}
                   image={item.image}
                   description={item.description}

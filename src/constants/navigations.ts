@@ -8,12 +8,6 @@ export const Navigations = [
         icon: MuiIcons.Home,
     },
     {
-        name: 'Projects',
-        value: 'projects',
-        path: '/projects',
-        icon: MuiIcons.Folder,
-    },
-    {
         name: 'Fun Zone',
         value: 'funZone',
         path: '/funZone',

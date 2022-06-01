@@ -25,7 +25,7 @@ export const Content = () => {
           <Pages.Home.Views.HomeSection />
         </ReactSwiper.SwiperSlide>
         <ReactSwiper.SwiperSlide>
-          <Pages.Home.Views.AboutSection />
+          <Pages.Home.Views.ProjectsSection />
         </ReactSwiper.SwiperSlide>
       </ReactSwiper.Swiper>
     </Mui.Container>
