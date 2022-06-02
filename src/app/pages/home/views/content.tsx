@@ -5,7 +5,7 @@ import * as Pages from "src/app/pages";
 
 export const Content = () => {
   return (
-    <Mui.Container
+    <Mui.Box
       sx={{
         height: "100%",
         width: "100%",
@@ -28,6 +28,6 @@ export const Content = () => {
           <Pages.Home.Views.ProjectsSection />
         </ReactSwiper.SwiperSlide>
       </ReactSwiper.Swiper>
-    </Mui.Container>
+    </Mui.Box>
   );
 };
