@@ -31,9 +31,6 @@ export const ProjectsSection = () => {
         // p: 10,
       }}
     >
-      <Mui.Box>
-        <Mui.Typography noWrap>My Project List:</Mui.Typography>
-      </Mui.Box>
       <ReactSwiper.Swiper
         spaceBetween={30}
         centeredSlides={true}
@@ -43,12 +40,14 @@ export const ProjectsSection = () => {
         }}
         pagination={{
           clickable: true,
+          dynamicBullets: true,
         }}
         navigation={true}
         modules={[SwiperJs.Autoplay, SwiperJs.Pagination, SwiperJs.Navigation]}
         style={{
           width: "100%",
           height: "90%",
+          marginTop: "10px",
         }}
         loop={true}
       >

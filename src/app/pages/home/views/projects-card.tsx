@@ -7,7 +7,6 @@ export const ProjectCard = (props: CardType.Props) => {
       direction={{ xs: "column", md: "row" }}
       justifyContent="center"
       alignItems="center"
-      // flexWrap="wrap"
       sx={{
         width: "100%",
         height: "100%",
@@ -36,7 +35,7 @@ export const ProjectCard = (props: CardType.Props) => {
         }}
         spacing={2}
       >
-        <Mui.Box sx={{ maxWidth: "70%" }}>
+        <Mui.Box sx={{ maxWidth: { xs: "100%", md: "70%" } }}>
           <Mui.Typography gutterBottom variant="h5" maxWidth={300}>
             {props.title}
           </Mui.Typography>
