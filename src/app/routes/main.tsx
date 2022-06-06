@@ -26,6 +26,7 @@ export const Main = () =>
           path: "funZone",
           element: <Pages.Funzone.Main />,
         },
+        { path: "articles", element: <Pages.Articles.Main /> },
         {
           path: "admin/*",
           element: (
