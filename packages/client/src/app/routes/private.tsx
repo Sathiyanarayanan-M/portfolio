@@ -1,5 +1,6 @@
 import React from "react";
 import * as FirebaseAuth from "firebase/auth";
+import * as Firebase from "firebase/app";
 import * as Hooks from "src/app/hooks";
 import * as Components from "src/app/components";
 import * as Pages from "src/app/pages";
@@ -8,6 +9,13 @@ export const PrivateRoute = ({ children }: PrivateRouteType.Props) => {
   const { getUser, authStateChanged } = Hooks.useFirebaseAuth();
   const [user, setUser] = React.useState<FirebaseAuth.User | null>(null);
   const [isLoading, setIsLoading] = React.useState(false);
+
+  if (getUser()) {
+    FirebaseAuth.getIdToken(getUser() as FirebaseAuth.User).then((res) => {
+      console.log(res);
+      return res;
+    });
+  }
 
   React.useEffect(() => {
     setIsLoading(true);
