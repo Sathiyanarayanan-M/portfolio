@@ -1,12 +1,12 @@
 const express = require("express");
 const router = express.Router();
-const projects = require('app/controller/projects')
+const private = require("./private");
+const projects = require("../controller/projects");
 
-router.route('/login').get((req, res) => {
-    res.send('Post your Login Credentials as Json');
+router.route("/login").get((req, res) => {
+  res.send("Post your Login Credentials as Json");
 });
 
-router.route('/projects').get(projects.projectList)
-
+router.route("/projects").get(private.router, projects.projectList);
 
 module.exports = router;
