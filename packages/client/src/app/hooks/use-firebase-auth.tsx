@@ -10,6 +10,8 @@ export const useFirebaseAuth = () => {
 
   const getUser = () => auth.currentUser;
 
+  const getIdToken = () => auth.currentUser?.getIdToken();
+
   const authStateChanged = (callback: (user: Firebase.User | null) => void) => {
     Firebase.onAuthStateChanged(auth, (user) => {
       if (user) {
@@ -25,5 +27,6 @@ export const useFirebaseAuth = () => {
     signInWithEmailAndPassword,
     getUser,
     authStateChanged,
+    getIdToken,
   };
 };

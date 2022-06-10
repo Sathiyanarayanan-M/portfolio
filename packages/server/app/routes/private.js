@@ -8,10 +8,12 @@ admin.initializeApp({
 });
 
 exports.router = (req, res, next) => {
-  if (req.headers.authtoken) {
+  const token = req.headers["x-access-token"] || req.headers["Authorization"];
+  console.log(token);
+  if (token) {
     admin
       .auth()
-      .verifyIdToken(req.headers.authtoken)
+      .verifyIdToken(token)
       .then((rr) => {
         return next();
       })

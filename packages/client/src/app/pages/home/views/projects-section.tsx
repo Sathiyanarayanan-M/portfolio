@@ -5,6 +5,7 @@ import * as SwiperJs from "swiper";
 import * as Firestore from "firebase/firestore";
 import * as Pages from "src/app/pages";
 import * as Hooks from "src/app/hooks";
+import * as API from "src/app/api";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
@@ -22,6 +23,13 @@ export const ProjectsSection = () => {
       setProjectData(snapshot.docs.map((doc) => doc.data()));
       setIsLoading(false);
     });
+    (async function () {
+      const res = await API.Server.Request({
+        method: "GET",
+        url: "/api/projects",
+      });
+      console.log(res);
+    })();
   }, []);
   return (
     <Mui.Box
