@@ -3,6 +3,7 @@ import * as Mui from "@mui/material";
 import * as ReactSwiper from "swiper/react";
 import * as SwiperJs from "swiper";
 import * as Firestore from "firebase/firestore";
+import * as Axios from "axios";
 import * as Pages from "src/app/pages";
 import * as Hooks from "src/app/hooks";
 import * as API from "src/app/api";
@@ -11,26 +12,11 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 
 export const ProjectsSection = () => {
-  const [projectData, setProjectData] = React.useState<
-    Firestore.DocumentData[]
-  >([]);
-  const [isLoading, setIsLoading] = React.useState(false);
-  const { dataSnapShot } = Hooks.useFirestore();
-
-  React.useEffect(() => {
-    setIsLoading(true);
-    dataSnapShot("projects", (snapshot) => {
-      setProjectData(snapshot.docs.map((doc) => doc.data()));
-      setIsLoading(false);
-    });
-    (async function () {
-      const res = await API.Server.Request({
-        method: "GET",
-        url: "/api/projects",
-      });
-      console.log(res);
-    })();
-  }, []);
+  const {
+    data: projectData,
+    isLoading,
+    error,
+  } = Pages.Home.Hooks.useProjectList();
   return (
     <Mui.Box
       sx={{
@@ -59,7 +45,7 @@ export const ProjectsSection = () => {
         }}
         loop={true}
       >
-        {projectData.map((item, index) => (
+        {/* {projectData.map((item, index) => (
           <ReactSwiper.SwiperSlide key={index}>
             <Pages.Home.Views.ProjectCard
               title={item.title}
@@ -68,7 +54,7 @@ export const ProjectsSection = () => {
               actionUrl={item.detailsUrl}
             />
           </ReactSwiper.SwiperSlide>
-        ))}
+        ))} */}
       </ReactSwiper.Swiper>
       {/* <Mui.Grid container spacing={3}>
         {isLoading

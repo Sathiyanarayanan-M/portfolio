@@ -20,6 +20,7 @@ export const Content = () => {
           width: "100%",
           height: "100%",
         }}
+        nested={true}
       >
         <ReactSwiper.SwiperSlide style={{ position: "relative" }}>
           <Pages.Home.Views.HomeSection />

@@ -12,12 +12,12 @@ const client = Axios.default.create({
 export const Request = async (options: StringObject, data?: any) => {
   const { getIdToken } = Hooks.useFirebaseAuth();
   const token = (await getIdToken()) as string;
-  //   console.log(token);
 
   return client({
     headers: {
-      //   "Content-Type": "application/json",
-      //   Accept: "application/json",
+      "Content-Type": "application/json",
+      Accept: "application/json",
+      "Access-Control-Allow-Origin": "*",
       //   Authorization: token,
     },
     ...options,
