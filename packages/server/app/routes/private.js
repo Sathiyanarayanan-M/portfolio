@@ -8,8 +8,7 @@ admin.initializeApp({
 });
 
 exports.router = (req, res, next) => {
-  const token = req.headers["x-access-token"] || req.headers["Authorization"];
-  console.log(token);
+  const token = req.headers["authorization"] || req.headers["x-access-token"];
   if (token) {
     admin
       .auth()
@@ -24,6 +23,9 @@ exports.router = (req, res, next) => {
         return next(err);
       });
   } else {
-    return res.status(403).send("Unauthorized");
+    return res.status(403).send({
+      message: "No Token Provided",
+      error: true,
+    });
   }
 };

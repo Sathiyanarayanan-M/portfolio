@@ -7,6 +7,6 @@ router.route("/login").get((req, res) => {
   res.send("Post your Login Credentials as Json");
 });
 
-router.route("/projects").get(private.router, projects.projectList);
+router.route("/projects").get(projects.projectList);
 
 module.exports = router;

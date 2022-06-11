@@ -45,7 +45,7 @@ export const ProjectsSection = () => {
         }}
         loop={true}
       >
-        {/* {projectData.map((item, index) => (
+        {projectData?.map((item, index) => (
           <ReactSwiper.SwiperSlide key={index}>
             <Pages.Home.Views.ProjectCard
               title={item.title}
@@ -54,7 +54,7 @@ export const ProjectsSection = () => {
               actionUrl={item.detailsUrl}
             />
           </ReactSwiper.SwiperSlide>
-        ))} */}
+        ))}
       </ReactSwiper.Swiper>
       {/* <Mui.Grid container spacing={3}>
         {isLoading
