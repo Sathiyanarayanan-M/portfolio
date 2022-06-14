@@ -2,7 +2,6 @@ import * as Axios from "axios";
 import { setupCache } from "axios-cache-adapter";
 import * as ReactQuery from "react-query";
 import * as Constants from "src/constants";
-import * as Hooks from "src/app/hooks";
 
 const cache = setupCache({
   maxAge: 15 * 60 * 1000,
@@ -24,10 +23,29 @@ export const Request = async (options: StringObject, data?: any) => {
   });
 };
 
-export const useQueryRequest = (
-  queryOptions: string[],
-  requestOptions: StringObject,
-  data?: any
-) => {
-  return ReactQuery.useQuery(queryOptions, () => Request(requestOptions, data));
+export const useQueryRequest = ({
+  queryParams = [],
+  requestOptions,
+  requestData,
+  reactQueryoptions,
+}: IUseQueryRequest.Props) => {
+  return ReactQuery.useQuery(
+    queryParams,
+    () => Request(requestOptions, requestData),
+    reactQueryoptions
+  );
 };
+
+export namespace IUseQueryRequest {
+  export interface Props {
+    queryParams?: string[];
+    requestOptions: StringObject;
+    requestData?: any;
+    reactQueryoptions?:
+      | Omit<
+          ReactQuery.UseQueryOptions<any, unknown, any, string[]>,
+          "queryKey" | "queryFn"
+        >
+      | undefined;
+  }
+}

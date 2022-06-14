@@ -1,13 +1,13 @@
 import * as API from "src/app/api";
 
 export const useProjectList = (): IUseProjectList.Return => {
-  const { data, isFetching: isLoading } = API.Server.useQueryRequest(
-    ["projects"],
-    {
+  const { data, isFetching: isLoading } = API.Server.useQueryRequest({
+    queryParams: ["projectList"],
+    requestOptions: {
       method: "GET",
       url: "/api/projects",
-    }
-  );
+    },
+  });
   return { data: data?.data?.data, isLoading, error: data?.data?.error };
 };
 

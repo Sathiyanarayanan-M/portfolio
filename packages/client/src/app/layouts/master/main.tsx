@@ -2,7 +2,6 @@ import React from "react";
 import * as Mui from "@mui/material";
 import * as Router from "react-router-dom";
 import * as Layouts from "src/app/layouts";
-import * as Hooks from "src/app/hooks";
 import * as Contexts from "src/app/contexts";
 
 export const Main = () => {

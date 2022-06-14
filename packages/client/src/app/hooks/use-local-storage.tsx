@@ -1,8 +1,8 @@
-import React from "react";
 import CryptoJs from "crypto-js";
+import * as Constants from "src/constants";
 
 export const useLocalStorage = () => {
-  const secretKey = "sathiya";
+  const secretKey = Constants.SECRETS_CONFIG.cryptoSecretKey;
   const setToLocalStorage = (
     key: string,
     value: UseLocalStorageType.ValueType,
