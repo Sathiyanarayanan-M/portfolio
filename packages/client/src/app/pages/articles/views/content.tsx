@@ -1,5 +1,8 @@
 import * as Mui from "@mui/material";
+import * as Pages from "src/app/pages";
 
 export const Content = () => {
-  return <Mui.Typography>Content</Mui.Typography>;
+  const { data } = Pages.Articles.Hooks.useGetArticles();
+  console.log(data);
+  return <Mui.Typography>{JSON.stringify(data)}</Mui.Typography>;
 };
