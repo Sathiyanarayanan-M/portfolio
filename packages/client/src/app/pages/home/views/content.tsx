@@ -5,20 +5,14 @@ import * as Pages from "src/app/pages";
 
 export const Content = () => {
   return (
-    <Mui.Box
-      sx={{
-        height: "100%",
-        width: "100%",
-      }}
-    >
+    <Mui.Box>
       <ReactSwiper.Swiper
         direction="vertical"
         slidesPerView={1}
         mousewheel={true}
         modules={[Swiper.Mousewheel]}
         style={{
-          width: "100%",
-          height: "100%",
+          height: "100vh",
         }}
         nested={true}
       >

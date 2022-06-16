@@ -4,7 +4,7 @@ import * as Hooks from "src/app/hooks";
 
 export const Main = () => {
   return (
-    <Mui.Box sx={{ height: "100%" }}>
+    <Mui.Box>
       <Pages.Home.Views.Content />
     </Mui.Box>
   );
