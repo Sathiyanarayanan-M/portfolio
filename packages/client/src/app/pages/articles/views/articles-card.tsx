@@ -42,7 +42,7 @@ export const ArticlesCard = (
         component="img"
         sx={{ minWidth: 151 }}
         image={props.urlToImage}
-        alt="Live from space album cover"
+        alt={props.title}
       />
     </Mui.Card>
   );
