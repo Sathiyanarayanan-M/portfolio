@@ -1,11 +1,13 @@
 import * as API from "src/app/api";
 
-export const useGetArticles = (): IUseProjectList.Return => {
+export const useGetArticles = (
+  queryString?: string
+): IUseProjectList.Return => {
   const { data, isFetching: isLoading } = API.Server.useQueryRequest({
     queryParams: ["articles"],
     requestOptions: {
       method: "GET",
-      url: "/api/articles",
+      url: `/api/articles?${queryString}`,
     },
   });
   return { data: data?.data?.data, isLoading, error: data?.data?.error };
@@ -13,7 +15,7 @@ export const useGetArticles = (): IUseProjectList.Return => {
 
 export namespace IUseProjectList {
   export interface Return {
-    data?: RootObject;
+    data?: Data;
     error: boolean;
     isLoading: boolean;
   }
@@ -38,9 +40,5 @@ export namespace IUseProjectList {
     status: string;
     totalResults: number;
     articles: Article[];
-  }
-
-  export interface RootObject {
-    data: Data;
   }
 }

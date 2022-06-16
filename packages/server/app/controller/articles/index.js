@@ -3,8 +3,8 @@ const utils = require("../../utils/api/getNewsAPI");
 exports.articlesList = async (req, res, next) => {
   const { getNewsAPI } = utils;
   const defaultNewsQueries = {
-    catagory: "technology",
-    country: "us",
+    category: "technology",
+    language: "en",
     pageSize: 10,
     page: 1,
     ...req.query,
