@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const private = require("./private");
+const privateRoute = require("./private");
 const projects = require("../controller/projects");
 const articles = require("../controller/articles");
 

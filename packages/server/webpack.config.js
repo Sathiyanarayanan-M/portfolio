@@ -1,12 +1,13 @@
 const path = require("path");
 
 module.exports = {
+  mode: "development",
+  target: "node",
   entry: "./server.js",
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "bundle.js",
   },
-
   module: {
     rules: [
       {
@@ -21,5 +22,4 @@ module.exports = {
       },
     ],
   },
-  mode: "development",
 };
