@@ -3,5 +3,5 @@
   "name": "portfolio-server",
   "builds": [{ "src": "./app.js", "use": "@vercel/node" }],
   "routes": [{ "src": "/(.*)", "dest": "./app.js" }],
-  "rewrites": [{ "source": "./server/(.*)", "destination": "/server" }]
+  "rewrites": [{ "source": "./app/(.*)", "destination": "/app" }]
 }
