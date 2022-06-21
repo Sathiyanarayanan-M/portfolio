@@ -1,8 +1,6 @@
 import * as API from "src/app/api";
 
-export const useGetArticles = (
-  queryString?: string
-): IUseProjectList.Return => {
+export const useGetArticles = (queryString = ""): IUseProjectList.Return => {
   const { data, isFetching: isLoading } = API.Server.useQueryRequest({
     queryParams: ["articles"],
     requestOptions: {

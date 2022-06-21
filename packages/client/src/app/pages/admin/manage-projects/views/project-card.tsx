@@ -1,4 +1,5 @@
 import React from "react";
+import Swal from "sweetalert";
 import * as Mui from "@mui/material";
 import * as Hooks from "src/app/hooks";
 import * as Pages from "src/app/pages";
@@ -6,10 +7,9 @@ import NoImage from "src/assets/img/no-image.svg";
 
 export const AdminProjectsCard = (props: CardType.Props) => {
   const { deleteData } = Hooks.useFirestore();
-  const { confirmSwal } = Hooks.useSwal();
 
   const handleDelete = async () => {
-    const result = await confirmSwal({
+    const result = await Swal({
       title: "Are you sure?",
       text: "Once deleted, you will not be able to recover this project!",
       icon: "warning",

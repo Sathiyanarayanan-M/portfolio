@@ -1,5 +1,6 @@
 import * as Mui from "@mui/material";
 import * as Pages from "src/app/pages";
+import * as Hooks from "src/app/hooks";
 
 export const Content = () => {
   const { data } = Pages.Articles.Hooks.useGetArticles();
