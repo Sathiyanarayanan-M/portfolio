@@ -12,7 +12,6 @@ export const ArticlesCard = (
     new Date().getTime(),
     new Date(props.publishedAt).getTime()
   );
-  console.log(timeDifference);
   return (
     <Mui.Card component={Mui.Stack} direction="row" raised sx={{ height: 230 }}>
       <Mui.CardContent

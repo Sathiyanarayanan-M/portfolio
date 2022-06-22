@@ -1,17 +1,31 @@
 import * as API from "src/app/api";
+import * as QueryString from "query-string";
 
-export const useGetArticles = (queryString = ""): IUseProjectList.Return => {
+export const useGetArticles = (
+  queryParams: IUseProjectList.Props
+): IUseProjectList.Return => {
+  const encodeSearchParams = QueryString.stringify(queryParams);
+
   const { data, isFetching: isLoading } = API.Server.useQueryRequest({
-    queryParams: ["articles"],
+    queryParams: ["articles", encodeSearchParams],
     requestOptions: {
       method: "GET",
-      url: `/api/articles?${queryString}`,
+      url: `/api/articles?${encodeSearchParams}`,
     },
   });
-  return { data: data?.data?.data, isLoading, error: data?.data?.error };
+
+  return {
+    data: data?.data?.data,
+    isLoading,
+    error: data?.data?.error,
+  };
 };
 
 export namespace IUseProjectList {
+  export interface Props {
+    page?: number;
+    pageSize?: number;
+  }
   export interface Return {
     data?: Data;
     error: boolean;
