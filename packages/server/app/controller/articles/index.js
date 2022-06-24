@@ -3,7 +3,8 @@ const utils = require("../../utils/api/getNewsAPI");
 const CommonUtils = require("../../utils/api/common");
 exports.articlesList = async (req, res, next) => {
   const { getUserLocation } = CommonUtils;
-  const response = await getUserLocation(req.ip);
+  const userIP = req.headers["x-forwarded-for"] || req.ip;
+  const response = await getUserLocation(userIP);
   const country = response.status === "success" ? response.countryCode : "US";
   console.log(response);
   const { getNewsAPI } = utils;
@@ -21,7 +22,7 @@ exports.articlesList = async (req, res, next) => {
     return next(error);
   }
   return res.send({
-    userip: req.headers["x-forwarded-for"] || req.ip,
+    userIP,
     data: data.data,
   });
 };
