@@ -1,7 +1,6 @@
 export * from './use-convert-base64';
 export * from './use-firebase-auth';
 export * from './use-generate-unique-id';
-export * from './use-get-user-IP';
 export * from './use-local-storage';
 export * from './use-relative-time-diff';
 export * from './useAppbarHeight';
