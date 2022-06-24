@@ -68,6 +68,7 @@ export const ArticlesCard = (
         sx={{ minWidth: 151 }}
         image={props.urlToImage}
         alt={props.title}
+        onClick={handleNavigateToArticle}
       />
     </Mui.Card>
   );

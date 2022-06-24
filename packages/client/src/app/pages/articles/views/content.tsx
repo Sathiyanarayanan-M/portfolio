@@ -38,7 +38,7 @@ export const Content = () => {
         fullWidth
         loading={isLoading}
         onClick={handleLoadMore}
-        variant="contained"
+        variant="outlined"
       >
         Load More
       </MuiLab.LoadingButton>

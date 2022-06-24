@@ -11,8 +11,6 @@ export const getRelativeTimeDifference = (
   const elapsed = current - previous;
 
   if (elapsed < msPerMinute) {
-    // const seconds = Math.round(elapsed / 1000);
-    // return `${seconds} second${seconds > 1 ? "s" : ""} ago`;
     return "just now";
   }
 

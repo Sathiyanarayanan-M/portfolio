@@ -1,9 +1,15 @@
 const fireStore = require("../../utils/firebase/firestore");
 const utils = require("../../utils/api/getNewsAPI");
+const CommonUtils = require("../../utils/api/common");
 exports.articlesList = async (req, res, next) => {
+  const { getUserLocation } = CommonUtils;
+  const response = await getUserLocation(req.ip);
+  const country = response.status === "success" ? response.countryCode : "US";
+  console.log(response);
   const { getNewsAPI } = utils;
   const defaultNewsQueries = {
     category: "technology",
+    country,
     language: "en",
     pageSize: 10,
     page: 1,
