@@ -12,7 +12,6 @@ export const PrivateRoute = ({ children }: PrivateRouteType.Props) => {
 
   if (getUser()) {
     FirebaseAuth.getIdToken(getUser() as FirebaseAuth.User).then((res) => {
-      console.log(res);
       return res;
     });
   }

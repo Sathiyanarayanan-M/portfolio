@@ -33,7 +33,6 @@ export const AddNewProjectDialog = (props: ManageProjectDialogue.Props) => {
     }
     try {
       const snapshot = addData(`projects`, values);
-      console.log(snapshot);
       setSnack({
         open: true,
         message: "Project Added",

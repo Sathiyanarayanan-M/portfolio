@@ -22,7 +22,6 @@ export const Content = () => {
             values.password
           );
           actions.setSubmitting(false);
-          console.log(result);
         }}
       >
         <Formik.Form>

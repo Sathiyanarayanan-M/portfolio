@@ -6,7 +6,6 @@ exports.articlesList = async (req, res, next) => {
   const userIP = req.headers["x-forwarded-for"] || req.ip;
   const response = await getUserLocation(userIP);
   const country = response.status === "success" ? response.countryCode : "US";
-  console.log(response);
   const { getNewsAPI } = utils;
   const defaultNewsQueries = {
     category: "technology",
