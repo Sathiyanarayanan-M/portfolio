@@ -23,7 +23,7 @@ export const Main = () =>
           element: <Pages.Home.Main />,
         },
         {
-          path: "funZone",
+          path: "playings",
           element: <Pages.Funzone.Main />,
         },
         { path: "articles", element: <Pages.Articles.Main /> },
