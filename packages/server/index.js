@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const logger = require("morgan");
 const cookieParser = require("cookie-parser");
+const bodyParser = require("body-parser");
 const path = require("path");
 require("dotenv").config();
 
@@ -23,6 +24,14 @@ app.get("/", (req, res) => {
 app.use("/api", route);
 
 app.use(errorHandler);
+app.use(function (req, res, next) {
+  res.status(404);
+  res.send({
+    status: "error",
+    error: true,
+    message: "Whatever you searching for it's not found",
+  });
+});
 
 const PORT = process.env.PORT || 5000;
 
