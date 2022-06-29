@@ -23,8 +23,8 @@ export const Main = () =>
           element: <Pages.Home.Main />,
         },
         {
-          path: "playings",
-          element: <Pages.Funzone.Main />,
+          path: "playings/*",
+          element: <Pages.Playings.Routes />,
         },
         { path: "articles", element: <Pages.Articles.Main /> },
         {

@@ -5,7 +5,7 @@ import * as Hooks from "src/app/hooks";
 export const Main = () => {
   return (
     <Mui.Box sx={{ height: "100%" }}>
-      <Pages.Funzone.Views.Content />
+      <Pages.Playings.Views.Content />
     </Mui.Box>
   );
 };

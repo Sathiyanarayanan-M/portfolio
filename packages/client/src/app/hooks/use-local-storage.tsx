@@ -3,16 +3,12 @@ import * as Constants from "src/constants";
 
 export const useLocalStorage = () => {
   const secretKey = Constants.SECRETS_CONFIG.cryptoSecretKey;
-  const setToLocalStorage = (
-    key: string,
-    value: UseLocalStorageType.ValueType,
-    encrypt = false
-  ) => {
+  const setToLocalStorage = (key: string, value: string, encrypt = false) => {
     if (encrypt) {
       const cipher = CryptoJs.AES.encrypt(JSON.stringify(value), secretKey);
       localStorage.setItem(key, cipher.toString());
     }
-    localStorage.setItem(key, JSON.stringify(value));
+    localStorage.setItem(key, value as string);
   };
 
   const getFromLocalStorage = (key: string, encrypted = false) => {
@@ -25,7 +21,7 @@ export const useLocalStorage = () => {
       const plaintext = bytes.toString(CryptoJs.enc.Utf8);
       return JSON.parse(plaintext);
     } else {
-      return JSON.parse(localStorage.getItem(key) || "");
+      return localStorage.getItem(key);
     }
   };
 
@@ -39,8 +35,6 @@ export namespace UseLocalStorageType {
   export type ValueType =
     | string
     | number
-    | null
-    | undefined
     | boolean
     | { [keys in string]: string };
 }
