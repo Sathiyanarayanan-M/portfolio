@@ -82,11 +82,24 @@ export const Content = () => {
   }, [language]);
 
   return (
-    <Mui.Box sx={{ m: 5 }}>
-      <Mui.Stack direction="row" spacing={2} sx={{ mb: 2 }}>
+    <Mui.Box
+      sx={{
+        p: 5,
+        overflowY: { xs: "scroll", lg: "auto" },
+      }}
+    >
+      <Mui.Stack
+        direction={{ xs: "column", lg: "row" }}
+        justifyContent="space-evenly"
+        spacing={2}
+      >
         <Mui.Paper
           elevation={2}
-          sx={{ width: "70vw", height: "80vh", p: "20px 10px" }}
+          sx={{
+            width: { xs: "100%", lg: "70vw" },
+            height: "80vh",
+            p: "20px 10px",
+          }}
         >
           <Editor
             height="100%"
@@ -104,7 +117,7 @@ export const Content = () => {
             }}
           />
         </Mui.Paper>
-        <Mui.Stack spacing={3} sx={{ width: 300 }}>
+        <Mui.Stack spacing={3} sx={{ minWidth: 300, pt: 2 }}>
           <Components.Fields.Dropdown
             value={theme}
             onChange={handleThemeChange}
@@ -152,15 +165,14 @@ export const Content = () => {
           >
             Compile
           </MuiLab.LoadingButton>
-          <Mui.Box sx={{ height: "100%" }}>
+          <Mui.Box>
             <Mui.Typography variant="h6" sx={{ mb: 1, fontWeight: "600" }}>
               Output
             </Mui.Typography>
             <Mui.Paper
               elevation={2}
               sx={{
-                height: 300,
-                overflow: "auto",
+                height: "100%",
                 m: 0,
                 background: "#34495E",
               }}
