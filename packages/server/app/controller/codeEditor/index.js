@@ -6,7 +6,7 @@ exports.codeCompiler = async (req, res, next) => {
     return res.status(200).json({
       error: false,
       status: "success",
-      compilerRes,
+      data: compilerRes,
     });
   } catch (e) {
     return next(e);
@@ -21,7 +21,7 @@ exports.getAllLanguages = async (req, res, next) => {
     return res.status(200).json({
       error: false,
       status: "success",
-      languages: languages,
+      data: languages,
     });
   } catch (e) {
     return next(e);

@@ -8,7 +8,7 @@ exports.submitCode = async (props) => {
   const options = {
     method: "POST",
     url: `${apiConstants.baseUrl}/submissions`,
-    params: { base64_encoded: "true", wait: "true", fields: "*" },
+    params: { base64_encoded: true, wait: true, fields: "*" },
     headers: {
       "Content-Type": "application/json",
       "X-RapidAPI-Key": apiConstants.secretKey,

@@ -35,6 +35,12 @@ export const useQueryRequest = ({
     reactQueryoptions
   );
 };
+export const useMutationRequest = ({
+  requestOptions,
+  requestData,
+}: IUseQueryRequest.Props) => {
+  return ReactQuery.useMutation(() => Request(requestOptions, requestData));
+};
 
 export namespace IUseQueryRequest {
   export interface Props {
