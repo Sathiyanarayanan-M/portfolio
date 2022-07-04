@@ -26,6 +26,7 @@ export const Content = () => {
   });
 
   const stdOut = atob(resData?.stdout || "");
+  const stdErr = atob(resData?.stderr || "");
 
   const saveCodeToLocalStorage = (code: string) => {
     setToLocalStorage(`${language}-code-template`, code);
@@ -113,11 +114,17 @@ export const Content = () => {
             theme={theme}
             onChange={handleCodeChange}
             options={{
-              lineNumbersMinChars: 6,
+              lineNumbersMinChars: 3,
+              minimap: {
+                enabled: false,
+              },
+              lineDecorationsWidth: 0,
+              overviewRulerBorder: false,
+              scrollBeyondLastLine: false,
             }}
           />
         </Mui.Paper>
-        <Mui.Stack spacing={3} sx={{ minWidth: 300, pt: 2 }}>
+        <Mui.Stack spacing={2} sx={{ minWidth: 300, pt: 2, maxHeight: "80vh" }}>
           <Components.Fields.Dropdown
             value={theme}
             onChange={handleThemeChange}
@@ -165,16 +172,21 @@ export const Content = () => {
           >
             Compile
           </MuiLab.LoadingButton>
-          <Mui.Box>
+          <Mui.Box
+            display={{
+              display: stdOut ? "block" : "none",
+            }}
+          >
             <Mui.Typography variant="h6" sx={{ mb: 1, fontWeight: "600" }}>
               Output
             </Mui.Typography>
             <Mui.Paper
               elevation={2}
               sx={{
-                height: "100%",
                 m: 0,
                 background: "#34495E",
+                maxHeight: 300,
+                overflow: "auto",
               }}
             >
               <Mui.Typography
@@ -184,6 +196,33 @@ export const Content = () => {
                 component="pre"
               >
                 {stdOut}
+              </Mui.Typography>
+            </Mui.Paper>
+          </Mui.Box>
+          <Mui.Box
+            display={{
+              display: stdErr ? "block" : "none",
+            }}
+          >
+            <Mui.Typography variant="h6" sx={{ mb: 1, fontWeight: "600" }}>
+              Error:
+            </Mui.Typography>
+            <Mui.Paper
+              elevation={2}
+              sx={{
+                m: 0,
+                background: "#fad1d0",
+                maxHeight: 300,
+                overflow: "auto",
+              }}
+            >
+              <Mui.Typography
+                variant="body2"
+                color="#052e2f"
+                sx={{ p: 2 }}
+                component="pre"
+              >
+                {stdErr}
               </Mui.Typography>
             </Mui.Paper>
           </Mui.Box>
