@@ -36,7 +36,7 @@ export const ProjectCard = (props: CardType.Props) => {
         spacing={2}
       >
         <Mui.Box sx={{ maxWidth: { xs: "100%", md: "70%" } }}>
-          <Mui.Typography gutterBottom variant="h5" maxWidth={300}>
+          <Mui.Typography gutterBottom variant="h6" maxWidth={300}>
             {props.title}
           </Mui.Typography>
           <Mui.Typography
