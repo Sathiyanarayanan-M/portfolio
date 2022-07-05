@@ -5,18 +5,33 @@ import NoImage from "src/assets/img/no-image.svg";
 
 export const ProjectCardNew = (props: CardTypeNew.Props) => {
   return (
-    <Mui.Stack
-      component={Mui.Card}
+    <Mui.Card
       sx={{
-        borderRadius: 12,
+        borderRadius: 3,
+        p: 2,
+        // height: 400,
+        // width: 300,
       }}
+      elevation={0}
+      raised
     >
-      <Mui.Stack>
+      <Mui.Stack
+        direction="row"
+        justifyContent="space-between"
+        alignItems="center"
+      >
         <Mui.Typography>Web</Mui.Typography>
         <Pages.Home.Views.ProjectMenu />
       </Mui.Stack>
-      <Mui.CardMedia />
-      <Mui.Typography variant="h6">
+      <Mui.CardMedia
+        component="img"
+        image={props.image || NoImage}
+        alt={props.title}
+        sx={{
+          objectFit: "contain",
+        }}
+      />
+      <Mui.Typography variant="h6" textAlign="left">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat,
         impedit.
       </Mui.Typography>
@@ -28,7 +43,7 @@ export const ProjectCardNew = (props: CardTypeNew.Props) => {
           <MuiIcons.Share />
         </Mui.IconButton>
       </Mui.Stack>
-    </Mui.Stack>
+    </Mui.Card>
   );
 };
 

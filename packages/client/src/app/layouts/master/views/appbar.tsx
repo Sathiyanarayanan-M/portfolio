@@ -26,12 +26,12 @@ export const Appbar = () => {
           "&:after": {
             right: "-20px",
             borderRadius: "0 0 0 20px",
-            boxShadow: "-10px 0 0 0 #fff",
+            boxShadow: "-10px 0 0 0 #f5f7fa",
           },
           "&:before": {
             left: "-20px",
             borderRadius: "0 0 20px 0",
-            boxShadow: "10px 0 0 0 #fff",
+            boxShadow: "10px 0 0 0 #f5f7fa",
           },
         }
       : {};
@@ -57,10 +57,9 @@ export const Appbar = () => {
                 component={Mui.ButtonBase}
                 disableTouchRipple
                 onClick={() => handleNavigation(navigation.path)}
-                className="appbar-box"
                 sx={{
                   bgcolor: pathList.includes(navigation.value)
-                    ? "white"
+                    ? "#f5f7fa"
                     : "primary.main",
                   color: pathList.includes(navigation.value)
                     ? "primary.main"

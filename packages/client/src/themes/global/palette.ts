@@ -7,5 +7,8 @@ export const Palette = (): Pick<Mui.ThemeOptions, "palette"> => ({
             main: "#7868e6",
             light: 'rgba(120, 104, 230, 0.3)'
         },
+        background: {
+            default: '#f5f7fa'
+        }
     },
 });

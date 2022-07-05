@@ -5,24 +5,13 @@ import * as Pages from "src/app/pages";
 
 export const Content = () => {
   return (
-    <Mui.Box>
-      <ReactSwiper.Swiper
-        direction="vertical"
-        slidesPerView={1}
-        mousewheel={true}
-        modules={[Swiper.Mousewheel]}
-        style={{
-          height: "100vh",
-        }}
-        nested={true}
-      >
-        <ReactSwiper.SwiperSlide style={{ position: "relative" }}>
-          <Pages.Home.Views.HomeSection />
-        </ReactSwiper.SwiperSlide>
-        <ReactSwiper.SwiperSlide>
-          <Pages.Home.Views.ProjectsSection />
-        </ReactSwiper.SwiperSlide>
-      </ReactSwiper.Swiper>
-    </Mui.Box>
+    <Mui.Stack spacing={20} p={2} sx={{ bgcolor: "#f5f7fa" }}>
+      <Mui.Box>
+        <Pages.Home.Views.HomeSection />
+      </Mui.Box>
+      <Mui.Box>
+        <Pages.Home.Views.ProjectsSection />
+      </Mui.Box>
+    </Mui.Stack>
   );
 };

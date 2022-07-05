@@ -1,5 +1,6 @@
 import React from "react";
 import * as Mui from "@mui/material";
+import * as MuiLab from "@mui/lab";
 import * as ReactSwiper from "swiper/react";
 import * as SwiperJs from "swiper";
 import * as Pages from "src/app/pages";
@@ -9,19 +10,38 @@ import "swiper/css/navigation";
 
 export const ProjectsSection = () => {
   const {
-    data: projectData,
+    data: projectData = [],
     isLoading,
     error,
   } = Pages.Home.Hooks.useProjectList();
+
+  let projectDataDuplicate = [...projectData, ...projectData];
+
+  const MasonryItem = Mui.styled(Mui.Paper)(({ theme }) => ({
+    backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
+    ...theme.typography.body2,
+    padding: theme.spacing(0.5),
+    textAlign: "center",
+    color: theme.palette.text.secondary,
+  }));
   return (
-    <Mui.Box
-      sx={{
-        width: "100%",
-        height: "100%",
-        // p: 10,
-      }}
-    >
-      <ReactSwiper.Swiper
+    <Mui.Box>
+      <Mui.Typography variant="h4" fontWeight="bold" sx={{ mb: 2 }}>
+        Project List
+      </Mui.Typography>
+      <MuiLab.Masonry columns={3} spacing={2}>
+        {projectDataDuplicate?.map((item, index) => (
+          <MasonryItem key={index}>
+            <Pages.Home.Views.ProjectCardNew
+              title={item.title}
+              image={item.image}
+              description={item.description}
+              actionUrl={item.detailsUrl}
+            />
+          </MasonryItem>
+        ))}
+      </MuiLab.Masonry>
+      {/* <ReactSwiper.Swiper
         spaceBetween={30}
         centeredSlides={true}
         autoplay={{
@@ -41,17 +61,8 @@ export const ProjectsSection = () => {
         }}
         loop={true}
       >
-        {projectData?.map((item, index) => (
-          <ReactSwiper.SwiperSlide key={index}>
-            <Pages.Home.Views.ProjectCard
-              title={item.title}
-              image={item.image}
-              description={item.description}
-              actionUrl={item.detailsUrl}
-            />
-          </ReactSwiper.SwiperSlide>
-        ))}
-      </ReactSwiper.Swiper>
+        
+      </ReactSwiper.Swiper> */}
       {/* <Mui.Grid container spacing={3}>
         {isLoading
           ? [...Array(5).keys()].map((index) => (
