@@ -8,9 +8,7 @@ export const ProjectCardNew = (props: CardTypeNew.Props) => {
     <Mui.Card
       sx={{
         borderRadius: 3,
-        p: 2,
-        // height: 400,
-        // width: 300,
+        // p: 2,
       }}
       elevation={0}
       raised
@@ -19,6 +17,9 @@ export const ProjectCardNew = (props: CardTypeNew.Props) => {
         direction="row"
         justifyContent="space-between"
         alignItems="center"
+        sx={{
+          p: 2,
+        }}
       >
         <Mui.Typography>Web</Mui.Typography>
         <Pages.Home.Views.ProjectMenu />
@@ -29,13 +30,17 @@ export const ProjectCardNew = (props: CardTypeNew.Props) => {
         alt={props.title}
         sx={{
           objectFit: "contain",
+          boxShadow: "rgba(149, 157, 165, 0.2) 0px 8px 24px",
         }}
       />
-      <Mui.Typography variant="h6" textAlign="left">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat,
-        impedit.
+      <Mui.Typography variant="h6" textAlign="left" sx={{ px: 2, py: 1 }}>
+        {props.title}
       </Mui.Typography>
-      <Mui.Stack direction="row" justifyContent="flex-end">
+      <Mui.Stack
+        direction="row"
+        justifyContent="flex-end"
+        sx={{ px: 2, py: 1 }}
+      >
         <Mui.IconButton>
           <MuiIcons.InfoOutlined />
         </Mui.IconButton>

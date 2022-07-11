@@ -4,6 +4,7 @@ export * from './use-generate-unique-id';
 export * from './use-local-storage';
 export * from './use-relative-time-diff';
 export * from './useAppbarHeight';
+export * from './useCommonUtils';
 export * from './useFirebase';
 export * from './useFirebaseStorage';
 export * from './useFirestore';

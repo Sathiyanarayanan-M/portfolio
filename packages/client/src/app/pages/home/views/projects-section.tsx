@@ -2,11 +2,11 @@ import React from "react";
 import * as Mui from "@mui/material";
 import * as MuiLab from "@mui/lab";
 import * as ReactSwiper from "swiper/react";
-import * as SwiperJs from "swiper";
+import * as SwiperJS from "swiper";
 import * as Pages from "src/app/pages";
-import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
+import "swiper/scss";
+import "swiper/scss/pagination";
+import "swiper/scss/navigation";
 
 export const ProjectsSection = () => {
   const {
@@ -16,31 +16,49 @@ export const ProjectsSection = () => {
   } = Pages.Home.Hooks.useProjectList();
 
   let projectDataDuplicate = [...projectData, ...projectData];
+  console.log(projectData);
 
-  const MasonryItem = Mui.styled(Mui.Paper)(({ theme }) => ({
-    backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
-    ...theme.typography.body2,
-    padding: theme.spacing(0.5),
-    textAlign: "center",
-    color: theme.palette.text.secondary,
-  }));
   return (
     <Mui.Box>
       <Mui.Typography variant="h4" fontWeight="bold" sx={{ mb: 2 }}>
         Project List
       </Mui.Typography>
-      <MuiLab.Masonry columns={3} spacing={2}>
+      {/* <MuiLab.Masonry columns={{ xs: 1, sm: 3, md: 5 }} spacing={2}> */}
+      <ReactSwiper.Swiper
+        slidesPerView={1}
+        spaceBetween={30}
+        loop
+        autoplay={{
+          delay: 1500,
+          disableOnInteraction: false,
+          pauseOnMouseEnter: true,
+        }}
+        modules={[SwiperJS.Autoplay]}
+        breakpoints={{
+          499: {
+            slidesPerView: 2,
+          },
+
+          699: {
+            slidesPerView: 3,
+          },
+          1099: {
+            slidesPerView: 4,
+          },
+        }}
+      >
         {projectDataDuplicate?.map((item, index) => (
-          <MasonryItem key={index}>
+          <ReactSwiper.SwiperSlide key={index}>
             <Pages.Home.Views.ProjectCardNew
               title={item.title}
               image={item.image}
               description={item.description}
               actionUrl={item.detailsUrl}
             />
-          </MasonryItem>
+          </ReactSwiper.SwiperSlide>
         ))}
-      </MuiLab.Masonry>
+      </ReactSwiper.Swiper>
+      {/* </MuiLab.Masonry> */}
       {/* <ReactSwiper.Swiper
         spaceBetween={30}
         centeredSlides={true}

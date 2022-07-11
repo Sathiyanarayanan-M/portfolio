@@ -38,7 +38,7 @@ export const Appbar = () => {
 
   return (
     <React.Fragment>
-      <Mui.AppBar color="primary" elevation={0}>
+      <Mui.AppBar sx={{ bgcolor: "inherit" }} elevation={0}>
         <Mui.Toolbar>
           <Mui.Stack
             direction="row"
@@ -47,7 +47,6 @@ export const Appbar = () => {
             sx={{
               color: "rgba(255, 255, 255, 0.5)",
               width: "100%",
-              minHeight: "inherit",
               pt: 1,
             }}
           >
@@ -65,9 +64,9 @@ export const Appbar = () => {
                     ? "primary.main"
                     : "rgba(255, 255, 255, 0.5)",
                   position: "relative",
-                  borderRadius: "20px 20px 0 0",
-                  px: 3,
-                  ...TabBoxStyles(pathList.includes(navigation.value)),
+                  borderRadius: "15px",
+                  py: 1,
+                  px: 2,
                 }}
               >
                 <navigation.icon />
