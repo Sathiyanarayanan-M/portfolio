@@ -12,6 +12,10 @@ export const Palette = (): Pick<Mui.ThemeOptions, "palette"> => ({
         },
         background: {
             // default: '#f5f7fa',
+        },
+        common: {
+            white: '#f5f7fa',
+            black: '#3f3d56'
         }
     },
 });

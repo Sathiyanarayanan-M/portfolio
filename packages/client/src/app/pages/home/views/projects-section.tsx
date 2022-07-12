@@ -16,7 +16,6 @@ export const ProjectsSection = () => {
   } = Pages.Home.Hooks.useProjectList();
 
   let projectDataDuplicate = [...projectData, ...projectData];
-  console.log(projectData);
 
   return (
     <Mui.Box>

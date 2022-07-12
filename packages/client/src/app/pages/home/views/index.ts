@@ -1,3 +1,5 @@
+export * from './contact-section';
+export * from './contacts-card';
 export * from './content';
 export * from './home-sections';
 export * from './project-card-new';

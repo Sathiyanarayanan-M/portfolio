@@ -1,0 +1,19 @@
+.box__container {
+  position: relative;
+  height: 90px;
+  .text__container {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+    filter: url(#threshold) blur(0.6px);
+    .text1,
+    .text2 {
+      position: absolute;
+      display: inline-block;
+      font-size: 3em;
+      text-align: center;
+      user-select: none;
+    }
+  }
+}
