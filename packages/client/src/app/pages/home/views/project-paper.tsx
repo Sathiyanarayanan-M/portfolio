@@ -3,7 +3,7 @@ import * as MuiIcons from "@mui/icons-material";
 import * as Pages from "src/app/pages";
 import NoImage from "src/assets/img/no-image.svg";
 
-export const ProjectPaper = (props: CardTypeNew.Props) => {
+export const ProjectPaper = (props: ProjectPaperType.Props) => {
   return (
     <Mui.Paper
       component={Mui.Stack}
@@ -41,7 +41,7 @@ export const ProjectPaper = (props: CardTypeNew.Props) => {
   );
 };
 
-export declare namespace CardTypeNew {
+export declare namespace ProjectPaperType {
   export interface Props {
     image: string;
     title: string;

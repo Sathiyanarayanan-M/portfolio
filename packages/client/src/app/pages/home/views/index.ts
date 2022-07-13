@@ -4,6 +4,6 @@ export * from './content';
 export * from './home-sections';
 export * from './project-card-new';
 export * from './project-menu';
-export * from './project-paper';
 export * from './projects-card';
+export * from './project-paper';
 export * from './projects-section';
