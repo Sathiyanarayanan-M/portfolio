@@ -20,10 +20,14 @@ export const HomeSection = () => {
 
   function doCooldown() {
     morph = 0;
-    text2Ref.current.style.filter = "";
-    text2Ref.current.style.opacity = "100%";
-    text1Ref.current.style.filter = "";
-    text1Ref.current.style.opacity = "0%";
+    if (text2Ref.current) {
+      text2Ref.current.style.filter = "";
+      text2Ref.current.style.opacity = "100%";
+    }
+    if (text1Ref.current) {
+      text1Ref.current.style.filter = "";
+      text1Ref.current.style.opacity = "0%";
+    }
   }
 
   function doMorph() {
@@ -38,21 +42,23 @@ export const HomeSection = () => {
   }
 
   function setMorph(fraction: number) {
-    text2Ref.current.style.filter = `blur(${Math.min(
-      8 / fraction - 8,
-      100
-    )}px)`;
-    text2Ref.current.style.opacity = `${Math.pow(fraction, 0.4) * 100}%`;
+    if (text1Ref.current && text2Ref.current) {
+      text2Ref.current.style.filter = `blur(${Math.min(
+        8 / fraction - 8,
+        100
+      )}px)`;
+      text2Ref.current.style.opacity = `${Math.pow(fraction, 0.4) * 100}%`;
 
-    fraction = 1 - fraction;
-    text1Ref.current.style.filter = `blur(${Math.min(
-      8 / fraction - 8,
-      100
-    )}px)`;
-    text1Ref.current.style.opacity = `${Math.pow(fraction, 0.4) * 100}%`;
+      fraction = 1 - fraction;
+      text1Ref.current.style.filter = `blur(${Math.min(
+        8 / fraction - 8,
+        100
+      )}px)`;
+      text1Ref.current.style.opacity = `${Math.pow(fraction, 0.4) * 100}%`;
 
-    text1Ref.current.textContent = texts[textIndex % texts.length];
-    text2Ref.current.textContent = texts[(textIndex + 1) % texts.length];
+      text1Ref.current.textContent = texts[textIndex % texts.length];
+      text2Ref.current.textContent = texts[(textIndex + 1) % texts.length];
+    }
   }
 
   function animate() {
@@ -83,13 +89,13 @@ export const HomeSection = () => {
   return (
     <Mui.Box sx={{ px: 2 }}>
       <Mui.Stack
-        // sx={{ mt: 3 }}
         alignItems="center"
         justifyContent="space-between"
         direction={{
           xs: "column",
-          md: "row",
+          lg: "row",
         }}
+        spacing={12}
       >
         <Mui.Box>
           <Mui.Typography
@@ -108,6 +114,7 @@ export const HomeSection = () => {
               color: "primary.200",
               fontWeight: 600,
               fontFamily: "'Texturina', serif",
+              fontSize: { xs: "2em", sm: "2.5em", md: "3.5em" },
             }}
           >
             <Mui.Box className={styles.text__container}>
@@ -130,7 +137,7 @@ export const HomeSection = () => {
             </svg>
           </Mui.Box>
           <Mui.Typography
-            variant="h4"
+            variant="h5"
             color="primary.200"
             fontFamily="'Texturina', serif"
           >

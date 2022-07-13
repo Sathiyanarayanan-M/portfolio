@@ -13,7 +13,7 @@ export const Content = () => {
 
   return (
     <Mui.Box sx={{ px: 2 }}>
-      <Mui.Stack justifyContent="center" sx={{ height: "100vh" }}>
+      <Mui.Stack justifyContent="center" sx={{ height: "calc(100vh - 64px)" }}>
         <Pages.Home.Views.HomeSection />
       </Mui.Stack>
       <Mui.Box>

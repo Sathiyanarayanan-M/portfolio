@@ -15,91 +15,32 @@ export const ProjectsSection = () => {
     error,
   } = Pages.Home.Hooks.useProjectList();
 
-  let projectDataDuplicate = [...projectData, ...projectData];
+  let projectDataDuplicate = [
+    ...projectData,
+    ...projectData,
+    ...projectData,
+    ...projectData,
+  ];
+
+  const first4Slide = projectDataDuplicate.slice(0, 3);
 
   return (
     <Mui.Box>
-      <Mui.Typography variant="h4" fontWeight="bold" sx={{ mb: 2 }}>
+      {/* <Mui.Typography variant="h4" fontWeight="bold" sx={{ mb: 2 }}>
         Project List
-      </Mui.Typography>
-      {/* <MuiLab.Masonry columns={{ xs: 1, sm: 3, md: 5 }} spacing={2}> */}
-      <ReactSwiper.Swiper
-        slidesPerView={1}
-        spaceBetween={30}
-        loop
-        autoplay={{
-          delay: 1500,
-          disableOnInteraction: false,
-          pauseOnMouseEnter: true,
-        }}
-        modules={[SwiperJS.Autoplay]}
-        breakpoints={{
-          499: {
-            slidesPerView: 2,
-          },
-
-          699: {
-            slidesPerView: 3,
-          },
-          1099: {
-            slidesPerView: 4,
-          },
-        }}
-      >
+      </Mui.Typography> */}
+      <Mui.Grid container spacing={0}>
         {projectDataDuplicate?.map((item, index) => (
-          <ReactSwiper.SwiperSlide key={index}>
-            <Pages.Home.Views.ProjectCardNew
+          <Mui.Grid xs={3} item key={index}>
+            <Pages.Home.Views.ProjectPaper
               title={item.title}
               image={item.image}
               description={item.description}
               actionUrl={item.detailsUrl}
             />
-          </ReactSwiper.SwiperSlide>
+          </Mui.Grid>
         ))}
-      </ReactSwiper.Swiper>
-      {/* </MuiLab.Masonry> */}
-      {/* <ReactSwiper.Swiper
-        spaceBetween={30}
-        centeredSlides={true}
-        autoplay={{
-          delay: 20987500,
-          disableOnInteraction: false,
-        }}
-        pagination={{
-          clickable: true,
-          dynamicBullets: true,
-        }}
-        navigation={true}
-        modules={[SwiperJs.Autoplay, SwiperJs.Pagination, SwiperJs.Navigation]}
-        style={{
-          width: "100%",
-          height: "90%",
-          marginTop: "10px",
-        }}
-        loop={true}
-      >
-        
-      </ReactSwiper.Swiper> */}
-      {/* <Mui.Grid container spacing={3}>
-        {isLoading
-          ? [...Array(5).keys()].map((index) => (
-              <Mui.Grid item xs={12} md={4} key={index}>
-                <Mui.Skeleton variant="rectangular" height={150} />
-                <Mui.Skeleton />
-                <Mui.Skeleton width="60%" />
-              </Mui.Grid>
-            ))
-          : data.map((item, index) => (
-              <Mui.Grid xs={12} md={4} item key={index}>
-                <Pages.Home.Views.ProjectCard
-                  title={item.title}
-                  image={item.image}
-                  description={item.description}
-                  actionUrl={item.detailsUrl}
-                />
-              </Mui.Grid>
-            ))}
-      </Mui.Grid> */}
+      </Mui.Grid>
     </Mui.Box>
   );
 };
