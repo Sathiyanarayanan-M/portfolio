@@ -14,6 +14,9 @@ export const ProjectsSection = () => {
     isLoading,
     error,
   } = Pages.Home.Hooks.useProjectList();
+  const [selectedProject, setSelectedProject] = React.useState<string | number>(
+    0
+  );
 
   let projectDataDuplicate = [
     ...projectData,
@@ -24,12 +27,23 @@ export const ProjectsSection = () => {
 
   const first4Slide = projectDataDuplicate.slice(0, 3);
 
+  const handleSelectProject = (value: string | number) => {
+    console.log(value);
+
+    setSelectedProject(value);
+  };
+
   return (
     <Mui.Box>
       {/* <Mui.Typography variant="h4" fontWeight="bold" sx={{ mb: 2 }}>
         Project List
       </Mui.Typography> */}
-      <Mui.Grid container spacing={0}>
+      {!!selectedProject && (
+        <Pages.Home.Views.ProjectDetailView
+          handleSelectedProject={handleSelectProject}
+        />
+      )}
+      <Mui.Grid container spacing={3}>
         {projectDataDuplicate?.map((item, index) => (
           <Mui.Grid xs={3} item key={index}>
             <Pages.Home.Views.ProjectPaper
@@ -37,6 +51,7 @@ export const ProjectsSection = () => {
               image={item.image}
               description={item.description}
               actionUrl={item.detailsUrl}
+              handleSelectProject={handleSelectProject}
             />
           </Mui.Grid>
         ))}

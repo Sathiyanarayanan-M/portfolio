@@ -1,8 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Balsamiq+Sans&family=Mukta&family=Texturina");
-$cdn-url: "https://cdn-bucket.netlify.app/";
-@function cdnHost($name) {
-  @return $cdn-url + $name;
-}
+@import "src/common.module.scss";
 
 html,
 body,
@@ -13,13 +10,14 @@ body,
   padding: 0px;
   scroll-behavior: smooth;
   overflow-x: hidden;
-  background-image: url(cdnHost("stars.svg"));
+  background-image: url(cdnHost("images/stars.svg"));
   background-color: rgba(120, 104, 230);
 }
 
 ::-webkit-scrollbar {
   display: none;
 }
+
 /* ::-webkit-scrollbar-track {
   background-color: transparent;
   border-radius: 5px;

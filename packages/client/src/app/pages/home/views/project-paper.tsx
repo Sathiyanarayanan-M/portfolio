@@ -2,28 +2,36 @@ import * as Mui from "@mui/material";
 import * as MuiIcons from "@mui/icons-material";
 import * as Pages from "src/app/pages";
 import NoImage from "src/assets/img/no-image.svg";
+import styles from "src/app/pages/home/views/styles.module.scss";
 
 export const ProjectPaper = (props: ProjectPaperType.Props) => {
   return (
     <Mui.Paper
       component={Mui.Stack}
       // alignItems="center"
+      className={styles.project__paper}
+      onClick={() => props.handleSelectProject(props.title)}
       justifyContent="flex-end"
       sx={{
         background: `linear-gradient(0deg,rgba(0,0,0,.9),rgba(0,0,0,.2)), url(${props.image}) no-repeat`,
-        height: "500px",
+        height: "400px",
         backgroundPosition: "center",
         backgroundSize: "cover",
         color: "common.white",
-        p: 2,
+        padding: "20px",
+        "&:hover": {
+          background: `url(${props.image}) no-repeat`,
+          backgroundPosition: "center",
+          backgroundSize: "cover",
+        },
       }}
     >
       <Mui.Typography
         variant="h6"
         sx={{
           fontFamily: "'Din Condensed',sans-serif",
-          textDecoration: "underline",
         }}
+        className={styles.head__title}
       >
         Web
       </Mui.Typography>
@@ -36,7 +44,7 @@ export const ProjectPaper = (props: ProjectPaperType.Props) => {
       >
         {props.title}
       </Mui.Typography>
-      <MuiIcons.DoubleArrow />
+      <MuiIcons.DoubleArrow className={styles.arrow__icon} />
     </Mui.Paper>
   );
 };
@@ -47,5 +55,6 @@ export declare namespace ProjectPaperType {
     title: string;
     description: string;
     actionUrl: string;
+    handleSelectProject: (value: string) => void;
   }
 }

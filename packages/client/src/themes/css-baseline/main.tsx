@@ -1,4 +1,4 @@
 import * as Mui from "@mui/material";
-import "./main.scss";
+import "./baseline.scss";
 
-export const Main = () => <Mui.CssBaseline />;
+export const Main = () => <Mui.CssBaseline enableColorScheme />;
