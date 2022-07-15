@@ -11,6 +11,7 @@ export const ContactCard = () => {
   return (
     <Mui.Stack
       component={Mui.Paper}
+      elevation={20}
       spacing={2}
       sx={{ p: 2, bgcolor: (theme) => theme.palette.background.paper }}
     >
