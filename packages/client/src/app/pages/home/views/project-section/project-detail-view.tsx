@@ -18,6 +18,7 @@ const Transition = React.forwardRef(function Transition(
 });
 
 export const ProjectDetailView = (props: ProjectDetailViewType.Props) => {
+  console.log(props);
   return (
     <Mui.Dialog
       open
@@ -39,9 +40,17 @@ export const ProjectDetailView = (props: ProjectDetailViewType.Props) => {
             {props.projectData?.title}
           </Mui.Typography>
         </Mui.Box>
-        <Mui.Typography sx={{ p: 2, pt: 5 }}>
-          {props.projectData?.description}
-        </Mui.Typography>
+        <Mui.Stack spacing={2} p={2}>
+          <Mui.Typography>{props.projectData?.description}</Mui.Typography>
+          <Mui.Button
+            component={Mui.Link}
+            variant="outlined"
+            href={props.projectData?.detailsUrl}
+            target="_blank"
+          >
+            View in detail
+          </Mui.Button>
+        </Mui.Stack>
       </Mui.Paper>
     </Mui.Dialog>
   );
