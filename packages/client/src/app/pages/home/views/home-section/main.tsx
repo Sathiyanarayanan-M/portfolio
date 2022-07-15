@@ -5,7 +5,7 @@ import * as FramerMotion from "framer-motion";
 import Thinking from "src/assets/img/thinking.svg";
 import styles from "src/app/pages/home/views/styles.module.scss";
 
-export const HomeSection = () => {
+export const Main = () => {
   const text1Ref =
     React.useRef() as unknown as MutableRefObject<HTMLDivElement>;
   const text2Ref =

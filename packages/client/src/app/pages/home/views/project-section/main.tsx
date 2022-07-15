@@ -8,7 +8,7 @@ import "swiper/scss";
 import "swiper/scss/pagination";
 import "swiper/scss/navigation";
 
-export const ProjectsSection = () => {
+export const Main = () => {
   const {
     data: projectData = [],
     isLoading,
@@ -27,11 +27,9 @@ export const ProjectsSection = () => {
 
   const first4Slide = projectDataDuplicate.slice(0, 3);
 
-  const handleSelectProject = (value: string | number) => {
-    console.log(value);
-
+  const handleSelectProject = React.useCallback((value: string | number) => {
     setSelectedProject(value);
-  };
+  }, []);
 
   return (
     <Mui.Box>
@@ -39,14 +37,17 @@ export const ProjectsSection = () => {
         Project List
       </Mui.Typography> */}
       {!!selectedProject && (
-        <Pages.Home.Views.ProjectDetailView
+        <Pages.Home.Views.ProjectSection.ProjectDetailView
+          projectData={projectData.find(
+            (item) => item.title === selectedProject
+          )}
           handleSelectedProject={handleSelectProject}
         />
       )}
       <Mui.Grid container spacing={3}>
         {projectDataDuplicate?.map((item, index) => (
           <Mui.Grid xs={3} item key={index}>
-            <Pages.Home.Views.ProjectPaper
+            <Pages.Home.Views.ProjectSection.ProjectPaper
               title={item.title}
               image={item.image}
               description={item.description}

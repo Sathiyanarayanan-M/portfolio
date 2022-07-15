@@ -5,7 +5,7 @@ import * as FramerMotion from "framer-motion";
 import * as Formik from "formik";
 import * as Pages from "src/app/pages";
 
-export const ContactSection = () => {
+export const Main = () => {
   const socialList = [
     {
       label: "LinkedIn",
@@ -84,7 +84,7 @@ export const ContactSection = () => {
           }}
         >
           <Formik.Form>
-            <Pages.Home.Views.ContactCard />
+            <Pages.Home.Views.ContactSection.ContactCard />
           </Formik.Form>
         </Formik.Formik>
       </Mui.Grid>

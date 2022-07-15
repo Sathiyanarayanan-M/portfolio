@@ -1,10 +1,4 @@
-export * from './contact-section';
-export * from './contacts-card';
 export * from './content';
-export * from './home-sections';
-export * from './project-card-new';
-export * from './project-detail-view';
-export * from './project-menu';
-export * from './project-paper';
-export * from './projects-card';
-export * from './projects-section';
+export * as HomeSection from './home-section';
+export * as ProjectSection from './project-section';
+export * as ContactSection from './contact-section';

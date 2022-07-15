@@ -14,13 +14,13 @@ export const Content = () => {
   return (
     <Mui.Box sx={{ px: 2 }}>
       <Mui.Stack justifyContent="center" sx={{ height: "calc(100vh - 64px)" }}>
-        <Pages.Home.Views.HomeSection />
+        <Pages.Home.Views.HomeSection.Main />
       </Mui.Stack>
       <Mui.Box>
-        <Pages.Home.Views.ProjectsSection />
+        <Pages.Home.Views.ProjectSection.Main />
       </Mui.Box>
       <Mui.Box>
-        <Pages.Home.Views.ContactSection />
+        <Pages.Home.Views.ContactSection.Main />
       </Mui.Box>
     </Mui.Box>
   );

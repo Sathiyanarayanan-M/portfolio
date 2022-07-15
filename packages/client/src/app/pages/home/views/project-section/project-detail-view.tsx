@@ -3,6 +3,7 @@ import { TransitionProps } from "@mui/material/transitions";
 import * as MuiIcons from "@mui/icons-material";
 import * as FramerMotion from "framer-motion";
 import * as Pages from "src/app/pages";
+import * as Components from "src/app/components";
 import NoImage from "src/assets/img/no-image.svg";
 import styles from "src/app/pages/home/views/styles.module.scss";
 import React from "react";
@@ -13,7 +14,7 @@ const Transition = React.forwardRef(function Transition(
   },
   ref: React.Ref<unknown>
 ) {
-  return <Mui.Slide direction="right" ref={ref} {...props} />;
+  return <Mui.Grow ref={ref} {...props} />;
 });
 
 export const ProjectDetailView = (props: ProjectDetailViewType.Props) => {
@@ -22,28 +23,39 @@ export const ProjectDetailView = (props: ProjectDetailViewType.Props) => {
       open
       onClose={() => props.handleSelectedProject(0)}
       TransitionComponent={Transition}
+      PaperProps={{
+        sx: {
+          borderRadius: "20px",
+        },
+      }}
     >
-      <Mui.Box>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia optio
-        natus porro, veritatis aspernatur a consequuntur sunt quasi quos sed
-        illo, asperiores et, nobis excepturi perferendis harum debitis voluptas
-        ut dolores id reprehenderit voluptate. Suscipit perspiciatis quo
-        voluptate. Maxime facilis rerum unde dolorum, optio saepe voluptate nemo
-        illo veniam, labore eos corporis quasi qui delectus fugit debitis,
-        magnam molestiae nihil doloribus reiciendis corrupti itaque soluta
-        distinctio. Voluptatem rerum veritatis ipsum dolores, eveniet facilis et
-        exercitationem aut eligendi possimus repellendus quaerat.
-      </Mui.Box>
+      <Mui.Paper className={styles.project__detailview}>
+        <Mui.Box className={styles.img__title__container}>
+          <Components.MuiComponents.CustomCardMedia
+            image={props.projectData?.image}
+            className={styles.bg__image}
+          />
+          <Mui.Typography variant="h4" className={styles.title}>
+            {props.projectData?.title}
+          </Mui.Typography>
+        </Mui.Box>
+        <Mui.Typography sx={{ p: 2, pt: 5 }}>
+          {props.projectData?.description}
+        </Mui.Typography>
+      </Mui.Paper>
     </Mui.Dialog>
   );
 };
 
 export declare namespace ProjectDetailViewType {
   export interface Props {
-    // image: string;
-    // title: string;
-    // description: string;
-    // actionUrl: string;
+    projectData?: Pages.Home.Hooks.IUseProjectList.Data;
     handleSelectedProject: (value: string | number) => void;
+  }
+  export interface ProjectData {
+    image: string;
+    title: string;
+    description: string;
+    actionUrl: string;
   }
 }
