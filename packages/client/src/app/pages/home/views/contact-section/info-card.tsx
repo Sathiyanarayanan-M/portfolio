@@ -10,21 +10,21 @@ export const InfoCard = () => {
     {
       label: "LinkedIn",
       value: "linkenin",
-      icon: <MuiIcons.LinkedIn />,
+      icon: <MuiIcons.LinkedIn sx={{ color: "common.white" }} />,
     },
     {
       label: "Github",
       value: "github",
-      icon: <MuiIcons.GitHub />,
+      icon: <MuiIcons.GitHub sx={{ color: "common.white" }} />,
     },
     {
       label: "Twitter",
       value: "twitter",
-      icon: <MuiIcons.Twitter />,
+      icon: <MuiIcons.Twitter sx={{ color: "common.white" }} />,
     },
   ];
   return (
-    <Mui.Stack component={Mui.Paper} elevation={20} spacing={2} sx={{ p: 2 }}>
+    <Mui.Stack spacing={2} sx={{ p: 2, color: "common.white" }}>
       <Mui.Typography>Contact Information</Mui.Typography>
       <Mui.Typography>
         Fill the form and i will get back to you within 24 hrs

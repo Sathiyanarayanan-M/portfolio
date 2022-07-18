@@ -12,6 +12,25 @@ body,
   overflow-x: hidden;
   background-image: url(cdnHost("images/stars.svg"));
   background-color: rgba(120, 104, 230);
+  // background-color: inherit;
+  // background-image: linear-gradient(
+  //   110.3deg,
+  //   rgba(73, 93, 109, 1) 4.3%,
+  //   rgba(49, 55, 82, 1) 96.7%
+  // );
+  //LightTheme
+  // background-image: linear-gradient(to bottom, #accbee 0%, #e7f0fd 100%);
+  // background-image: linear-gradient(
+  //   358.7deg,
+  //   rgba(42, 136, 157, 1) 1.7%,
+  //   rgba(122, 197, 214, 1) 51.1%,
+  //   rgba(211, 232, 242, 1) 95.5%
+  // );
+
+  //Dark theeme
+  // background: #232526;
+  // background: -webkit-linear-gradient(to right, #414345, #232526);
+  // background: linear-gradient(to right, #414345, #232526);
 }
 
 ::-webkit-scrollbar {

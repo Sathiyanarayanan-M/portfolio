@@ -4,22 +4,17 @@ import * as MuiLab from "@mui/lab";
 import * as MuiIcons from "@mui/icons-material";
 import * as Formik from "formik";
 import * as FramerMotion from "framer-motion";
+import * as Components from "src/app/components";
 
 export const ContactCard = () => {
   const formikContext = Formik.useFormikContext<ContactFormType.FormValues>();
 
   return (
-    <Mui.Stack
-      component={Mui.Paper}
-      elevation={20}
-      spacing={2}
-      sx={{ p: 2, bgcolor: (theme) => theme.palette.background.paper }}
-    >
-      <Mui.TextField
+    <Mui.Stack spacing={2} sx={{ p: 2 }}>
+      <Components.Fields.ShadedTextField
         label="Name"
         name="name"
         type="text"
-        variant="outlined"
         fullWidth
         onChange={formikContext.handleChange}
         value={formikContext.values.name}
@@ -27,22 +22,20 @@ export const ContactCard = () => {
         helperText={<Formik.ErrorMessage name="name" />}
       />
       <Mui.Stack spacing={2} direction="row">
-        <Mui.TextField
+        <Components.Fields.ShadedTextField
           label="Email"
           name="email"
           type="email"
-          variant="outlined"
           fullWidth
           onChange={formikContext.handleChange}
           value={formikContext.values.email}
           required
           helperText={<Formik.ErrorMessage name="email" />}
         />
-        <Mui.TextField
+        <Components.Fields.ShadedTextField
           label="Phone"
           name="phone"
           type="text"
-          variant="outlined"
           fullWidth
           onChange={formikContext.handleChange}
           value={formikContext.values.phone}
@@ -50,11 +43,10 @@ export const ContactCard = () => {
         />
       </Mui.Stack>
       <Mui.Grid item xs={12}>
-        <Mui.TextField
+        <Components.Fields.ShadedTextField
           label="Message"
           name="message"
           type="text"
-          variant="outlined"
           fullWidth
           onChange={formikContext.handleChange}
           value={formikContext.values.message}
@@ -64,7 +56,7 @@ export const ContactCard = () => {
       </Mui.Grid>
       <MuiLab.LoadingButton
         loading={formikContext.isSubmitting}
-        variant="contained"
+        variant="shaded"
         type="submit"
       >
         Submit
