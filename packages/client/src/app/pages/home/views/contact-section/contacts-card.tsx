@@ -44,6 +44,8 @@ export const ContactCard = () => {
       </Mui.Stack>
       <Mui.Grid item xs={12}>
         <Components.Fields.ShadedTextField
+          multiline
+          rows={3}
           label="Message"
           name="message"
           type="text"
@@ -58,6 +60,7 @@ export const ContactCard = () => {
         loading={formikContext.isSubmitting}
         variant="shaded"
         type="submit"
+        sx={{ textTransform: "none" }}
       >
         Submit
       </MuiLab.LoadingButton>

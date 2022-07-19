@@ -13,7 +13,20 @@ export const ArticlesCard = (
     new Date(props.publishedAt).getTime()
   );
   return (
-    <Mui.Card component={Mui.Stack} direction="row" raised sx={{ height: 230 }}>
+    <Mui.Card
+      component={Mui.Stack}
+      direction="row"
+      raised
+      sx={{
+        height: 230,
+        background: "rgba( 255, 255, 255, 0.25 )",
+        boxShadow: "0 8px 32px 0 rgba( 31, 38, 135, 0.37 )",
+        backdropFilter: "blur( 0.5px )",
+        WebkitBackdropFilter: "blur( 0.5px )",
+        borderRadius: "10px",
+        border: "1px solid rgba( 255, 255, 255, 0.18 )",
+      }}
+    >
       <Mui.CardContent
         component={Mui.CardActionArea}
         onClick={handleNavigateToArticle}
@@ -21,6 +34,7 @@ export const ArticlesCard = (
         <Mui.Typography variant="caption">{props.source.name}</Mui.Typography>
         <Mui.Typography
           variant="h6"
+          color="primary.main"
           sx={{
             overflow: "hidden",
             textOverflow: "ellipsis",
@@ -33,25 +47,27 @@ export const ArticlesCard = (
         </Mui.Typography>
         <Mui.Stack
           direction="row"
-          divider={<span style={{ margin: "auto 5px" }}>-</span>}
+          divider={
+            <Mui.Typography style={{ margin: "auto 5px" }}>-</Mui.Typography>
+          }
           flexWrap="nowrap"
         >
           <Mui.Typography
             variant="body2"
-            color="text.secondary"
+            // color="text.secondary"
             fontWeight="bold"
             noWrap
           >
             {props.author}
           </Mui.Typography>
-          <Mui.Typography variant="caption" color="GrayText" noWrap>
+          <Mui.Typography variant="caption" noWrap>
             {timeDifference}
           </Mui.Typography>
         </Mui.Stack>
 
         <Mui.Typography
           variant="body2"
-          color="text.secondary"
+          // color="text.secondary"
           sx={{
             overflow: "hidden",
             textOverflow: "ellipsis",

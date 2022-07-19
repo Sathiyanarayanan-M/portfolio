@@ -8,7 +8,7 @@ export const Appbar = () => {
   const pathList = pathname.split("/");
 
   const scrollTrigger = Mui.useScrollTrigger({
-    threshold: 100,
+    threshold: 30,
     disableHysteresis: true,
     target: document.getElementById("root") || window,
   });
@@ -44,10 +44,7 @@ export const Appbar = () => {
 
   return (
     <React.Fragment>
-      <Mui.AppBar
-        sx={{ bgcolor: scrollTrigger ? "primary.main" : "inherit" }}
-        elevation={0}
-      >
+      <Mui.AppBar sx={{ bgcolor: "inherit" }} elevation={0}>
         <Mui.Toolbar>
           <Mui.Stack
             direction="row"
@@ -67,11 +64,11 @@ export const Appbar = () => {
                 onClick={() => handleNavigation(navigation.path)}
                 sx={{
                   bgcolor: pathList.includes(navigation.value)
-                    ? "#f5f7fa"
+                    ? "primary.100"
                     : "primary.main",
                   color: pathList.includes(navigation.value)
                     ? "primary.main"
-                    : "rgba(255, 255, 255, 0.5)",
+                    : "common.white",
                   position: "relative",
                   borderRadius: "15px",
                   py: 1,

@@ -2,14 +2,23 @@ import React from "react";
 import * as Mui from "@mui/material";
 
 export const Dropdown = (props: IThemeDropDown.Props) => {
-  const { onChange, value, dataList, label = "", size = "small" } = props;
+  const {
+    onChange,
+    value,
+    dataList,
+    label = "",
+    size = "small",
+    selectProps = {},
+  } = props;
   return (
     <Mui.FormControl fullWidth size={size}>
-      <Mui.InputLabel>{label}</Mui.InputLabel>
+      {/* <Mui.InputLabel color="primary">{label}</Mui.InputLabel> */}
+      <Mui.Typography>{label}</Mui.Typography>
       <Mui.Select
         value={value}
-        label={label}
-        onChange={(event) => onChange(event.target.value)}
+        // label={label}
+        onChange={(event) => onChange(event.target.value as string)}
+        {...selectProps}
       >
         {dataList.map((item) => (
           <Mui.MenuItem key={item.value} value={item.value}>
@@ -31,5 +40,6 @@ export namespace IThemeDropDown {
     }[];
     label?: string;
     size?: "small" | "medium";
+    selectProps?: Mui.SelectProps;
   }
 }

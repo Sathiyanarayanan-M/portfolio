@@ -25,9 +25,9 @@ export const InfoCard = () => {
   ];
   return (
     <Mui.Stack spacing={2} sx={{ p: 2, color: "common.white" }}>
-      <Mui.Typography>Contact Information</Mui.Typography>
+      <Mui.Typography variant="h6">Contact Information</Mui.Typography>
       <Mui.Typography>
-        Fill the form and i will get back to you within 24 hrs
+        Fill the form in the right and i will get back to you within 24 hrs
       </Mui.Typography>
       <Mui.Stack spacing={2} direction="row" alignItems="center">
         <MuiIcons.Phone />

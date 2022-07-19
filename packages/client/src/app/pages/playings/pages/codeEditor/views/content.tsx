@@ -130,6 +130,23 @@ export const Content = () => {
             onChange={handleThemeChange}
             dataList={Pages.Playings.Pages.CodeEditor.Constants.ThemeList}
             label="Theme"
+            selectProps={{
+              sx: {
+                background: "rgba( 255, 255, 255, 0.1 )",
+                boxShadow: "0 8px 32px 0 rgba( 31, 38, 135, 0.37 )",
+                backdropFilter: "blur( 0.5px )",
+                WebkitBackdropFilter: "blur( 0.5px )",
+                borderRadius: "10px",
+                border: "1px solid rgba( 255, 255, 255, 0.18 )",
+                color: "common.white",
+              },
+              MenuProps: {
+                sx: {
+                  maxHeight: "50vh",
+                  marginTop: "4px",
+                },
+              },
+            }}
           />
           <Components.Fields.Dropdown
             value={language}
@@ -138,20 +155,48 @@ export const Content = () => {
               (item) => ({ label: item.label, value: item.id })
             )}
             label="Language"
+            selectProps={{
+              sx: {
+                background: "rgba( 255, 255, 255, 0.1 )",
+                boxShadow: "0 8px 32px 0 rgba( 31, 38, 135, 0.37 )",
+                backdropFilter: "blur( 0.5px )",
+                WebkitBackdropFilter: "blur( 0.5px )",
+                borderRadius: "10px",
+                border: "1px solid rgba( 255, 255, 255, 0.18 )",
+                color: "common.white",
+              },
+              MenuProps: {
+                sx: {
+                  maxHeight: "50vh",
+                  marginTop: "4px",
+                },
+              },
+            }}
           />
           <Mui.Accordion
             elevation={0}
             defaultExpanded
             disableGutters
             sx={{
-              background: "#F2F4F4",
+              // background: "#F2F4F4",
+              background: "rgba( 255, 255, 255, 0.1 )",
+              boxShadow: "0 8px 32px 0 rgba( 31, 38, 135, 0.37 )",
+              backdropFilter: "blur( 0.5px )",
+              WebkitBackdropFilter: "blur( 0.5px )",
+              borderRadius: "10px",
+              border: "1px solid rgba( 255, 255, 255, 0.18 )",
               outline: "1px solid #85929E",
               "&:before": {
                 display: "none",
               },
             }}
           >
-            <Mui.AccordionSummary expandIcon={<MuiIcons.ExpandMore />}>
+            <Mui.AccordionSummary
+              sx={{
+                color: "common.white",
+              }}
+              expandIcon={<MuiIcons.ExpandMore />}
+            >
               Add Custom Input
             </Mui.AccordionSummary>
             <Mui.AccordionDetails>
@@ -159,7 +204,9 @@ export const Content = () => {
                 multiline
                 rows={4}
                 fullWidth
-                InputProps={{ sx: { p: 1, fontSize: 12 } }}
+                InputProps={{
+                  sx: { p: 1, fontSize: 12, color: "common.white" },
+                }}
                 sx={{ fontSize: 1 }}
                 onChange={(event) => setStdIn(event.target.value)}
               />
@@ -168,6 +215,12 @@ export const Content = () => {
           <MuiLab.LoadingButton
             variant="contained"
             onClick={handleCompileClick}
+            loadingIndicator={
+              <Mui.CircularProgress color="primary" size="small" />
+            }
+            sx={{
+              color: "common.white",
+            }}
             loading={isCompiling}
           >
             Compile
@@ -184,14 +237,14 @@ export const Content = () => {
               elevation={2}
               sx={{
                 m: 0,
-                background: "#34495E",
+                // background: "#34495E",
                 maxHeight: 300,
                 overflow: "auto",
               }}
             >
               <Mui.Typography
                 variant="body2"
-                color="#E5E8E8"
+                // color="#E5E8E8"
                 sx={{ p: 2 }}
                 component="pre"
               >
@@ -211,14 +264,14 @@ export const Content = () => {
               elevation={2}
               sx={{
                 m: 0,
-                background: "#fad1d0",
+                // background: "#fad1d0",
                 maxHeight: 300,
                 overflow: "auto",
               }}
             >
               <Mui.Typography
                 variant="body2"
-                color="#052e2f"
+                // color="#052e2f"
                 sx={{ p: 2 }}
                 component="pre"
               >

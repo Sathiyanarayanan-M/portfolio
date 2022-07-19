@@ -4,19 +4,15 @@ import * as Mui from "@mui/material";
 export const Palette = (): Pick<Mui.ThemeOptions, "palette"> => ({
     palette: {
         primary: {
-            main: "#7868e6",
-            // main: "#2980B9",
-            light: 'rgba(120, 104, 230, 0.3)',
-            100: '#f5f7fa',
-            200: '#3f3d56'
-
+            main: "#00ADB5",
+            100: '#393E46',
         },
         background: {
-
+            default: '#7868e6'
         },
         common: {
-            white: '#f5f7fa',
-            black: '#3f3d56'
+            white: '#EEEEEE',
+            black: '#222831',
         }
     },
 });

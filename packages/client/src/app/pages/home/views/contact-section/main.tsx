@@ -7,7 +7,7 @@ import * as Pages from "src/app/pages";
 
 export const Main = () => {
   return (
-    <Mui.Box sx={{ mt: 20, mb: 10 }}>
+    <Mui.Box sx={{ mt: 20 }}>
       <Mui.Box>
         <Mui.Typography
           textAlign="center"

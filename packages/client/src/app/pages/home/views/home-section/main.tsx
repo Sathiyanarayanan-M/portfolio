@@ -2,6 +2,7 @@ import React, { MutableRefObject } from "react";
 import * as Mui from "@mui/material";
 import * as MuiIcons from "@mui/icons-material";
 import * as FramerMotion from "framer-motion";
+import * as Hooks from "src/app/hooks";
 import Thinking from "src/assets/img/thinking.svg";
 import styles from "src/app/pages/home/views/styles.module.scss";
 
@@ -90,16 +91,16 @@ export const Main = () => {
     <Mui.Box sx={{ px: 2 }}>
       <Mui.Stack
         alignItems="center"
-        justifyContent="space-between"
+        justifyContent="space-around"
         direction={{
           xs: "column",
           lg: "row",
         }}
-        spacing={12}
+        spacing={2}
       >
         <Mui.Box>
           <Mui.Typography
-            color="primary.100"
+            color="primary.main"
             sx={{
               fontFamily: "'Texturina', serif",
               fontSize: { xs: "2em", sm: "2.5em", md: "3.5em" },
@@ -111,7 +112,7 @@ export const Main = () => {
           <Mui.Box
             className={styles.box__container}
             sx={{
-              color: "primary.200",
+              color: "common.white",
               fontWeight: 600,
               fontFamily: "'Texturina', serif",
               fontSize: { xs: "2em", sm: "2.5em", md: "3.5em" },
@@ -138,7 +139,7 @@ export const Main = () => {
           </Mui.Box>
           <Mui.Typography
             variant="h5"
-            color="primary.200"
+            color="primary.main"
             fontFamily="'Texturina', serif"
           >
             Based in Kumbakonam, Tamil Nadu.
@@ -147,10 +148,10 @@ export const Main = () => {
         <Mui.Box>
           <Mui.CardMedia
             component="img"
-            src={Thinking}
+            src={Hooks.useCDNBucket("images/programming.svg")}
             sx={{
-              width: { md: 510, xs: 310 },
-              height: { md: 218, xs: 180 },
+              width: { md: 523, xs: "80vw" },
+              height: { md: 330, xs: 300 },
               objectFit: "contain",
             }}
           />

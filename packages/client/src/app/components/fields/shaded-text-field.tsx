@@ -4,10 +4,12 @@ import * as Mui from "@mui/material";
 export const ShadedTextField = (props: Mui.TextFieldProps) => {
   return (
     <Mui.TextField
+      color="primary"
       InputProps={{
         sx: {
           color: "white",
           fontFamily: "monospace",
+          bgcolor: "primary.100",
         },
       }}
       InputLabelProps={{
@@ -19,6 +21,9 @@ export const ShadedTextField = (props: Mui.TextFieldProps) => {
       focused
       type="text"
       variant="filled"
+      sx={{
+        bgcolor: "primary.100",
+      }}
       {...props}
     />
   );

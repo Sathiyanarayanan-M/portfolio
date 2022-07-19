@@ -12,7 +12,7 @@ export const Content = () => {
   const isInView = FramerMotion.useInView(scrollButtonRef, { once: true });
 
   return (
-    <Mui.Box sx={{ px: 2 }}>
+    <Mui.Box sx={{ p: 2 }}>
       <Mui.Stack
         justifyContent="center"
         sx={{

@@ -40,6 +40,9 @@ export const Components = (): Pick<Mui.ThemeOptions, "components"> => {
             fontWeight: 500
           }
         },
+        defaultProps: {
+          color: theme.palette.common.white
+        }
       },
       MuiButton: {
         variants: [
@@ -47,11 +50,11 @@ export const Components = (): Pick<Mui.ThemeOptions, "components"> => {
             props: { variant: 'shaded' },
             style: {
               color: theme.palette.common.white,
-              backgroundColor: 'rgba(0, 0, 0, 0.2)',
-              ":hover": {
-                backgroundColor: 'rgba(0, 0, 0, 0.2)',
-
-              }
+              backgroundColor: "#393E46",
+              "&:hover": {
+                backgroundColor: "#393E46",
+              },
+              border: '1px solid #00ADB5'
             },
           },
         ],

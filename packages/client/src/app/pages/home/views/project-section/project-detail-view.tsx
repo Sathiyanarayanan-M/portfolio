@@ -41,7 +41,9 @@ export const ProjectDetailView = (props: ProjectDetailViewType.Props) => {
           </Mui.Typography>
         </Mui.Box>
         <Mui.Stack spacing={2} p={2}>
-          <Mui.Typography>{props.projectData?.description}</Mui.Typography>
+          <Mui.Typography color="common.black">
+            {props.projectData?.description}
+          </Mui.Typography>
           <Mui.Button
             component={Mui.Link}
             variant="outlined"
