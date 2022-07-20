@@ -5,6 +5,7 @@ import * as Formik from "formik";
 import * as Yup from "yup";
 import * as Hooks from "src/app/hooks";
 import * as Contexts from "src/app/contexts";
+import * as Components from "src/app/components";
 
 export const ProjectFormSchema = Yup.object().shape({
   title: Yup.string().required("Required").min(3, "Too Short!"),
@@ -148,13 +149,14 @@ export const ProjectForm = () => {
               hidden
               onChange={handleFileUpload}
             />
-            <MuiLab.LoadingButton
+            <Components.MuiComponents.CustomLoadingButton
+              fullWidth
+              text="Upload"
               loading={isFileUploading}
-              variant="contained"
-              component="span"
-            >
-              Upload
-            </MuiLab.LoadingButton>
+              // onClick={handleCompileClick}
+              variant="outlined"
+              sx={{ textTransform: "none" }}
+            />
           </label>
           {formikContext.values.image && (
             <React.Fragment>
@@ -166,15 +168,15 @@ export const ProjectForm = () => {
             </React.Fragment>
           )}
         </Mui.Stack>
-        <MuiLab.LoadingButton
-          loading={formikContext.isSubmitting}
-          disabled={isFileUploading}
+        <Components.MuiComponents.CustomLoadingButton
+          fullWidth
           type="submit"
-          variant="contained"
-          color="primary"
-        >
-          Submit
-        </MuiLab.LoadingButton>
+          disabled={isFileUploading}
+          text="Submit"
+          loading={formikContext.isSubmitting}
+          variant="outlined"
+          sx={{ textTransform: "none" }}
+        />
       </Mui.Stack>
     </Formik.Form>
   );

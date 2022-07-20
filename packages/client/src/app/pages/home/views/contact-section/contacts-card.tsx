@@ -56,14 +56,14 @@ export const ContactCard = () => {
           helperText={<Formik.ErrorMessage name="message" />}
         />
       </Mui.Grid>
-      <MuiLab.LoadingButton
-        loading={formikContext.isSubmitting}
-        variant="shaded"
+      <Components.MuiComponents.CustomLoadingButton
+        fullWidth
         type="submit"
+        text="Submit"
+        loading={formikContext.isSubmitting}
+        variant="outlined"
         sx={{ textTransform: "none" }}
-      >
-        Submit
-      </MuiLab.LoadingButton>
+      />
     </Mui.Stack>
   );
 };

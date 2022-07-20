@@ -11,7 +11,7 @@ export const Main = () => {
     React.useRef() as unknown as MutableRefObject<HTMLDivElement>;
   const text2Ref =
     React.useRef() as unknown as MutableRefObject<HTMLDivElement>;
-  const texts = ["Web Developer", "Backend Developer"];
+  const texts = ["Web Developer", "Backend Developer", "Mobile App Developer"];
   const morphTime = 1.5;
   const cooldownTime = 0.5;
   let textIndex = texts.length - 1;

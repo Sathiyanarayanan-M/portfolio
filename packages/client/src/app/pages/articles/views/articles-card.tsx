@@ -81,7 +81,7 @@ export const ArticlesCard = (
       </Mui.CardContent>
       <Mui.CardMedia
         component="img"
-        sx={{ minWidth: 151 }}
+        sx={{ minWidth: 151, userSelect: "none" }}
         image={props.urlToImage}
         alt={props.title}
         onClick={handleNavigateToArticle}

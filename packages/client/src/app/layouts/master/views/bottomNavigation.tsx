@@ -21,7 +21,12 @@ export function BottomNavigation() {
           bottom: 0,
           left: 0,
           right: 0,
-          background: (theme) => theme.palette.primary.main,
+          background: "rgba( 255, 255, 255, 0.25 )",
+          boxShadow: "0 8px 32px 0 rgba( 31, 38, 135, 0.37 )",
+          backdropFilter: "blur( 4px )",
+          WebkitBackdropFilter: "blur( 4px )",
+          borderRadius: "10px",
+          border: "1px solid rgba( 255, 255, 255, 0.18 )",
           zIndex: (theme) => theme.zIndex.appBar,
         }}
       >
@@ -32,21 +37,22 @@ export function BottomNavigation() {
               sx={{ width: "100%", height: "100%", p: 2 }}
             >
               <Mui.Stack
+                component={Mui.ButtonBase}
                 direction="row"
                 alignItems="center"
                 justifyContent="center"
                 spacing={1}
                 sx={{
+                  width: "100%",
                   backgroundColor: (theme) =>
                     pathList.includes(navigation.value)
-                      ? "white"
+                      ? "primary.100"
                       : theme.palette.primary.main,
                   color: (theme) =>
                     pathList.includes(navigation.value)
-                      ? theme.palette.primary.main
-                      : "rgba(255, 255, 255, 0.5)",
+                      ? "primary.main"
+                      : "common.white",
                   transition: "all 0.3s",
-                  cursor: "pointer",
                   borderRadius: "15px",
                   p: 1,
                 }}
@@ -54,7 +60,9 @@ export function BottomNavigation() {
               >
                 <navigation.icon sx={{ marginBottom: "2px" }} />
                 {pathList.includes(navigation.value) ? (
-                  <Mui.Typography noWrap>{navigation.name}</Mui.Typography>
+                  <Mui.Typography noWrap color="common.white">
+                    {navigation.name}
+                  </Mui.Typography>
                 ) : null}
               </Mui.Stack>
             </Mui.Box>

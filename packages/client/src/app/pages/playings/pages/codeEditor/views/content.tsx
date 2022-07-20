@@ -27,6 +27,10 @@ export const Content = () => {
 
   const stdOut = atob(resData?.stdout || "");
   const stdErr = atob(resData?.stderr || "");
+  // const stdErr =
+  //   atob(`cnVuOiBsaW5lIDE6ICAgICAzIEtpbGxlZCAgICAgICAgICAgICAgICAgIC91
+  // c3IvbG9jYWwvbm9kZS0xMi4xNC4wL2Jpbi9ub2RlIHNjcmlwdC5qcwo=
+  // `);
 
   const saveCodeToLocalStorage = (code: string) => {
     setToLocalStorage(`${language}-code-template`, code);
@@ -124,7 +128,10 @@ export const Content = () => {
             }}
           />
         </Mui.Paper>
-        <Mui.Stack spacing={2} sx={{ minWidth: 300, pt: 2, maxHeight: "80vh" }}>
+        <Mui.Stack
+          spacing={2}
+          sx={{ minWidth: 300, pt: 2, maxHeight: "80vh", width: "100%" }}
+        >
           <Components.Fields.Dropdown
             value={theme}
             onChange={handleThemeChange}
@@ -212,22 +219,46 @@ export const Content = () => {
               />
             </Mui.AccordionDetails>
           </Mui.Accordion>
-          <MuiLab.LoadingButton
-            variant="contained"
-            onClick={handleCompileClick}
-            loadingIndicator={
-              <Mui.CircularProgress color="primary" size="small" />
-            }
-            sx={{
-              color: "common.white",
-            }}
+
+          <Components.MuiComponents.CustomLoadingButton
+            fullWidth
+            text="Compile"
             loading={isCompiling}
-          >
-            Compile
-          </MuiLab.LoadingButton>
+            onClick={handleCompileClick}
+            variant="outlined"
+            sx={{ textTransform: "none" }}
+          />
           <Mui.Box
             display={{
-              display: stdOut ? "block" : "none",
+              display: stdErr ? "block" : "none",
+            }}
+          >
+            <Mui.Typography variant="h6" sx={{ mb: 1, fontWeight: "600" }}>
+              Error:
+            </Mui.Typography>
+            <Mui.Box
+              sx={{
+                m: 0,
+                // background: "#fad1d0",
+                maxHeight: 300,
+                overflow: "auto",
+                border: "1px solid #EB4747",
+                borderRadius: "12px",
+              }}
+            >
+              <Mui.Typography
+                variant="body2"
+                color="error"
+                sx={{ p: 2, whiteSpace: "pre-wrap" }}
+                component="pre"
+              >
+                {stdErr}
+              </Mui.Typography>
+            </Mui.Box>
+          </Mui.Box>
+          <Mui.Box
+            display={{
+              display: stdOut && !stdErr ? "block" : "none",
             }}
           >
             <Mui.Typography variant="h6" sx={{ mb: 1, fontWeight: "600" }}>
@@ -244,38 +275,11 @@ export const Content = () => {
             >
               <Mui.Typography
                 variant="body2"
-                // color="#E5E8E8"
+                color="common.black"
                 sx={{ p: 2 }}
                 component="pre"
               >
                 {stdOut}
-              </Mui.Typography>
-            </Mui.Paper>
-          </Mui.Box>
-          <Mui.Box
-            display={{
-              display: stdErr ? "block" : "none",
-            }}
-          >
-            <Mui.Typography variant="h6" sx={{ mb: 1, fontWeight: "600" }}>
-              Error:
-            </Mui.Typography>
-            <Mui.Paper
-              elevation={2}
-              sx={{
-                m: 0,
-                // background: "#fad1d0",
-                maxHeight: 300,
-                overflow: "auto",
-              }}
-            >
-              <Mui.Typography
-                variant="body2"
-                // color="#052e2f"
-                sx={{ p: 2 }}
-                component="pre"
-              >
-                {stdErr}
               </Mui.Typography>
             </Mui.Paper>
           </Mui.Box>

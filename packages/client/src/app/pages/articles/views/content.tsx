@@ -44,15 +44,14 @@ export const Content = () => {
           ))}
       </Mui.Grid>
 
-      <MuiLab.LoadingButton
+      <Components.MuiComponents.CustomLoadingButton
         fullWidth
+        text="Load More"
         loading={isLoading}
         onClick={handleLoadMore}
         variant="outlined"
         sx={{ display: articlesList.length ? "inline-flex" : "none" }}
-      >
-        Load More
-      </MuiLab.LoadingButton>
+      />
     </Mui.Stack>
   );
 };
