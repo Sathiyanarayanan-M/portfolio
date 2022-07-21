@@ -212,7 +212,12 @@ export const Content = () => {
                 rows={4}
                 fullWidth
                 InputProps={{
-                  sx: { p: 1, fontSize: 12, color: "common.white" },
+                  sx: {
+                    p: 1,
+                    fontSize: 12,
+                    color: "common.white",
+                    border: (theme) => "1px solid" + theme.palette.primary.main,
+                  },
                 }}
                 sx={{ fontSize: 1 }}
                 onChange={(event) => setStdIn(event.target.value)}
