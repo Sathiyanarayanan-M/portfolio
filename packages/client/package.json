@@ -6,7 +6,7 @@
     "dev": "vite",
     "prod": "vite --mode prod",
     "build": "tsc && vite build",
-    "deploy": "tsc && vite build && firebase deploy",
+    "build:ci": "npm ci && tsc && vite build",
     "preview": "vite preview"
   },
   "dependencies": {
