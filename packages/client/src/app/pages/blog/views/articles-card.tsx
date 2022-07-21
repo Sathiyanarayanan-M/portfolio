@@ -3,7 +3,7 @@ import * as MuiIcons from "@mui/icons-material";
 import * as Hooks from "src/app/hooks";
 import * as Pages from "src/app/pages";
 export const ArticlesCard = (
-  props: Pages.Articles.Hooks.IUseProjectList.Article
+  props: Pages.Blog.Hooks.IUseProjectList.Article
 ) => {
   const handleNavigateToArticle = () => {
     window.open(props.url, "_blank");

@@ -41,7 +41,6 @@ export const Main = () => {
             onSubmit={async (values, actions) => {
               actions.setSubmitting(true);
               console.log(values);
-
               // actions.setSubmitting(false);
             }}
           >

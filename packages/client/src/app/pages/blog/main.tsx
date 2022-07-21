@@ -4,7 +4,7 @@ import * as Pages from "src/app/pages";
 export const Main = () => {
   return (
     <Mui.Box>
-      <Pages.Articles.Views.Content />
+      <Pages.Blog.Views.Content />
     </Mui.Box>
   );
 };

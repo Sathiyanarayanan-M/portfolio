@@ -7,11 +7,10 @@ import * as Components from "src/app/components";
 export const Content = () => {
   const [pageNum, setPageNum] = React.useState(1);
   const [articlesList, setArticlesList] = React.useState<
-    Pages.Articles.Hooks.IUseProjectList.Article[]
+    Pages.Blog.Hooks.IUseProjectList.Article[]
   >([]);
-  console.log(articlesList);
 
-  const { data, isLoading } = Pages.Articles.Hooks.useGetArticles({
+  const { data, isLoading } = Pages.Blog.Hooks.useGetArticles({
     page: pageNum,
     pageSize: 20,
   });
@@ -25,14 +24,13 @@ export const Content = () => {
       setArticlesList((prev) => [...prev, ...data?.articles]);
     }
   }, [JSON.stringify(data)]);
-  console.log(!articlesList.length, isLoading);
 
   return (
     <Mui.Stack sx={{ p: 4 }} spacing={2}>
       <Mui.Grid container spacing={2}>
         {articlesList?.map((item, index) => (
           <Mui.Grid item xs={12} sm={6} md={4} key={index}>
-            <Pages.Articles.Views.ArticlesCard {...item} />
+            <Pages.Blog.Views.ArticlesCard {...item} />
           </Mui.Grid>
         ))}
         {!articlesList.length &&

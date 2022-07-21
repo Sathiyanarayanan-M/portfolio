@@ -18,7 +18,6 @@ const Transition = React.forwardRef(function Transition(
 });
 
 export const ProjectDetailView = (props: ProjectDetailViewType.Props) => {
-  console.log(props);
   return (
     <Mui.Dialog
       open
