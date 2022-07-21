@@ -33,9 +33,22 @@ export const Main = () => {
 
   return (
     <Mui.Box>
-      {/* <Mui.Typography variant="h4" fontWeight="bold" sx={{ mb: 2 }}>
+      {/* <Mui.Typography
+        variant="h4"
+        fontWeight="bold"
+        textAlign="center"
+        sx={{ mb: 2 }}
+      >
         Project List
       </Mui.Typography> */}
+      <Mui.Box>
+        <Mui.Typography textAlign="center" variant="h4" color="common.white">
+          Projects Gallery
+        </Mui.Typography>
+        <Mui.Typography textAlign="center" mb={5} color="common.white">
+          Here, you can check my projects and works.
+        </Mui.Typography>
+      </Mui.Box>
       {!!selectedProject && (
         <Pages.Home.Views.ProjectSection.ProjectDetailView
           projectData={projectData.find(
@@ -46,7 +59,7 @@ export const Main = () => {
       )}
       <Mui.Grid container spacing={3}>
         {projectDataDuplicate?.map((item, index) => (
-          <Mui.Grid xs={3} item key={index}>
+          <Mui.Grid xs={12} sm={6} md={4} lg={3} item key={index}>
             <Pages.Home.Views.ProjectSection.ProjectPaper
               title={item.title}
               image={item.image}

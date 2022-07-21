@@ -9,24 +9,18 @@ export const Main = () => {
   return (
     <Mui.Box sx={{ mt: 20 }}>
       <Mui.Box>
-        <Mui.Typography
-          textAlign="center"
-          variant="h4"
-          //   mb={5}
-          color="common.white"
-        >
+        <Mui.Typography textAlign="center" variant="h4" color="common.white">
           Contact Me
         </Mui.Typography>
-        <Mui.Typography
-          textAlign="center"
-          //   variant="body2"
-          mb={5}
-          color="common.white"
-        >
+        <Mui.Typography textAlign="center" mb={5} color="common.white">
           Any Questions, Just write us a message!
         </Mui.Typography>
       </Mui.Box>
-      <Mui.Stack direction="row" justifyContent="space-between" spacing={2}>
+      <Mui.Stack
+        direction={{ xs: "column", md: "row" }}
+        justifyContent="space-between"
+        rowGap={2}
+      >
         <Mui.Box sx={{ width: "100%" }}>
           <Pages.Home.Views.ContactSection.InfoCard />
         </Mui.Box>
