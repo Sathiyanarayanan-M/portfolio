@@ -19,7 +19,7 @@ export const Content = () => {
     mutate: postCompile,
     data: resData,
     isLoading: isCompiling,
-  } = Pages.Playings.Pages.CodeEditor.Hooks.compileCode({
+  } = Pages.Tools.Pages.CodeEditor.Hooks.compileCode({
     language_id: language,
     source_code: codeValue,
     stdin: stdIn,
@@ -79,7 +79,7 @@ export const Content = () => {
       setCodeValue(codeFromLocalStorage);
     } else {
       const templateLanguage =
-        Pages.Playings.Pages.CodeEditor.Constants.languagesAvailable.find(
+        Pages.Tools.Pages.CodeEditor.Constants.languagesAvailable.find(
           (item) => item.id === language
         )?.template as string;
       setCodeValue(templateLanguage);
@@ -110,7 +110,7 @@ export const Content = () => {
             height="100%"
             width="100%"
             language={
-              Pages.Playings.Pages.CodeEditor.Constants.languagesAvailable.find(
+              Pages.Tools.Pages.CodeEditor.Constants.languagesAvailable.find(
                 (item) => item.id === language
               )?.value
             }
@@ -135,7 +135,7 @@ export const Content = () => {
           <Components.Fields.Dropdown
             value={theme}
             onChange={handleThemeChange}
-            dataList={Pages.Playings.Pages.CodeEditor.Constants.ThemeList}
+            dataList={Pages.Tools.Pages.CodeEditor.Constants.ThemeList}
             label="Theme"
             selectProps={{
               sx: {
@@ -158,7 +158,7 @@ export const Content = () => {
           <Components.Fields.Dropdown
             value={language}
             onChange={handleChangeLanguage}
-            dataList={Pages.Playings.Pages.CodeEditor.Constants.languagesAvailable.map(
+            dataList={Pages.Tools.Pages.CodeEditor.Constants.languagesAvailable.map(
               (item) => ({ label: item.label, value: item.id })
             )}
             label="Language"

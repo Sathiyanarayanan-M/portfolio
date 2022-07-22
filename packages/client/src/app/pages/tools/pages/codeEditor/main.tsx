@@ -5,7 +5,7 @@ import * as Hooks from "src/app/hooks";
 export const Main = () => {
   return (
     <Mui.Box>
-      <Pages.Playings.Pages.CodeEditor.Views.Content />
+      <Pages.Tools.Pages.CodeEditor.Views.Content />
     </Mui.Box>
   );
 };

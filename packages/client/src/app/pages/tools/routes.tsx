@@ -8,11 +8,11 @@ export const Routes = () =>
       children: [
         {
           index: true,
-          element: <Pages.Playings.Main />,
+          element: <Pages.Tools.Main />,
         },
         {
           path: "codeEditor",
-          element: <Pages.Playings.Pages.CodeEditor.Main />,
+          element: <Pages.Tools.Pages.CodeEditor.Main />,
         },
       ],
     },

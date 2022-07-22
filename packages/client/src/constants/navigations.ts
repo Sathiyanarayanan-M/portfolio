@@ -14,9 +14,9 @@ export const Navigations = [
         icon: MuiIcons.Article,
     },
     {
-        name: 'Playing(s)',
-        value: 'playings',
-        path: '/playings',
+        name: 'Tools',
+        value: 'tools',
+        path: '/tools',
         icon: MuiIcons.Face,
     }
 ]
