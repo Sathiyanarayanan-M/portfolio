@@ -1,5 +1,5 @@
 import * as Mui from "@mui/material";
-import Thinking from "src/assets/img/thinking.svg";
+import * as Pages from "src/app/pages";
 
 export const Content = () => {
   return (
@@ -15,7 +15,9 @@ export const Content = () => {
         justifyContent="center"
         sx={{ height: "100%" }}
       >
-        <Mui.Typography variant="h5">Funzone Page</Mui.Typography>
+        {Pages.Tools.ToolsList.map((item) => (
+          <Pages.Tools.Views.ToolsCard {...item} />
+        ))}
       </Mui.Stack>
     </Mui.Container>
   );

@@ -15,12 +15,6 @@ declare module '@mui/material/Button' {
     shaded: true;
   }
 }
-declare module '@mui/material/TextField' {
-  interface TextFieldPropsVariantOverrides {
-    shaded: true;
-  }
-}
-
 
 export const Components = (): Pick<Mui.ThemeOptions, "components"> => {
   const theme = Mui.useTheme()

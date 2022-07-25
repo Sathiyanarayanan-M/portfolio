@@ -1,6 +1,6 @@
 $cdn-url: "https://cdn-bucket.netlify.app/";
 $common-white: #f5f7fa;
-$primary-main: #7868e6;
+$primary-main: #00adb5;
 
 @function cdnHost($name) {
   @return $cdn-url + $name;
