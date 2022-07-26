@@ -7,7 +7,7 @@ export const ToolsList: ToolsListType[] = [
     icon: <MuiIcons.Code />,
     iconType: "icon",
     value: "codeEditor",
-    path: "/codeEditor",
+    path: "/tools/codeEditor",
   },
 ];
 

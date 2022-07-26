@@ -3,22 +3,14 @@ import * as Pages from "src/app/pages";
 
 export const Content = () => {
   return (
-    <Mui.Container
-      sx={{
-        height: "100%",
-        width: "100%",
-      }}
-    >
-      <Mui.Stack
-        direction={{ xs: "column", md: "row" }}
-        alignItems="center"
-        justifyContent="center"
-        sx={{ height: "100%" }}
-      >
+    <Mui.Box sx={{ p: 2 }}>
+      <Mui.Grid container>
         {Pages.Tools.ToolsList.map((item) => (
-          <Pages.Tools.Views.ToolsCard {...item} />
+          <Mui.Grid item xs={12} sm={6} md={4}>
+            <Pages.Tools.Views.ToolsCard {...item} />
+          </Mui.Grid>
         ))}
-      </Mui.Stack>
-    </Mui.Container>
+      </Mui.Grid>
+    </Mui.Box>
   );
 };

@@ -6,22 +6,12 @@ export const ProjectPaper = (props: ProjectPaperType.Props) => {
   return (
     <Mui.Paper
       component={Mui.Stack}
-      // alignItems="center"
       className={styles.project__paper}
       onClick={() => props.handleSelectProject(props.title)}
       justifyContent="flex-end"
       sx={{
-        // background: `linear-gradient(0deg,rgba(0,0,0,.9),rgba(0,0,0,.2)), url(${props.image}) no-repeat`,
         height: "400px",
-        // backgroundPosition: "center",
-        // backgroundSize: "cover",
         color: "common.white",
-        // padding: "20px",
-        // "&:hover": {
-        //   background: `url(${props.image}) no-repeat`,
-        //   backgroundPosition: "center",
-        //   backgroundSize: "cover",
-        // },
       }}
     >
       <img src={props.image} className={styles.card__image} />
