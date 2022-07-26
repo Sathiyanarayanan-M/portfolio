@@ -1,10 +1,7 @@
 import * as Mui from "@mui/material";
 import { TransitionProps } from "@mui/material/transitions";
-import * as MuiIcons from "@mui/icons-material";
-import * as FramerMotion from "framer-motion";
 import * as Pages from "src/app/pages";
 import * as Components from "src/app/components";
-import NoImage from "src/assets/img/no-image.svg";
 import styles from "src/app/pages/home/views/styles.module.scss";
 import React from "react";
 

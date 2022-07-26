@@ -1,9 +1,6 @@
 import React, { MutableRefObject } from "react";
 import * as Mui from "@mui/material";
-import * as MuiIcons from "@mui/icons-material";
-import * as FramerMotion from "framer-motion";
 import * as Hooks from "src/app/hooks";
-import Thinking from "src/assets/img/thinking.svg";
 import styles from "src/app/pages/home/views/styles.module.scss";
 
 export const Main = () => {

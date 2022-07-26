@@ -1,7 +1,5 @@
 import * as Mui from "@mui/material";
 import * as MuiIcons from "@mui/icons-material";
-import * as Pages from "src/app/pages";
-import NoImage from "src/assets/img/no-image.svg";
 import styles from "src/app/pages/home/views/styles.module.scss";
 
 export const ProjectPaper = (props: ProjectPaperType.Props) => {

@@ -27,6 +27,7 @@ export const Main = () => {
   ];
 
   const first4Slide = projectDataDuplicate.slice(0, 3);
+  console.log(isLoading);
 
   const handleSelectProject = React.useCallback((value: string | number) => {
     setSelectedProject(value);
@@ -71,18 +72,23 @@ export const Main = () => {
             
           </Mui.Grid>
         ))} */}
-        {projectDataDuplicate?.map((item, index) => (
-          <Mui.Grid xs={12} sm={6} md={4} lg={3} item key={index}>
-            <Components.CssDesigns.ImageCard
-              title={item.title}
-              image={item.image}
-              description={item.description}
-              actionUrl={item.detailsUrl}
-              onReadMoreClick={() => {}}
-            />
-          </Mui.Grid>
-        ))}
-        {/* <Components.CssDesigns.ImageCard /> */}
+        {isLoading ? (
+          <Mui.Box m="auto">
+            <Components.CssDesigns.CSSLoader />
+          </Mui.Box>
+        ) : (
+          projectDataDuplicate?.map((item, index) => (
+            <Mui.Grid xs={12} sm={6} md={4} lg={3} item key={index}>
+              <Components.CssDesigns.ImageCard
+                title={item.title}
+                image={item.image}
+                description={item.description}
+                actionUrl={item.detailsUrl}
+                onReadMoreClick={() => {}}
+              />
+            </Mui.Grid>
+          ))
+        )}
       </Mui.Grid>
     </Mui.Box>
   );

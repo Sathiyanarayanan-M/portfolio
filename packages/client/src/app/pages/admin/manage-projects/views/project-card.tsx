@@ -3,7 +3,6 @@ import Swal from "sweetalert";
 import * as Mui from "@mui/material";
 import * as Hooks from "src/app/hooks";
 import * as Pages from "src/app/pages";
-import NoImage from "src/assets/img/no-image.svg";
 
 export const AdminProjectsCard = (props: CardType.Props) => {
   const { deleteData } = Hooks.useFirestore();
@@ -29,7 +28,7 @@ export const AdminProjectsCard = (props: CardType.Props) => {
       <Mui.CardMedia
         height={100}
         component="img"
-        image={props.image || NoImage}
+        image={props.image}
         alt={props.title}
         sx={{ objectFit: props.image ? "cover" : "contain" }}
       />
