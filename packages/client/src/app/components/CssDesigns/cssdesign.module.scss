@@ -1,13 +1,4 @@
 @import "src/common.module.scss";
-$desktop: 1024px;
-
-@mixin breakpoint($point) {
-  @if $point == desktop {
-    @media (min-width: $desktop) {
-      @content;
-    }
-  }
-}
 
 .image__card__container {
   display: flex;
@@ -43,17 +34,13 @@ $desktop: 1024px;
 
     &__thumb {
       position: relative;
-      max-height: 400px;
+      max-height: 500px;
       overflow: hidden;
       border-radius: 12px;
       .image__loader {
         height: 250px;
         display: flex;
         justify-content: center;
-      }
-
-      @include breakpoint(desktop) {
-        max-height: 500px;
       }
 
       &::after {
@@ -69,32 +56,22 @@ $desktop: 1024px;
           rgba(255, 255, 255, 0) 100%
         );
         transition: 0.3s;
-
-        @include breakpoint(desktop) {
-          top: calc(100% - 140px);
-        }
       }
     }
 
     &__image {
-      // background-position: cover;
       transition: 0.5s ease-in-out;
     }
 
     &__caption {
       position: absolute;
-      top: 50%;
+      top: calc(100% - 110px);
       z-index: 1;
       padding: 0 20px;
       color: $common-white;
-      transform: translateY(-50%);
+      transform: unset;
       text-align: center;
       transition: 0.3s;
-
-      @include breakpoint(desktop) {
-        top: calc(100% - 110px);
-        transform: unset;
-      }
     }
 
     &__title {
@@ -113,7 +90,7 @@ $desktop: 1024px;
     &__snippet {
       display: -webkit-box;
       max-height: 150px;
-      margin: 20px 0;
+      margin: 60px 0;
       overflow: hidden;
       font-family: "Mukta", sans-serif;
       font-size: 16px;
@@ -122,21 +99,15 @@ $desktop: 1024px;
       transition: 0.5s ease-in-out;
       -webkit-line-clamp: 5;
       -webkit-box-orient: vertical;
-
-      @include breakpoint(desktop) {
-        margin: 60px 0;
-      }
     }
 
     &__button {
       display: inline-flex;
       height: 40px;
       width: 150px;
-      border: 1px solid #00adb5;
+      border: 1px solid $primary-main;
       background-color: transparent;
       margin: 20px 20px 20px 20px;
-      // color: #bfc0c0;
-      // text-transform: uppercase;
       text-decoration: none;
       font-size: 0.8em;
       letter-spacing: 1.5px;
