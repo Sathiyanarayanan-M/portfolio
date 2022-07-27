@@ -12,14 +12,16 @@ export const Main = () => {
 
   return (
     <React.Fragment>
-      <Particles
-        init={particlesInit}
-        params={Constants.TsParticlesConfig() as any}
-      />
+      <Mui.Box zIndex={-1}>
+        <Particles
+          init={particlesInit}
+          params={Constants.TsParticlesConfig() as any}
+        />
+      </Mui.Box>
       <Mui.Box display={{ md: "block", xs: "none" }}>
         <Layouts.Master.Views.Appbar />
       </Mui.Box>
-      <Mui.Box>
+      <Mui.Box zIndex={1}>
         <Router.Outlet />
       </Mui.Box>
       <Mui.Box display={{ md: "none", xs: "block" }}>
