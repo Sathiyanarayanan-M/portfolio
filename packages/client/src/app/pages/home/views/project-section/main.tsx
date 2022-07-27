@@ -60,18 +60,6 @@ export const Main = () => {
         />
       )}
       <Mui.Grid container spacing={3}>
-        {/* {projectDataDuplicate?.map((item, index) => (
-          <Mui.Grid xs={12} sm={6} md={4} lg={3} item key={index}>
-            <Pages.Home.Views.ProjectSection.ProjectPaper
-              title={item.title}
-              image={item.image}
-              description={item.description}
-              actionUrl={item.detailsUrl}
-              handleSelectProject={handleSelectProject}
-            />
-            
-          </Mui.Grid>
-        ))} */}
         {isLoading ? (
           <Mui.Box m="auto">
             <Components.CssDesigns.CSSLoader />
