@@ -245,7 +245,7 @@ export const Content = () => {
               sx={{
                 m: 0,
                 // background: "#fad1d0",
-                maxHeight: 300,
+                maxHeight: 250,
                 overflow: "auto",
                 border: "1px solid #EB4747",
                 borderRadius: "12px",
@@ -274,14 +274,14 @@ export const Content = () => {
               sx={{
                 m: 0,
                 // background: "#34495E",
-                maxHeight: 300,
+                maxHeight: 250,
                 overflow: "auto",
               }}
             >
               <Mui.Typography
                 variant="body2"
                 color="common.black"
-                sx={{ p: 2 }}
+                sx={{ p: 2, whiteSpace: "pre-wrap" }}
                 component="pre"
               >
                 {stdOut}
