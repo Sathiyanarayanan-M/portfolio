@@ -24,9 +24,9 @@ app.get("/", (req, res) => {
 app.use("/api", route);
 
 app.use(errorHandler);
+
 app.use(function (req, res, next) {
-  res.status(404);
-  res.send({
+  res.status(404).send({
     status: "error",
     error: true,
     message: "Whatever you searching for it's not found",
