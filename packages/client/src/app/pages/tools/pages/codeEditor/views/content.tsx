@@ -19,11 +19,7 @@ export const Content = () => {
     mutate: postCompile,
     data: resData,
     isLoading: isCompiling,
-  } = Pages.Tools.Pages.CodeEditor.Hooks.compileCode({
-    language_id: language,
-    source_code: codeValue,
-    stdin: stdIn,
-  });
+  } = Pages.Tools.Pages.CodeEditor.Hooks.compileCode();
 
   const stdOut = atob(resData?.stdout || "");
   const stdErr = atob(resData?.stderr || "");
@@ -54,7 +50,13 @@ export const Content = () => {
   };
 
   const handleCompileClick = () => {
-    postCompile();
+    const base64SourceCode = btoa(codeValue);
+    const base64StdIn = btoa(stdIn);
+    postCompile({
+      language_id: language,
+      source_code: base64SourceCode,
+      stdin: base64StdIn,
+    });
   };
 
   React.useEffect(() => {

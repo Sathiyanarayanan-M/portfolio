@@ -6,6 +6,8 @@ import * as Formik from "formik";
 import * as Pages from "src/app/pages";
 
 export const Main = () => {
+  const { mutate } = Pages.Home.Views.ContactSection.Hooks.useFeedbackPost();
+
   return (
     <Mui.Box sx={{ mt: 20 }}>
       <Mui.Box>
@@ -34,6 +36,7 @@ export const Main = () => {
             }}
             onSubmit={async (values, actions) => {
               actions.setSubmitting(true);
+              mutate(values);
               console.log(values);
               // actions.setSubmitting(false);
             }}
