@@ -1,6 +1,8 @@
 const nodemailer = require("nodemailer");
+const emailTemplate = require("./htmlTemplate");
 exports.sendMail = (req, res, next) => {
   const { name, email, phone, message } = req.body;
+  const { userTemplate, adminTemplate } = emailTemplate;
   const transporter = nodemailer.createTransport({
     host: "smtp.gmail.com",
     port: 587,
@@ -10,12 +12,34 @@ exports.sendMail = (req, res, next) => {
     },
   });
 
-  const mailOptions = {
+  const adminMailOptions = {
     from: process.env.mail_id,
     to: process.env.mail_receiver_id,
     subject: "Mail from the portfolio",
-    text: `This user ${name} from ${email} send a message of ${message}. And his/her phone no is ${phone}`,
+    html: adminTemplate(name, email, phone, message),
   };
+
+  const mailOptions = {
+    from: process.env.mail_id,
+    to: email,
+    subject: "Reply from Sathiyanarayanan",
+    html: userTemplate(name),
+  };
+
+  transporter.sendMail(adminMailOptions, function (err, data) {
+    if (err) {
+      next({
+        code: 400,
+        message: "Mail error",
+      });
+    } else {
+      res.status(200).json({
+        error: false,
+        status: "success",
+        data,
+      });
+    }
+  });
 
   transporter.sendMail(mailOptions, function (err, data) {
     if (err) {
