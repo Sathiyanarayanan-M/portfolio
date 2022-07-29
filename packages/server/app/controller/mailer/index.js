@@ -33,25 +33,19 @@ exports.sendMail = (req, res, next) => {
         message: "Mail error",
       });
     } else {
-      res.status(200).json({
-        error: false,
-        status: "success",
-        data,
-      });
-    }
-  });
-
-  transporter.sendMail(mailOptions, function (err, data) {
-    if (err) {
-      next({
-        code: 400,
-        message: "Mail error",
-      });
-    } else {
-      res.status(200).json({
-        error: false,
-        status: "success",
-        data,
+      transporter.sendMail(mailOptions, function (err, data) {
+        if (err) {
+          next({
+            code: 400,
+            message: "Mail error",
+          });
+        } else {
+          res.status(200).json({
+            error: false,
+            status: "success",
+            message: "Mail Sent successfully",
+          });
+        }
       });
     }
   });
