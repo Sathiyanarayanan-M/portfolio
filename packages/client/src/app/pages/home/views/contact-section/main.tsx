@@ -4,9 +4,23 @@ import * as MuiIcons from "@mui/icons-material";
 import * as FramerMotion from "framer-motion";
 import * as Formik from "formik";
 import * as Pages from "src/app/pages";
+import * as Contexts from "src/app/contexts";
 
 export const Main = () => {
-  const { mutate } = Pages.Home.Views.ContactSection.Hooks.useFeedbackPost();
+  const { setSnack } = React.useContext(Contexts.SnackbarContext);
+
+  const { mutate, isLoading } =
+    Pages.Home.Views.ContactSection.Hooks.useFeedbackPost({
+      callbacks: {
+        onSuccess: () => {
+          setSnack({
+            open: true,
+            message: "Your response send successfully",
+            severity: "success",
+          });
+        },
+      },
+    });
 
   return (
     <Mui.Box sx={{ mt: 20 }}>
@@ -34,15 +48,14 @@ export const Main = () => {
               phone: "",
               message: "",
             }}
-            onSubmit={async (values, actions) => {
-              actions.setSubmitting(true);
+            onSubmit={(values) => {
               mutate(values);
-              console.log(values);
-              // actions.setSubmitting(false);
             }}
           >
             <Formik.Form>
-              <Pages.Home.Views.ContactSection.ContactCard />
+              <Pages.Home.Views.ContactSection.ContactCard
+                isLoading={isLoading}
+              />
             </Formik.Form>
           </Formik.Formik>
         </Mui.Box>

@@ -23,10 +23,6 @@ export const Content = () => {
 
   const stdOut = atob(resData?.stdout || "");
   const stdErr = atob(resData?.stderr || "");
-  // const stdErr =
-  //   atob(`cnVuOiBsaW5lIDE6ICAgICAzIEtpbGxlZCAgICAgICAgICAgICAgICAgIC91
-  // c3IvbG9jYWwvbm9kZS0xMi4xNC4wL2Jpbi9ub2RlIHNjcmlwdC5qcwo=
-  // `);
 
   const saveCodeToLocalStorage = (code: string) => {
     setToLocalStorage(`${language}-code-template`, code);

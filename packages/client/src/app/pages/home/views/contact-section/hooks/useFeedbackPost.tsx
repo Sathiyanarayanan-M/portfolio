@@ -3,13 +3,16 @@ import * as ReactQuery from "react-query";
 import * as API from "src/app/api";
 import * as Hooks from "src/app/hooks";
 
-export const useFeedbackPost = (): IPostFeedback.Return => {
+export const useFeedbackPost = (
+  props: IPostFeedback.Props
+): IPostFeedback.Return => {
   const { isLoading, mutate, data } = API.Server.useMutationRequest({
     queryParams: ["feedbacek"],
     requestOptions: {
       method: "POST",
       url: `/api/feedback`,
     },
+    requestCallbacks: props?.callbacks,
   });
 
   return {
@@ -22,10 +25,7 @@ export const useFeedbackPost = (): IPostFeedback.Return => {
 
 export namespace IPostFeedback {
   export interface Props {
-    name: string;
-    phno: string;
-    message: string;
-    mail: string;
+    callbacks?: ReactQuery.MutationOptions;
   }
   export interface Return {
     data?: any;

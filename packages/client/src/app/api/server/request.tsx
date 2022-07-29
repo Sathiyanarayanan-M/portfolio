@@ -37,9 +37,11 @@ export const useQueryRequest = ({
 };
 export const useMutationRequest = ({
   requestOptions,
+  requestCallbacks,
 }: IUseQueryRequest.Props) => {
-  return ReactQuery.useMutation((requestData: any) =>
-    Request(requestOptions, requestData)
+  return ReactQuery.useMutation(
+    (requestData: any) => Request(requestOptions, requestData),
+    requestCallbacks
   );
 };
 
@@ -54,5 +56,6 @@ export namespace IUseQueryRequest {
           "queryKey" | "queryFn"
         >
       | undefined;
+    requestCallbacks?: ReactQuery.MutationOptions;
   }
 }

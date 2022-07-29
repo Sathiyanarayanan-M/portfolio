@@ -6,7 +6,7 @@ import * as Formik from "formik";
 import * as FramerMotion from "framer-motion";
 import * as Components from "src/app/components";
 
-export const ContactCard = () => {
+export const ContactCard = (props: ContactFormType.Props) => {
   const formikContext = Formik.useFormikContext<ContactFormType.FormValues>();
 
   return (
@@ -60,7 +60,7 @@ export const ContactCard = () => {
         fullWidth
         type="submit"
         text="Submit"
-        loading={formikContext.isSubmitting}
+        loading={props.isLoading}
         variant="outlined"
         sx={{ textTransform: "none" }}
       />
@@ -69,6 +69,9 @@ export const ContactCard = () => {
 };
 
 export namespace ContactFormType {
+  export interface Props {
+    isLoading: boolean;
+  }
   export interface FormValues {
     name: string;
     email: string;
