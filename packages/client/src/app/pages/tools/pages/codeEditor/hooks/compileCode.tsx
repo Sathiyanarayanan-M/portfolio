@@ -2,20 +2,12 @@ import * as Axios from "axios";
 import * as ReactQuery from "react-query";
 import * as API from "src/app/api";
 import * as Hooks from "src/app/hooks";
-export const compileCode = (props: ICompileCode.Props): ICompileCode.Return => {
-  const base64SourceCode = btoa(props.source_code);
-  const base64StdIn = btoa(props.stdin);
-
+export const compileCode = (): ICompileCode.Return => {
   const { isLoading, mutate, data } = API.Server.useMutationRequest({
     queryParams: ["compileCode"],
     requestOptions: {
       method: "POST",
       url: `/api/code/compile`,
-    },
-    requestData: {
-      ...props,
-      source_code: base64SourceCode,
-      stdin: base64StdIn,
     },
   });
 
@@ -28,11 +20,6 @@ export const compileCode = (props: ICompileCode.Props): ICompileCode.Return => {
 };
 
 export namespace ICompileCode {
-  export interface Props {
-    language_id: number;
-    source_code: string;
-    stdin: string;
-  }
   export interface Return {
     data?: CompilerRes;
     error: boolean;
@@ -40,7 +27,7 @@ export namespace ICompileCode {
     mutate: ReactQuery.UseMutateFunction<
       Axios.AxiosResponse<any, any>,
       unknown,
-      void,
+      any,
       unknown
     >;
   }
