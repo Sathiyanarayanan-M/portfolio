@@ -13,10 +13,10 @@ export const Main = () => {
   return (
     <React.Fragment>
       <Mui.Box zIndex={-1}>
-        <Particles
+        {/* <Particles
           init={particlesInit}
           params={Constants.TsParticlesConfig() as any}
-        />
+        /> */}
       </Mui.Box>
       <Mui.Box display={{ md: "block", xs: "none" }}>
         <Layouts.Master.Views.Appbar />
