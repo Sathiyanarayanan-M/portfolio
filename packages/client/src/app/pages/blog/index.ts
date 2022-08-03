@@ -1,3 +1,5 @@
-export * from './main';
+export * as Pages from './pages';
 export * as Views from './views';
-export * as Hooks from './hooks';
+export * from './hooks';
+export * from './main';
+export * from './routes';

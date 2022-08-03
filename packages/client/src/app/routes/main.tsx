@@ -26,7 +26,7 @@ export const Main = () =>
           path: "tools/*",
           element: <Pages.Tools.Routes />,
         },
-        { path: "blog", element: <Pages.Blog.Main /> },
+        { path: "blog/*", element: <Pages.Blog.Routes /> },
         {
           path: "admin/*",
           element: (

@@ -27,6 +27,12 @@ export const Content = () => {
 
   return (
     <Mui.Stack sx={{ p: 4 }} spacing={2}>
+      <Mui.Button
+        variant="outlined"
+        sx={{ maxWidth: "fit-content", alignSelf: "flex-end" }}
+      >
+        Create a Post?
+      </Mui.Button>
       <Mui.Grid container spacing={2}>
         {articlesList?.map((item, index) => (
           <Mui.Grid item xs={12} sm={6} md={4} key={index}>
@@ -41,7 +47,6 @@ export const Content = () => {
             </Mui.Grid>
           ))}
       </Mui.Grid>
-
       <Components.MuiComponents.CustomLoadingButton
         fullWidth
         text="Load More"
