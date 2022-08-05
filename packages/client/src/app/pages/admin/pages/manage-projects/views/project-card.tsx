@@ -16,7 +16,7 @@ export const AdminProjectsCard = (props: CardType.Props) => {
     });
     if (result) {
       const projectData =
-        await Pages.Admin.ManageProjects.Hooks.useGetSingleProjectByTitle(
+        await Pages.Admin.Pages.ManageProjects.Hooks.useGetSingleProjectByTitle(
           props.title
         );
       deleteData(`projects/${projectData.docID}`);

@@ -12,13 +12,13 @@ export const AddNewProjectDialog = (props: ManageProjectDialogue.Props) => {
   const { setSnack } = React.useContext(Contexts.SnackbarContext);
 
   const handleSubmitValues = async (
-    values: Pages.Admin.ManageProjects.MainTypes.FormValues,
-    actions: Formik.FormikHelpers<Pages.Admin.ManageProjects.MainTypes.FormValues>
+    values: Pages.Admin.Pages.ManageProjects.MainTypes.FormValues,
+    actions: Formik.FormikHelpers<Pages.Admin.Pages.ManageProjects.MainTypes.FormValues>
   ) => {
     actions.setSubmitting(true);
 
     const isDocAvailable = (
-      await Pages.Admin.ManageProjects.Hooks.useGetSingleProjectByTitle(
+      await Pages.Admin.Pages.ManageProjects.Hooks.useGetSingleProjectByTitle(
         values.title
       )
     ).data;
@@ -68,9 +68,11 @@ export const AddNewProjectDialog = (props: ManageProjectDialogue.Props) => {
             image: "",
           }}
           onSubmit={handleSubmitValues}
-          validationSchema={Pages.Admin.ManageProjects.Views.ProjectFormSchema}
+          validationSchema={
+            Pages.Admin.Pages.ManageProjects.Views.ProjectFormSchema
+          }
         >
-          <Pages.Admin.ManageProjects.Views.ProjectForm />
+          <Pages.Admin.Pages.ManageProjects.Views.ProjectForm />
         </Formik.Formik>
       </Mui.Box>
     </Mui.Dialog>

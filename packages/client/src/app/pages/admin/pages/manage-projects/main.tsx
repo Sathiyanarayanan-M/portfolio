@@ -4,7 +4,7 @@ import * as Pages from "src/app/pages";
 export const Main = () => {
   return (
     <Mui.Box>
-      <Pages.Admin.ManageProjects.Views.Content />
+      <Pages.Admin.Pages.ManageProjects.Views.Content />
     </Mui.Box>
   );
 };

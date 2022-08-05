@@ -12,7 +12,7 @@ export const useGetSingleProjectByTitle = async (title: string) => {
 
   return {
     data: doc
-      .data[0] as unknown as Pages.Admin.ManageProjects.MainTypes.FormValues,
+      .data[0] as unknown as Pages.Admin.Pages.ManageProjects.MainTypes.FormValues,
     docID: doc.docIDs[0],
   };
 };

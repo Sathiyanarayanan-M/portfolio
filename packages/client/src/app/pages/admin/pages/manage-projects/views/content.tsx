@@ -40,14 +40,14 @@ export const Content = () => {
       }}
     >
       {showAddProjectDialog ? (
-        <Pages.Admin.ManageProjects.Views.AddNewProjectDialog
+        <Pages.Admin.Pages.ManageProjects.Views.AddNewProjectDialog
           showDialogue={showAddProjectDialog}
           handleShowDialogue={handleAddProjectDialog}
         />
       ) : null}
 
       {showEditProjectDialog ? (
-        <Pages.Admin.ManageProjects.Views.UpdateProjectDialog
+        <Pages.Admin.Pages.ManageProjects.Views.UpdateProjectDialog
           showDialogue={showEditProjectDialog}
           handleCloseEditDialog={handleCloseEditProjectDialog}
           editProjectTitle={editProjectTitle}
@@ -56,7 +56,7 @@ export const Content = () => {
       <Mui.Grid container spacing={3}>
         {data.map((item, index) => (
           <Mui.Grid xs={12} md={3} item key={index}>
-            <Pages.Admin.ManageProjects.Views.AdminProjectsCard
+            <Pages.Admin.Pages.ManageProjects.Views.AdminProjectsCard
               title={item.title}
               image={item.image}
               description={item.description}

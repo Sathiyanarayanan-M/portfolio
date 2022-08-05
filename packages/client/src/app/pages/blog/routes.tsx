@@ -16,12 +16,4 @@ export const Routes = () =>
         </PageRoutes.PrivateRoute>
       ),
     },
-    {
-      path: "manage-blog",
-      element: (
-        <PageRoutes.PrivateRoute>
-          <Pages.Blog.Pages.ManageBlog.Main />
-        </PageRoutes.PrivateRoute>
-      ),
-    },
   ]);

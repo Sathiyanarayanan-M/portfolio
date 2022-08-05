@@ -9,6 +9,10 @@ export const Routes = () =>
     },
     {
       path: "manage-projects",
-      element: <Pages.Admin.ManageProjects.Main />,
+      element: <Pages.Admin.Pages.ManageProjects.Main />,
+    },
+    {
+      path: "manage-blog",
+      element: <Pages.Admin.Pages.ManageBlog.Main />,
     },
   ]);
