@@ -56,12 +56,13 @@ export const Components = (): Pick<Mui.ThemeOptions, "components"> => {
       MuiInputBase: {
         styleOverrides: {
           input: {
+            color: theme.palette.common.white,
             '&:-webkit-autofill': {
               transitionDelay: '9999s',
               transitionProperty: 'background-color, color',
             },
           },
-        }
+        },
       },
     },
   };

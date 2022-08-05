@@ -14,6 +14,7 @@ export const PasswordField = (props: Mui.TextFieldProps) => {
               aria-label="toggle password visibility"
               onClick={() => setVisible(!visible)}
               edge="end"
+              color="primary"
             >
               {visible ? <MuiIcons.VisibilityOff /> : <MuiIcons.Visibility />}
             </Mui.IconButton>

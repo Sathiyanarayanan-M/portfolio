@@ -16,21 +16,23 @@ export const LoginForm = () => {
           label="Email"
           name="email"
           type="email"
-          variant="outlined"
+          variant="filled"
           fullWidth
           onChange={formikContext.handleChange}
           value={formikContext.values.email}
           required
           helperText={<Formik.ErrorMessage name="email" />}
+          focused
         />
         <Components.Fields.PasswordField
           name="password"
-          variant="outlined"
+          variant="filled"
           fullWidth
           onChange={formikContext.handleChange}
           value={formikContext.values.password}
           required
           helperText={<Formik.ErrorMessage name="password" />}
+          focused
         />
         <Mui.Button
           type="submit"

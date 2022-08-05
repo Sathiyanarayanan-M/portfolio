@@ -67,7 +67,13 @@ export const ProjectForm = () => {
           label="Title"
           name="title"
           type="text"
-          variant="outlined"
+          variant="filled"
+          focused
+          sx={{
+            "& input": {
+              color: "primary.100",
+            },
+          }}
           fullWidth
           onChange={formikContext.handleChange}
           value={formikContext.values.title}
@@ -83,7 +89,13 @@ export const ProjectForm = () => {
           label="Description"
           name="description"
           type="text"
-          variant="outlined"
+          variant="filled"
+          focused
+          sx={{
+            "& input": {
+              color: "primary.100",
+            },
+          }}
           onChange={formikContext.handleChange}
           value={formikContext.values.description}
           fullWidth
@@ -95,7 +107,13 @@ export const ProjectForm = () => {
           label="Role"
           name="role"
           type="text"
-          variant="outlined"
+          variant="filled"
+          focused
+          sx={{
+            "& input": {
+              color: "primary.100",
+            },
+          }}
           onChange={formikContext.handleChange}
           value={formikContext.values.role}
           fullWidth
@@ -110,7 +128,13 @@ export const ProjectForm = () => {
           label="Tech Used"
           name="techsUsed"
           type="text"
-          variant="outlined"
+          variant="filled"
+          focused
+          sx={{
+            "& input": {
+              color: "primary.100",
+            },
+          }}
           onChange={formikContext.handleChange}
           value={formikContext.values.techsUsed}
           fullWidth
@@ -125,7 +149,13 @@ export const ProjectForm = () => {
           label="Details url"
           name="detailsUrl"
           type="text"
-          variant="outlined"
+          variant="filled"
+          focused
+          sx={{
+            "& input": {
+              color: "primary.100",
+            },
+          }}
           onChange={formikContext.handleChange}
           value={formikContext.values.detailsUrl}
           fullWidth
@@ -149,14 +179,13 @@ export const ProjectForm = () => {
               hidden
               onChange={handleFileUpload}
             />
-            <Components.MuiComponents.CustomLoadingButton
-              fullWidth
-              text="Upload"
+            <MuiLab.LoadingButton
               loading={isFileUploading}
-              // onClick={handleCompileClick}
               variant="outlined"
-              sx={{ textTransform: "none" }}
-            />
+              component="span"
+            >
+              Upload
+            </MuiLab.LoadingButton>
           </label>
           {formikContext.values.image && (
             <React.Fragment>
