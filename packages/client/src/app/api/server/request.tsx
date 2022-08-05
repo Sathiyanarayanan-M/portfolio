@@ -38,7 +38,7 @@ export const useQueryRequest = ({
 export const useMutationRequest = ({
   requestOptions,
   requestCallbacks,
-}: IUseQueryRequest.Props) => {
+}: IUseQueryRequest.Props): IUseQueryRequest.MutationResult => {
   return ReactQuery.useMutation(
     (requestData: any) => Request(requestOptions, requestData),
     requestCallbacks
@@ -58,4 +58,11 @@ export namespace IUseQueryRequest {
       | undefined;
     requestCallbacks?: ReactQuery.MutationOptions;
   }
+
+  export type MutationResult = ReactQuery.UseMutationResult<
+    Axios.AxiosResponse<any, any>,
+    unknown,
+    any,
+    unknown
+  >;
 }
