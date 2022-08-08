@@ -2,7 +2,7 @@ import React from "react";
 import * as Mui from "@mui/material";
 import * as MuiIcons from "@mui/icons-material";
 import * as MuiLab from "@mui/lab";
-import * as Loadsh from "lodash";
+import Loadsh from "lodash";
 import Editor from "@monaco-editor/react";
 import * as Pages from "src/app/pages";
 import * as Hooks from "src/app/hooks";
