@@ -10,5 +10,17 @@ exports.useFirestore = () => {
     return data;
   };
 
-  return { getCollectionData };
+  const addCollectiondata = async (collectionName, data) => {
+    const serverTimestamp =
+      firebaseAdmin.firestore.FieldValue.serverTimestamp();
+    const formattedData = {
+      ...data,
+      timestamp: serverTimestamp,
+    };
+    const collectionRef = db.collection(collectionName);
+    const response = await collectionRef.add(formattedData);
+    return response.id;
+  };
+
+  return { getCollectionData, addCollectiondata };
 };
