@@ -11,8 +11,7 @@ exports.useFirestore = () => {
   };
 
   const addCollectiondata = async (collectionName, data) => {
-    const serverTimestamp =
-      firebaseAdmin.firestore.FieldValue.serverTimestamp();
+    const serverTimestamp = firebaseAdmin.firestore.Timestamp.now().toMillis();
     const formattedData = {
       ...data,
       timestamp: serverTimestamp,

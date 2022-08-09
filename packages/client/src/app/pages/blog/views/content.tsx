@@ -7,13 +7,16 @@ import * as Components from "src/app/components";
 export const Content = () => {
   const [pageNum, setPageNum] = React.useState(1);
   const [articlesList, setArticlesList] = React.useState<
-    Pages.Blog.Hooks.IUseProjectList.Article[]
+    Pages.Blog.Hooks.IUseArticleList.Article[]
   >([]);
 
   const { data, isLoading } = Pages.Blog.Hooks.useGetArticles({
     page: pageNum,
     pageSize: 20,
   });
+
+  const { data: blogData, isLoading: isBlogLoading } =
+    Pages.Blog.Hooks.useGetBlogs();
 
   const handleLoadMore = () => {
     setPageNum((prev) => prev + 1);
