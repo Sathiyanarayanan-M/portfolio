@@ -38,7 +38,7 @@ export const Content = () => {
   const storeBlogInLocalStorage = (state: ReactWysiwyg.EditorState) => {
     const rawContent = DraftJS.convertToRaw(state.getCurrentContent());
     console.log(rawContent);
-    setToLocalStorage("local-blog", rawContent, true);
+    setToLocalStorage("local-blog", rawContent, { stringify: true });
   };
 
   const storageHandler = Loadsh.debounce(storeBlogInLocalStorage, 500);

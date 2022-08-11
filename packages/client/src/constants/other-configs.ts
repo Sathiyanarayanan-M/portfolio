@@ -99,3 +99,5 @@ export const TsParticlesConfig = () => ({
     retina_detect: true,
 
 });
+
+export const localStorageClearExcemptionKeys = [{ key: 'theme', encrypt: false, stringify: false }];

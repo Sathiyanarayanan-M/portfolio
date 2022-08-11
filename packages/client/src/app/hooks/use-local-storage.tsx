@@ -3,17 +3,16 @@ import * as Constants from "src/constants";
 
 export const useLocalStorage = () => {
   const secretKey = Constants.SECRETS_CONFIG.cryptoSecretKey;
-  const setToLocalStorage = (
-    key: string,
-    value: any,
-    stringify?: boolean,
-    encrypt = false
+  const setToLocalStorage: UseLocalStorageType.SetToLocalStorageType = (
+    key,
+    value,
+    options
   ) => {
     let formattedValue = value;
-    if (stringify) {
+    if (options?.stringify) {
       formattedValue = JSON.stringify(value);
     }
-    if (encrypt) {
+    if (options?.encrypt) {
       const cipher = CryptoJs.AES.encrypt(formattedValue, secretKey);
       localStorage.setItem(key, cipher.toString());
     }
@@ -40,9 +39,26 @@ export const useLocalStorage = () => {
     return localItem;
   };
 
+  const removeFromStorage = (key: string) => localStorage.removeItem(key);
+
+  const clearLocalStorage = () => {
+    const excemptionObjects = Constants.localStorageClearExcemptionKeys.map(
+      (item) => ({
+        ...item,
+        value: localStorage.getItem(item.key),
+      })
+    );
+    localStorage.clear();
+    excemptionObjects.forEach((item) => {
+      setToLocalStorage(item.key, item.value, { ...item });
+    });
+  };
+
   return {
     setToLocalStorage,
     getFromLocalStorage,
+    removeFromStorage,
+    clearLocalStorage,
   };
 };
 
@@ -52,4 +68,14 @@ export namespace UseLocalStorageType {
     | number
     | boolean
     | { [keys in string]: string };
+
+  export type SetToLocalStorageType = (
+    key: string,
+    value: any,
+    options?: SetToLocalStorageOptions
+  ) => void;
+  export interface SetToLocalStorageOptions {
+    encrypt?: boolean;
+    stringify?: boolean;
+  }
 }
