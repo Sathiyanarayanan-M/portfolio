@@ -29,14 +29,22 @@ export const Content = () => {
   }, [JSON.stringify(data)]);
 
   return (
-    <Mui.Stack sx={{ p: 4 }} spacing={2}>
+    <Mui.Stack
+      direction="row"
+      sx={{ py: 4, px: 20, color: "common.white" }}
+      spacing={4}
+      justifyContent="space-between"
+    >
+      <Pages.Blog.Views.LeftSideBar />
+      <Pages.Blog.Views.BlogContainer />
+      <Pages.Blog.Views.RightSideBar />
       {/* <Mui.Button
         variant="outlined"
         sx={{ maxWidth: "fit-content", alignSelf: "flex-end" }}
       >
         Create a Post?
       </Mui.Button> */}
-      <Mui.Grid container spacing={2}>
+      {/* <Mui.Grid container spacing={2}>
         {articlesList?.map((item, index) => (
           <Mui.Grid item xs={12} sm={6} md={4} key={index}>
             <Pages.Blog.Views.ArticlesCard {...item} />
@@ -49,15 +57,15 @@ export const Content = () => {
               <Components.CardSkeleton />
             </Mui.Grid>
           ))}
-      </Mui.Grid>
-      <Components.MuiComponents.CustomLoadingButton
+      </Mui.Grid> */}
+      {/* <Components.MuiComponents.CustomLoadingButton
         fullWidth
         text="Load More"
         loading={isLoading}
         onClick={handleLoadMore}
         variant="outlined"
         sx={{ display: articlesList.length ? "inline-flex" : "none" }}
-      />
+      /> */}
     </Mui.Stack>
   );
 };

@@ -36,5 +36,15 @@ export namespace IUseBlogList {
     timestamp: number;
     title: string;
     content: string;
+    description: string;
+    timeToRead: string;
+    tags: string[];
+    isBookmarked: boolean;
+    isLiked: boolean;
+    likes: number;
+    user: {
+      profile: string;
+      name: string;
+    };
   }
 }

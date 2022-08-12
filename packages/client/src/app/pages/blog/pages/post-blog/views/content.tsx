@@ -19,11 +19,13 @@ export const Content = () => {
   const { setSnack } = React.useContext(Contexts.SnackbarContext);
   const [title, setTitle] = React.useState("");
   const navigate = Router.useNavigate();
-  const { getFromLocalStorage, setToLocalStorage } = Hooks.useLocalStorage();
+  const { getFromLocalStorage, setToLocalStorage, removeFromStorage } =
+    Hooks.useLocalStorage();
 
   const { mutate, isLoading } = Pages.Blog.Pages.PostBlog.Hooks.usePostBlog({
     callbacks: {
       onSuccess: (data) => {
+        removeFromStorage("local-blog");
         setSnack({
           open: true,
           message: "Your response send successfully",
