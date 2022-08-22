@@ -1,11 +1,12 @@
-const compiler = require("../../utils/api/ideAPIs");
+const compiler = require('../../utils/api/ideAPIs');
+
 exports.codeCompiler = async (req, res, next) => {
   const { submitCode } = compiler;
   try {
     const compilerRes = await submitCode(req.body);
     return res.status(200).json({
       error: false,
-      status: "success",
+      status: 'success',
       data: compilerRes,
     });
   } catch (e) {
@@ -20,7 +21,7 @@ exports.getAllLanguages = async (req, res, next) => {
     const languages = await getLanguages();
     return res.status(200).json({
       error: false,
-      status: "success",
+      status: 'success',
       data: languages,
     });
   } catch (e) {

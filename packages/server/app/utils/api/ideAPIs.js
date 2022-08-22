@@ -1,4 +1,5 @@
-const Axios = require("axios");
+const Axios = require('axios');
+
 const apiConstants = {
   baseUrl: process.env.compiler_api,
   compilerHost: process.env.compiler_host,
@@ -6,13 +7,13 @@ const apiConstants = {
 };
 exports.submitCode = async (props) => {
   const options = {
-    method: "POST",
+    method: 'POST',
     url: `${apiConstants.baseUrl}/submissions`,
-    params: { base64_encoded: true, wait: true, fields: "*" },
+    params: { base64_encoded: true, wait: true, fields: '*' },
     headers: {
-      "Content-Type": "application/json",
-      "X-RapidAPI-Key": apiConstants.secretKey,
-      "X-RapidAPI-Host": apiConstants.compilerHost,
+      'Content-Type': 'application/json',
+      'X-RapidAPI-Key': apiConstants.secretKey,
+      'X-RapidAPI-Host': apiConstants.compilerHost,
     },
     data: props,
   };
@@ -20,23 +21,24 @@ exports.submitCode = async (props) => {
     const res = await Axios.default.request(options);
     return res.data;
   } catch (e) {
-    console.log(e);
+    return e;
   }
 };
 
-exports.getLanguages = async (submission_id) => {
+exports.getLanguages = async () => {
   const options = {
-    method: "GET",
+    method: 'GET',
     url: `${apiConstants.baseUrl}/languages`,
     headers: {
-      "X-RapidAPI-Key": apiConstants.secretKey,
-      "X-RapidAPI-Host": apiConstants.compilerHost,
+      'X-RapidAPI-Key': apiConstants.secretKey,
+      'X-RapidAPI-Host': apiConstants.compilerHost,
     },
   };
   try {
     const res = await Axios.default.request(options);
     return res.data;
   } catch (e) {
-    console.log(e);
+    // console.log(e);
+    return e;
   }
 };

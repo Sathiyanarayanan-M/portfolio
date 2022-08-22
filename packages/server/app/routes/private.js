@@ -1,15 +1,13 @@
-const admin = require("firebase-admin");
-const firebaseConfig =
-  require("../../app/config/firebaseConfig").FIREBASE_CONFIG;
+const admin = require('firebase-admin');
+const firebaseConfig = require('../config/firebaseConfig').FIREBASE_CONFIG;
 
 admin.initializeApp({
   credential: admin.credential.cert(firebaseConfig),
-  databaseURL: "https://sathiyanarayanan-m.appspot.com",
+  databaseURL: 'https://sathiyanarayanan-m.appspot.com',
 });
 
 exports.router = (req, res, next) => {
-  const token = req.headers["authorization"] || req.headers["x-access-token"];
-  console.log(token);
+  const token = req.headers.authorization || req.headers['x-access-token'];
   if (token) {
     admin
       .auth()
@@ -18,15 +16,15 @@ exports.router = (req, res, next) => {
         req.userData = userData;
         next();
       })
-      .catch((e) => {
+      .catch(() => {
         const err = {};
-        err.message = "Invalid Token";
+        err.message = 'Invalid Token';
         err.code = 403;
         next(err);
       });
   } else {
     res.status(403).send({
-      message: "No Token Provided",
+      message: 'No Token Provided',
       error: true,
     });
   }

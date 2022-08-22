@@ -1,4 +1,4 @@
-const firebaseAdmin = require("firebase-admin");
+const firebaseAdmin = require('firebase-admin');
 
 exports.useFirestore = () => {
   const db = firebaseAdmin.firestore();

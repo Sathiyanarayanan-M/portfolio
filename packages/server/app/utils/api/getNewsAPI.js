@@ -1,5 +1,5 @@
-const axios = require("axios");
-const NewsAPI = require("newsapi");
+const NewsAPI = require('newsapi');
+
 const newsapi = new NewsAPI(process.env.news_api_key);
 
 exports.getNewsAPI = async (props = {}) => {
