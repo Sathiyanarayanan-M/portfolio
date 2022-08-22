@@ -14,10 +14,11 @@ router.route("/login").get((req, res) => {
 router.route("/projects").get(projects.projectList);
 router.route("/articles").get(articles.articlesList);
 router.route("/blogs").get(blogs.getBlogs);
-router.route("/blog/post").post(blogs.postBlog);
+router.route("/blog/post").post(privateRoute.router, blogs.postBlog);
 router.route("/code/compile").post(codeEditor.codeCompiler);
 router.route("/code/getLanguages/all").get(codeEditor.getAllLanguages);
 router.route("/feedback").post(mailer.sendMail);
+
 // router
 //   .route("/code/compile/:submission_id")
 //   .get(codeEditor.getAllLanguages);

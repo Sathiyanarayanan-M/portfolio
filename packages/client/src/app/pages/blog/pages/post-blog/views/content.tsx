@@ -31,7 +31,7 @@ export const Content = () => {
           message: "Your response send successfully",
           severity: "success",
         });
-        // navigate('')
+        navigate("/blog");
         console.log(data);
       },
     },
@@ -62,7 +62,9 @@ export const Content = () => {
   };
 
   React.useEffect(() => {
-    const blogFromLocalStorage = getFromLocalStorage("local-blog", true);
+    const blogFromLocalStorage = getFromLocalStorage("local-blog", {
+      parse: true,
+    });
     if (blogFromLocalStorage) {
       const stateContent = DraftJS.convertFromRaw(blogFromLocalStorage);
       const createWithContent =

@@ -15,9 +15,6 @@ export const Content = () => {
     pageSize: 20,
   });
 
-  const { data: blogData, isLoading: isBlogLoading } =
-    Pages.Blog.Hooks.useGetBlogs();
-
   const handleLoadMore = () => {
     setPageNum((prev) => prev + 1);
   };
@@ -35,9 +32,9 @@ export const Content = () => {
       spacing={4}
       justifyContent="space-between"
     >
-      <Pages.Blog.Views.LeftSideBar />
+      <Pages.Blog.Views.SideBarWrapper />
       <Pages.Blog.Views.BlogContainer />
-      <Pages.Blog.Views.RightSideBar />
+      {/* <Pages.Blog.Views.RightSideBar /> */}
       {/* <Mui.Button
         variant="outlined"
         sx={{ maxWidth: "fit-content", alignSelf: "flex-end" }}

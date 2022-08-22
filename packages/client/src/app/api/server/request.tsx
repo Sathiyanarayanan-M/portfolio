@@ -2,6 +2,7 @@ import * as Axios from "axios";
 import { setupCache } from "axios-cache-adapter";
 import * as ReactQuery from "react-query";
 import * as Constants from "src/constants";
+import * as Hooks from "src/app/hooks";
 
 const cache = setupCache({
   maxAge: 15 * 60 * 1000,
@@ -13,10 +14,12 @@ const client = Axios.default.create({
 });
 
 export const Request = async (options: StringObject, data?: any) => {
+  const { getFromLocalStorage } = Hooks.useLocalStorage();
   return client({
     headers: {
       "Content-Type": "application/json",
       Accept: "application/json",
+      authorization: getFromLocalStorage("user") || "",
     },
     ...options,
     data,

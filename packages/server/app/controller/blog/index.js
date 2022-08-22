@@ -4,7 +4,14 @@ exports.postBlog = async (req, res, next) => {
   const { addCollectiondata } = firebase.useFirestore();
 
   try {
-    const firebaseResponse = await addCollectiondata("adminBlogs", req.body);
+    const formatData = {
+      ...req.body,
+      author: {
+        uid: req.userData.uid,
+      },
+      likes: 0,
+    };
+    const firebaseResponse = await addCollectiondata(`blogs`, formatData);
     res.status(200).json({
       status: "success",
       message: "Post submitted sucessfully",
@@ -20,8 +27,9 @@ exports.postBlog = async (req, res, next) => {
 
 exports.getBlogs = async (req, res, next) => {
   const { getCollectionData } = firebase.useFirestore();
+
   try {
-    const firebaseRes = await getCollectionData("adminBlogs");
+    const firebaseRes = await getCollectionData("blogs");
     res.status(200).json({
       status: "success",
       data: firebaseRes,

@@ -9,21 +9,23 @@ admin.initializeApp({
 
 exports.router = (req, res, next) => {
   const token = req.headers["authorization"] || req.headers["x-access-token"];
+  console.log(token);
   if (token) {
     admin
       .auth()
       .verifyIdToken(token)
-      .then((rr) => {
-        return next();
+      .then((userData) => {
+        req.userData = userData;
+        next();
       })
       .catch((e) => {
         const err = {};
         err.message = "Invalid Token";
         err.code = 403;
-        return next(err);
+        next(err);
       });
   } else {
-    return res.status(403).send({
+    res.status(403).send({
       message: "No Token Provided",
       error: true,
     });

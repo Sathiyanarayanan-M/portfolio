@@ -65,6 +65,7 @@ export const BlogCard = (props: Pages.Blog.Hooks.IUseBlogList.Data) => {
         <Mui.Stack direction="row" spacing={1}>
           {props.tags.map((item, idx) => (
             <Mui.Button
+              key={idx}
               sx={{ color: "common.black", textTransform: "none" }}
             >{`#${item}`}</Mui.Button>
           ))}

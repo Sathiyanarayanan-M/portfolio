@@ -19,16 +19,15 @@ export const useLocalStorage = () => {
     localStorage.setItem(key, formattedValue);
   };
 
-  const getFromLocalStorage = (
-    key: string,
-    parse?: boolean,
-    encrypted = false
+  const getFromLocalStorage: UseLocalStorageType.GetFromLocalStorageType = (
+    key,
+    options
   ) => {
     let localItem = localStorage.getItem(key);
-    if (parse && localItem) {
+    if (options?.parse && localItem) {
       localItem = JSON.parse(localItem);
     }
-    if (encrypted) {
+    if (options?.decrypt) {
       if (!localItem) {
         return null;
       }
@@ -74,8 +73,16 @@ export namespace UseLocalStorageType {
     value: any,
     options?: SetToLocalStorageOptions
   ) => void;
+  export type GetFromLocalStorageType = (
+    key: string,
+    options?: GetFromLocalStorageOptions
+  ) => any;
   export interface SetToLocalStorageOptions {
     encrypt?: boolean;
     stringify?: boolean;
+  }
+  export interface GetFromLocalStorageOptions {
+    decrypt?: boolean;
+    parse?: boolean;
   }
 }
