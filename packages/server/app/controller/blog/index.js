@@ -26,9 +26,29 @@ exports.postBlog = async (req, res, next) => {
 
 exports.getBlogs = async (req, res, next) => {
   const { getCollectionData } = firebase.useFirestore();
-
   try {
     const firebaseRes = await getCollectionData('blogs');
+    res.status(200).json({
+      status: 'success',
+      data: firebaseRes,
+    });
+  } catch (e) {
+    next(e);
+  }
+};
+
+exports.getBlogOptions = async (req, res, next) => {
+  const { getCollectionData } = firebase.useFirestore();
+  try {
+    const collectionMap = (querySnapshot) => {
+      const docArray = querySnapshot.docs.map((doc) => ({ key: doc.id, value: doc.data() }));
+      const docObj = docArray.reduce(
+        (obj, item) => Object.assign(obj, { [item.key]: item.value }),
+        {},
+      );
+      return docObj;
+    };
+    const firebaseRes = await getCollectionData('blog-options', collectionMap);
     res.status(200).json({
       status: 'success',
       data: firebaseRes,

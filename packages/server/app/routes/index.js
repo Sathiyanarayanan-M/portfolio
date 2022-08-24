@@ -15,6 +15,7 @@ router.route('/login').get((req, res) => {
 router.route('/projects').get(projects.projectList);
 router.route('/articles').get(articles.articlesList);
 router.route('/blogs').get(blogs.getBlogs);
+router.route('/blog-options').get(blogs.getBlogOptions);
 router.route('/blog/post').post(privateRoute.router, blogs.postBlog);
 router.route('/code/compile').post(codeEditor.codeCompiler);
 router.route('/code/getLanguages/all').get(codeEditor.getAllLanguages);

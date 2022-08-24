@@ -3,11 +3,12 @@ const firebaseAdmin = require('firebase-admin');
 exports.useFirestore = () => {
   const db = firebaseAdmin.firestore();
 
-  const getCollectionData = async (collectionName) => {
+  const defaultSnapShotMapping = (querySnapshot) => querySnapshot.docs.map((doc) => doc.data());
+
+  const getCollectionData = async (collectionName, snapShotMap = defaultSnapShotMapping) => {
     const collectionRef = db.collection(collectionName);
     const querySnapshot = await collectionRef.get();
-    const data = querySnapshot.docs.map((doc) => doc.data());
-    return data;
+    return snapShotMap(querySnapshot);
   };
 
   const addCollectiondata = async (collectionName, data) => {

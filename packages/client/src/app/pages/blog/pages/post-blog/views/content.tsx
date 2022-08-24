@@ -22,6 +22,9 @@ export const Content = () => {
   const { getFromLocalStorage, setToLocalStorage, removeFromStorage } =
     Hooks.useLocalStorage();
 
+  const { data: blogOptions } = Pages.Blog.Hooks.useGetBlogOptions();
+  console.log(blogOptions);
+
   const { mutate, isLoading } = Pages.Blog.Pages.PostBlog.Hooks.usePostBlog({
     callbacks: {
       onSuccess: (data) => {
@@ -105,13 +108,42 @@ export const Content = () => {
         />
       </Mui.Paper>
 
-      <Mui.Button
-        variant="contained"
-        type="submit"
-        sx={{ color: "common.white", width: 300, alignSelf: "flex-end" }}
-      >
-        Submit
-      </Mui.Button>
+      <Mui.Stack direction="row" justifyContent="space-between">
+        {/* <Mui.Autocomplete
+          color="primary"
+          multiple
+          limitTags={3}
+          options={blogOptions?.tags?.list || []}
+          disableCloseOnSelect
+          getOptionLabel={(option) => option}
+          renderOption={(props, option, { selected }) => (
+            <li {...props}>
+              <Mui.Checkbox
+                icon={<MuiIcons.CheckBoxOutlineBlank fontSize="small" />}
+                checkedIcon={<MuiIcons.CheckBox fontSize="small" />}
+                style={{ marginRight: 8 }}
+                checked={selected}
+              />
+              {option}
+            </li>
+          )}
+          style={{ width: 500 }}
+          renderInput={(params) => <Mui.TextField {...params} focused />}
+          ChipProps={{
+            sx: {
+              color: "primary.main",
+              background: "primary[100]",
+            },
+          }}
+        /> */}
+        <Mui.Button
+          variant="contained"
+          type="submit"
+          sx={{ color: "common.white", width: 300, alignSelf: "flex-end" }}
+        >
+          Submit
+        </Mui.Button>
+      </Mui.Stack>
     </Mui.Stack>
   );
 };

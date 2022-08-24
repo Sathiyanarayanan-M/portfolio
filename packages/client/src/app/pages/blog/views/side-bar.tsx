@@ -10,8 +10,7 @@ const sampleData = {
 };
 
 export const SideBarWrapper = () => {
-  const { data: blogOptions = { tags: ["adsfsda", "python"] } } =
-    Pages.Blog.Hooks.useGetBlogOptions();
+  const { data: blogOptions } = Pages.Blog.Hooks.useGetBlogOptions();
   const navigate = Router.useNavigate();
 
   return (
@@ -41,7 +40,7 @@ export const SideBarWrapper = () => {
         <Mui.Typography variant="h5" mb={1}>
           Popular Tags
         </Mui.Typography>
-        {blogOptions?.tags?.map((item, idx) => (
+        {blogOptions?.tags?.list?.map((item, idx) => (
           <Mui.Button
             variant="outlined"
             sx={{
