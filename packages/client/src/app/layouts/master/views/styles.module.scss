@@ -1,0 +1,18 @@
+@import "src/common.module.scss";
+
+.appbar__navigation {
+  color: $common-black;
+  @include text-btn;
+  @include underline-transition;
+  &::after {
+    height: 2px;
+    border-radius: 1px;
+    background: $primary-main;
+  }
+}
+
+.social__icon {
+  &:hover {
+    color: $primary-main;
+  }
+}

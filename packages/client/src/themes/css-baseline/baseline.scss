@@ -11,8 +11,12 @@ body,
   scroll-behavior: smooth;
   overflow-x: hidden;
   background-image: url(cdnHost("images/stars.svg"));
-  // background-color: rgba(120, 104, 230);
-  background-color: #222831;
+  background-color: $background-light;
+
+  // Old one
+  // background-image: url(cdnHost("images/stars.svg"));
+  // background-color: #222831;
+
   // background-color: inherit;
   // background-image: linear-gradient(
   //   110.3deg,

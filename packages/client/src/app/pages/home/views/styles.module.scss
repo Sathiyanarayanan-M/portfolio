@@ -1,13 +1,36 @@
 @import "src/common.module.scss";
 
+.home__section {
+  margin: 0 auto;
+  text-align: center;
+  .name__text {
+    width: fit-content;
+    margin: 0 auto;
+    font-size: 5rem;
+    line-height: 1.2;
+    &::after {
+      content: "";
+      width: 25%;
+      // margin: 0 auto;
+      background: $primary-main;
+      height: 3px;
+      display: block;
+      transition: 300ms;
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
+  }
+}
+
 .box__container {
   position: relative;
   height: 90px;
   .text__container {
     position: absolute;
-    width: 100%;
+    // width: fit-content;
     top: 0;
-    bottom: 0;
     filter: url(#threshold) blur(0.6px);
     .text1,
     .text2 {

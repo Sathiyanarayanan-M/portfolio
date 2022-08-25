@@ -32,38 +32,42 @@ export const Components = (): Pick<Mui.ThemeOptions, "components"> => {
           h6: {
             fontFamily: "'Balsamiq Sans', cursive",
             fontWeight: 500
+          },
+          h4: {
+            fontFamily: "Amiri",
+
           }
         },
-        defaultProps: {
-          color: theme.palette.common.white
-        }
+        // defaultProps: {
+        //   color: theme.palette.common.white
+        // }
       },
-      MuiButton: {
-        variants: [
-          {
-            props: { variant: 'shaded' },
-            style: {
-              color: theme.palette.common.white,
-              backgroundColor: "#393E46",
-              "&:hover": {
-                backgroundColor: "#393E46",
-              },
-              border: '1px solid #00ADB5'
-            },
-          },
-        ],
-      },
-      MuiInputBase: {
-        styleOverrides: {
-          input: {
-            color: theme.palette.common.white,
-            '&:-webkit-autofill': {
-              transitionDelay: '9999s',
-              transitionProperty: 'background-color, color',
-            },
-          },
-        },
-      },
+      // MuiButton: {
+      //   variants: [
+      //     {
+      //       props: { variant: 'shaded' },
+      //       style: {
+      //         color: theme.palette.common.white,
+      //         backgroundColor: "#393E46",
+      //         "&:hover": {
+      //           backgroundColor: "#393E46",
+      //         },
+      //         border: '1px solid #00ADB5'
+      //       },
+      //     },
+      //   ],
+      // },
+      // MuiInputBase: {
+      //   styleOverrides: {
+      //     input: {
+      //       color: theme.palette.common.white,
+      //       '&:-webkit-autofill': {
+      //         transitionDelay: '9999s',
+      //         transitionProperty: 'background-color, color',
+      //       },
+      //     },
+      //   },
+      // },
     },
   };
 };

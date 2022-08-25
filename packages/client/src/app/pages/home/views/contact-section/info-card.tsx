@@ -3,36 +3,9 @@ import * as Mui from "@mui/material";
 import * as MuiLab from "@mui/lab";
 import * as MuiIcons from "@mui/icons-material";
 import * as Hooks from "src/app/hooks";
+import * as AppConstants from "src/app/constants";
 
 export const InfoCard = () => {
-  const socialList = [
-    {
-      label: "LinkedIn",
-      value: "linkenin",
-      link: "https://www.linkedin.com/in/sathiyanarayanan-m",
-      icon: <MuiIcons.LinkedIn sx={{ color: "common.white" }} />,
-    },
-    {
-      label: "Github",
-      value: "github",
-      link: "https://github.com/Sathiyanarayanan-M",
-      icon: <MuiIcons.GitHub sx={{ color: "common.white" }} />,
-    },
-    {
-      label: "Twitter",
-      value: "twitter",
-      link: "https://twitter.com/sathiya1622",
-      icon: <MuiIcons.Twitter sx={{ color: "common.white" }} />,
-    },
-    {
-      label: "StackOverflow",
-      value: "stack-overflow",
-      link: "https://stackoverflow.com/users/14388598/sathiyanarayanan",
-      icon: (
-        <i className="fab fa-stack-overflow" style={{ color: "#f5f7fa" }} />
-      ),
-    },
-  ];
   return (
     <Mui.Stack spacing={2} sx={{ p: 2, color: "common.white" }}>
       <Mui.Typography variant="h6">Contact Information</Mui.Typography>
@@ -52,7 +25,7 @@ export const InfoCard = () => {
         <Mui.Typography>309, south street, thirubuvanam.</Mui.Typography>
       </Mui.Stack>
       <Mui.Stack direction="row">
-        {socialList.map((item) => (
+        {AppConstants.socialList().map((item) => (
           <Mui.IconButton
             LinkComponent="a"
             key={item.value}

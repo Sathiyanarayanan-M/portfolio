@@ -2,6 +2,8 @@ import React from "react";
 import * as Router from "react-router-dom";
 import * as Mui from "@mui/material";
 import * as Constants from "src/constants";
+import * as AppConstants from "src/app/constants";
+import styles from "src/app/layouts/master/views/styles.module.scss";
 
 export const Appbar = () => {
   const { pathname } = Router.useLocation();
@@ -44,19 +46,16 @@ export const Appbar = () => {
 
   return (
     <React.Fragment>
-      <Mui.AppBar sx={{ bgcolor: "inherit" }} elevation={0}>
-        <Mui.Toolbar>
+      <Mui.AppBar position="static" sx={{ bgcolor: "inherit" }} elevation={0}>
+        <Mui.Toolbar disableGutters>
           <Mui.Stack
             direction="row"
             spacing={2}
-            justifyContent="center"
-            sx={{
-              color: "rgba(255, 255, 255, 0.5)",
-              width: "100%",
-              pt: 1,
-            }}
+            justifyContent="space-between"
+            alignItems="center"
+            sx={{ py: 10, px: 15, width: "100%" }}
           >
-            {Constants.Navigations.map((navigation) => (
+            {/* {Constants.Navigations.map((navigation) => (
               <Mui.Box
                 key={navigation.value}
                 component={Mui.ButtonBase}
@@ -86,11 +85,40 @@ export const Appbar = () => {
                   {navigation.name}
                 </Mui.Typography>
               </Mui.Box>
-            ))}
+            ))} */}
+
+            <Mui.Stack direction="row" spacing={4}>
+              {Constants.Navigations.map((navigation, idx) => (
+                <Mui.Typography
+                  key={idx}
+                  variant="h6"
+                  className={styles.appbar__navigation}
+                >
+                  {navigation.name}
+                </Mui.Typography>
+              ))}
+            </Mui.Stack>
+
+            <Mui.Stack direction="row" spacing={2}>
+              {AppConstants.socialList().map((item, idx) => (
+                <Mui.IconButton
+                  size="large"
+                  disableRipple
+                  LinkComponent="a"
+                  key={idx}
+                  sx={{ color: "common.black" }}
+                  href={item.link}
+                  target="_blank"
+                  className={styles.social__icon}
+                >
+                  {item.icon}
+                </Mui.IconButton>
+              ))}
+            </Mui.Stack>
           </Mui.Stack>
         </Mui.Toolbar>
       </Mui.AppBar>
-      <Mui.Toolbar />
+      {/* <Mui.Toolbar /> */}
     </React.Fragment>
   );
 };
