@@ -1,6 +1,13 @@
 @import "src/common.module.scss";
 
-.home__section {
+.section__title {
+  font-size: 3em;
+  font-family: $content-font;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.intro__section {
   margin: 0 auto;
   text-align: center;
   .name__text {
@@ -20,6 +27,48 @@
 
     &:hover::after {
       width: 100%;
+    }
+  }
+
+  .short__intro {
+    margin-top: 120px;
+    .title {
+      font-weight: 400;
+      font-size: 1em;
+      color: $primary-300;
+      margin-bottom: 10px;
+    }
+
+    .content {
+      font-family: $content-font;
+      font-size: 1.5em;
+      display: block;
+    }
+
+    .content ~ a {
+      color: $common-black;
+      text-decoration: none;
+      width: fit-content;
+      @include underline-transition;
+      &::after {
+        background: $primary-main;
+      }
+    }
+
+    .numbers {
+      font-weight: 600;
+      font-size: 3em;
+    }
+
+    .media {
+      margin: 0 20px;
+    }
+
+    .left__stack {
+      text-align: left;
+    }
+    .right__stack {
+      text-align: right;
     }
   }
 }

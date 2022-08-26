@@ -5,6 +5,7 @@ $cdn-url: "https://cdn-bucket.netlify.app/";
 $primary-main: #b46e53;
 $primary-100: #5e2d1f;
 $primary-200: #54bab9;
+$primary-300: #5f5e5e;
 $common-white: #fafafa;
 $common-black: #161515;
 $background-light: #fff;
@@ -12,9 +13,10 @@ $background-light: #fff;
 $swatch_2: #b7c6c9;
 // $swatch_3: #161515;
 $swatch_4: #c6b099;
-$swatch_5: #5f5e5e;
 $swatch_6: #b46e53;
 $swatch_7: #5e2d1f;
+
+$content-font: "Amiri";
 
 @function cdnHost($name) {
   @return $cdn-url + $name;
@@ -26,8 +28,6 @@ $swatch_7: #5e2d1f;
 }
 
 @mixin underline-transition {
-  display: inline-block;
-
   &::after {
     content: "";
     width: 0;

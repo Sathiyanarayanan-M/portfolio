@@ -12,21 +12,22 @@ export const Content = () => {
   const isInView = FramerMotion.useInView(scrollButtonRef, { once: true });
 
   return (
-    <Mui.Box sx={{ p: 2 }}>
-      <Mui.Stack
-      // justifyContent="center"
-      // sx={{
-      //   height: "calc(100vh - 64px)",
-      // }}
-      >
-        <Pages.Home.Views.HomeSection.Main />
-      </Mui.Stack>
-      <Mui.Box>
+    <Mui.Box sx={{ py: 2, px: 15 }}>
+      <Pages.Home.Views.IntroSection.Main />
+      <Mui.Divider
+        sx={{
+          my: 10,
+          borderColor: "common.black",
+        }}
+        variant="middle"
+      />
+      <Pages.Home.Views.SkillsSection.Main />
+      {/* <Mui.Box>
         <Pages.Home.Views.ProjectSection.Main />
       </Mui.Box>
       <Mui.Box>
         <Pages.Home.Views.ContactSection.Main />
-      </Mui.Box>
+      </Mui.Box> */}
     </Mui.Box>
   );
 };
