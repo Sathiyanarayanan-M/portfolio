@@ -18,7 +18,7 @@ export const Content = () => {
       <Mui.Divider className={styles.section__splitter} />
       <Pages.Home.Views.SkillsSection.Main />
       <Mui.Divider className={styles.section__splitter} />
-
+      {/* <Pages.Home.Views.ExperienceSection.Main /> */}
       {/* <Mui.Box>
         <Pages.Home.Views.ProjectSection.Main />
       </Mui.Box>

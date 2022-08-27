@@ -1,15 +1,12 @@
-import React, { MutableRefObject } from "react";
+import React from "react";
 import * as Mui from "@mui/material";
 import { Swiper, SwiperSlide } from "swiper/react";
-
-// Import Swiper styles
+import { Autoplay, Navigation } from "swiper";
+import * as Hooks from "src/app/hooks";
+import * as Pages from "src/app/pages";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import { Autoplay, Navigation } from "swiper";
-
-import * as Hooks from "src/app/hooks";
-import * as Pages from "src/app/pages";
 import styles from "src/app/pages/home/views/styles.module.scss";
 
 const skillSet = () => [
@@ -109,7 +106,8 @@ export const Main = () => {
                 sx={{
                   // width: { md: 200, xs: "80vw" },
                   // height: { md: 330, xs: 300 },
-                  maxHeight: { md: 200 },
+                  maxHeight: { md: 180 },
+                  maxWidth: { md: 150 },
                   margin: "auto",
                   objectFit: "contain",
                 }}
@@ -121,8 +119,6 @@ export const Main = () => {
           </SwiperSlide>
         ))}
       </Swiper>
-
-      <Mui.Stack direction="row"></Mui.Stack>
     </Mui.Box>
   );
 };

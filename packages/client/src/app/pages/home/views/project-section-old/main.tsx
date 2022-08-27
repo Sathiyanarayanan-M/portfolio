@@ -52,7 +52,7 @@ export const Main = () => {
         </Mui.Typography>
       </Mui.Box>
       {!!selectedProject && (
-        <Pages.Home.Views.ProjectSection.ProjectDetailView
+        <Pages.Home.Views.ProjectSectionOld.ProjectDetailView
           projectData={projectData.find(
             (item) => item.title === selectedProject
           )}
