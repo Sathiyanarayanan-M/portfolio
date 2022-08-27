@@ -90,6 +90,8 @@ export const Appbar = () => {
             <Mui.Stack direction="row" spacing={4}>
               {Constants.Navigations.map((navigation, idx) => (
                 <Mui.Typography
+                  component={Router.Link}
+                  to={navigation.path}
                   key={idx}
                   variant="h6"
                   className={styles.appbar__navigation}

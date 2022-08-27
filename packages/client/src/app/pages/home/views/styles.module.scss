@@ -4,7 +4,11 @@
   font-size: 3em;
   font-family: $content-font;
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
+}
+.section__splitter {
+  margin: 70px 40px;
+  border-color: $common-black;
 }
 
 .intro__section {

@@ -2,6 +2,7 @@
 
 .appbar__navigation {
   color: $common-black;
+  text-decoration: none;
   @include text-btn;
   @include underline-transition;
   &::after {

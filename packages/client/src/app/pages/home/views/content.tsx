@@ -5,6 +5,7 @@ import * as FramerMotion from "framer-motion";
 import * as Parallax from "@react-spring/parallax";
 import * as Pages from "src/app/pages";
 import * as Hooks from "src/app/hooks";
+import styles from "src/app/pages/home/views/styles.module.scss";
 
 export const Content = () => {
   const parallaxRef = React.useRef<Parallax.IParallax>(null!);
@@ -14,14 +15,10 @@ export const Content = () => {
   return (
     <Mui.Box sx={{ py: 2, px: 15 }}>
       <Pages.Home.Views.IntroSection.Main />
-      <Mui.Divider
-        sx={{
-          my: 10,
-          borderColor: "common.black",
-        }}
-        variant="middle"
-      />
+      <Mui.Divider className={styles.section__splitter} />
       <Pages.Home.Views.SkillsSection.Main />
+      <Mui.Divider className={styles.section__splitter} />
+
       {/* <Mui.Box>
         <Pages.Home.Views.ProjectSection.Main />
       </Mui.Box>
