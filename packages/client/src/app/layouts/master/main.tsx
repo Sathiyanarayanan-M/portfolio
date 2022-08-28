@@ -23,7 +23,9 @@ export const Main = () => {
       </Mui.Box>
       <Mui.Box zIndex={1}>
         <Router.Outlet />
+        <Layouts.Master.Views.Footer />
       </Mui.Box>
+
       <Mui.Box display={{ md: "none", xs: "block" }}>
         <Layouts.Master.Views.BottomNavigation />
       </Mui.Box>

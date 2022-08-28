@@ -13,7 +13,16 @@
 }
 
 .social__icon {
+  display: block;
   &:hover {
     color: $primary-main;
+    // &::before {
+    //   content: "\A";
+    //   width: 10px;
+    //   height: 10px;
+    //   border-radius: 50%;
+    //   background: #b83b3b;
+    //   display: inline-block;
+    // }
   }
 }

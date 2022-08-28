@@ -19,7 +19,7 @@ export const Main = () => {
     0
   );
 
-  let projectDataDuplicate = [
+  const projectDataDuplicate = [
     ...projectData,
     ...projectData,
     ...projectData,

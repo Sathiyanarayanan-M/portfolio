@@ -17,7 +17,7 @@ $swatch_6: #b46e53;
 $swatch_7: #5e2d1f;
 
 $content-font: "Amiri";
-
+$paragraph-font: "Roboto", sans-serif;
 @function cdnHost($name) {
   @return $cdn-url + $name;
 }

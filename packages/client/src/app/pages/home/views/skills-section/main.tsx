@@ -88,13 +88,13 @@ export const Main = () => {
         modules={[Autoplay, Navigation]}
       >
         {skillSet().map((item, idx) => (
-          <SwiperSlide>
+          <SwiperSlide key={idx}>
             <Mui.Stack
               alignItems="center"
               sx={{
                 width: 200,
                 height: 300,
-                bgcolor: "rgba(84, 186, 185, 0.1)",
+                bgcolor: "rgba(95, 94, 94, 0.1)",
                 p: 3,
                 borderRadius: "75px",
                 userSelect: "none",
