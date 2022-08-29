@@ -21,20 +21,24 @@ export const Main = () => {
     error,
   } = Pages.Home.Hooks.useProjectList();
 
-  const projectDataDuplicate = [
-    ...projectData,
-    ...projectData,
-    ...projectData,
-    ...projectData,
-  ];
-
   return (
     <Mui.Box className={styles.project__section}>
       <Mui.Typography className={styles.section__title}>
         My Projects
       </Mui.Typography>
+      <Mui.Stack
+        alignItems="center"
+        justifyContent="center"
+        sx={{ display: isLoading ? "flex" : "none" }}
+      >
+        <Mui.CircularProgress sx={{ color: "primary.300" }} />
+      </Mui.Stack>
 
-      <Mui.Stack direction="row" alignItems="center">
+      <Mui.Stack
+        direction="row"
+        alignItems="center"
+        sx={{ display: isLoading ? "none" : "flex" }}
+      >
         <Mui.Box className={styles.arrow__left} ref={prevSlideArrowRef}>
           <MuiIcons.ChevronLeft />
         </Mui.Box>
@@ -61,7 +65,7 @@ export const Main = () => {
           }}
           modules={[Navigation]}
         >
-          {projectDataDuplicate.map((item, idx) => (
+          {projectData.map((item, idx) => (
             <SwiperSlide className={styles.swiper__slide} key={idx}>
               <Mui.Box
                 className={styles.project__box}
