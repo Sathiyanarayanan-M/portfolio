@@ -5,13 +5,14 @@ import * as MuiIcons from "@mui/icons-material";
 import * as Formik from "formik";
 import * as FramerMotion from "framer-motion";
 import * as Components from "src/app/components";
+import styles from "src/app/pages/home/views/styles.module.scss";
 
 export const ContactCard = (props: ContactFormType.Props) => {
   const formikContext = Formik.useFormikContext<ContactFormType.FormValues>();
 
   return (
-    <Mui.Stack spacing={2} sx={{ p: 2 }}>
-      <Components.Fields.ShadedTextField
+    <Mui.Stack spacing={2} sx={{ p: 2 }} className={styles.contact__card}>
+      <Mui.TextField
         label="Name"
         name="name"
         type="text"
@@ -22,7 +23,7 @@ export const ContactCard = (props: ContactFormType.Props) => {
         helperText={<Formik.ErrorMessage name="name" />}
       />
       <Mui.Stack spacing={2} direction="row">
-        <Components.Fields.ShadedTextField
+        <Mui.TextField
           label="Email"
           name="email"
           type="email"
@@ -32,7 +33,7 @@ export const ContactCard = (props: ContactFormType.Props) => {
           required
           helperText={<Formik.ErrorMessage name="email" />}
         />
-        <Components.Fields.ShadedTextField
+        <Mui.TextField
           label="Phone"
           name="phone"
           type="text"
@@ -43,7 +44,7 @@ export const ContactCard = (props: ContactFormType.Props) => {
         />
       </Mui.Stack>
       <Mui.Grid item xs={12}>
-        <Components.Fields.ShadedTextField
+        <Mui.TextField
           multiline
           rows={3}
           label="Message"
@@ -63,6 +64,7 @@ export const ContactCard = (props: ContactFormType.Props) => {
         loading={props.isLoading}
         variant="outlined"
         sx={{ textTransform: "none" }}
+        className={styles.submit__btn}
       />
     </Mui.Stack>
   );

@@ -13,7 +13,7 @@
 }
 
 .social__icon {
-  display: block;
+  transition: color 600ms;
   &:hover {
     color: $primary-main;
     // &::before {

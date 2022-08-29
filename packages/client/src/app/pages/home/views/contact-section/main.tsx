@@ -5,6 +5,7 @@ import * as FramerMotion from "framer-motion";
 import * as Formik from "formik";
 import * as Pages from "src/app/pages";
 import * as Contexts from "src/app/contexts";
+import styles from "src/app/pages/home/views/styles.module.scss";
 
 export const Main = () => {
   const { setSnack } = React.useContext(Contexts.SnackbarContext);
@@ -15,7 +16,7 @@ export const Main = () => {
         onSuccess: () => {
           setSnack({
             open: true,
-            message: "Your response send successfully",
+            message: "Thank you for contact me 💚",
             severity: "success",
           });
         },
@@ -23,15 +24,11 @@ export const Main = () => {
     });
 
   return (
-    <Mui.Box sx={{ mt: 20 }}>
-      <Mui.Box>
-        <Mui.Typography textAlign="center" variant="h4" color="common.white">
-          Contact Me
-        </Mui.Typography>
-        <Mui.Typography textAlign="center" mb={5} color="common.white">
-          Any Questions, Just write us a message!
-        </Mui.Typography>
-      </Mui.Box>
+    <Mui.Box>
+      <Mui.Typography className={styles.section__title}>
+        Contact Me
+      </Mui.Typography>
+
       <Mui.Stack
         direction={{ xs: "column", md: "row" }}
         justifyContent="space-between"
@@ -48,8 +45,12 @@ export const Main = () => {
               phone: "",
               message: "",
             }}
-            onSubmit={(values) => {
-              mutate(values);
+            onSubmit={(values, action) => {
+              mutate(values, {
+                onSuccess: () => {
+                  action.resetForm();
+                },
+              });
             }}
           >
             <Formik.Form>

@@ -20,6 +20,8 @@ export const Content = () => {
       <Mui.Divider className={styles.section__splitter} />
       <Pages.Home.Views.ProjectSection.Main />
       <Mui.Divider className={styles.section__splitter} />
+      <Pages.Home.Views.ContactSection.Main />
+
       {/* <Pages.Home.Views.ExperienceSection.Main /> */}
       {/* <Mui.Box>
         <Pages.Home.Views.ProjectSection.Main />

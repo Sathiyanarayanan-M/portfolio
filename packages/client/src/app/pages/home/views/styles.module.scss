@@ -168,83 +168,149 @@
   }
 }
 
-.project__paper {
-  border-radius: 20px;
-  cursor: pointer;
-  overflow: hidden;
-  position: relative;
-  z-index: 1;
-  transition: background-image 1s;
-
-  .text__box {
-    height: 100%;
-    padding: 20px;
-    background-image: linear-gradient(
-      0deg,
-      rgba(0, 0, 0, 0.9),
-      rgba(0, 0, 0, 0.2)
-    );
-    transition: background-image 1s;
-    &:hover {
-      background-image: none;
-    }
-  }
-
-  .card__image {
-    pointer-events: none;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    object-fit: cover;
-  }
-  .head__title {
-    display: inline-block;
-    position: relative;
+.info__card {
+  .resume__btn {
+    color: $common-black;
     width: fit-content;
-  }
-
-  .head__title::after {
-    content: "";
-    position: absolute;
-    width: 100%;
-    transform: scaleX(0);
-    height: 2px;
-    bottom: 6px;
-    left: 0;
+    text-transform: none;
     background-color: $common-white;
-    transform-origin: bottom right;
-    transition: transform 0.25s ease-out;
-  }
+    background-image: linear-gradient(45deg, $common-black 50%, #fff 50%);
+    background-size: 250% 100%;
+    background-position: right bottom;
+    transition: background-position 0.5s ease, color 0.5s;
+    border: 1px solid $common-black;
+    padding: 6px 10px;
 
-  &:hover {
-    transition: 1s;
-    .arrow__icon {
-      margin-left: 10px;
-    }
-    .head__title::after {
-      transform: scaleX(1);
-      transform-origin: bottom left;
-    }
-  }
-}
-
-.project__detailview {
-  border-radius: 12px;
-  .img__title__container {
-    position: relative;
-    .bg__image {
-      object-fit: cover;
-      width: 100%;
-      height: 100%;
-    }
-    .title {
-      position: absolute;
-      top: 8px;
-      left: 16px;
+    &:hover {
       color: $common-white;
-      font-family: "Sanchez", serif;
-      font-weight: 600;
+      background-position: left top;
+    }
+
+    .icon__container {
+      padding: 2px;
+      background-color: $common-black;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+
+      .icon {
+        color: $common-white;
+      }
+    }
+  }
+
+  .social__icon {
+    transition: color 600ms;
+    &:hover {
+      color: $primary-main;
+      // &::before {
+      //   content: "\A";
+      //   width: 10px;
+      //   height: 10px;
+      //   border-radius: 50%;
+      //   background: #b83b3b;
+      //   display: inline-block;
+      // }
     }
   }
 }
+
+.contact__card {
+  .submit__btn {
+    color: $common-black;
+    text-transform: none;
+    background-color: $common-white;
+    background-image: linear-gradient(45deg, $primary-300 50%, #fff 50%);
+    background-size: 250% 100%;
+    background-position: right bottom;
+    transition: background-position 0.5s ease, color 0.5s;
+    border: 1px solid $primary-300;
+    padding: 6px 10px;
+
+    &:hover {
+      color: $common-white;
+      background-position: left top;
+    }
+  }
+}
+
+// .project__paper {
+//   border-radius: 20px;
+//   cursor: pointer;
+//   overflow: hidden;
+//   position: relative;
+//   z-index: 1;
+//   transition: background-image 1s;
+
+//   .text__box {
+//     height: 100%;
+//     padding: 20px;
+//     background-image: linear-gradient(
+//       0deg,
+//       rgba(0, 0, 0, 0.9),
+//       rgba(0, 0, 0, 0.2)
+//     );
+//     transition: background-image 1s;
+//     &:hover {
+//       background-image: none;
+//     }
+//   }
+
+//   .card__image {
+//     pointer-events: none;
+//     position: absolute;
+//     width: 100%;
+//     height: 100%;
+//     z-index: -1;
+//     object-fit: cover;
+//   }
+//   .head__title {
+//     display: inline-block;
+//     position: relative;
+//     width: fit-content;
+//   }
+
+//   .head__title::after {
+//     content: "";
+//     position: absolute;
+//     width: 100%;
+//     transform: scaleX(0);
+//     height: 2px;
+//     bottom: 6px;
+//     left: 0;
+//     background-color: $common-white;
+//     transform-origin: bottom right;
+//     transition: transform 0.25s ease-out;
+//   }
+
+//   &:hover {
+//     transition: 1s;
+//     .arrow__icon {
+//       margin-left: 10px;
+//     }
+//     .head__title::after {
+//       transform: scaleX(1);
+//       transform-origin: bottom left;
+//     }
+//   }
+// }
+
+// .project__detailview {
+//   border-radius: 12px;
+//   .img__title__container {
+//     position: relative;
+//     .bg__image {
+//       object-fit: cover;
+//       width: 100%;
+//       height: 100%;
+//     }
+//     .title {
+//       position: absolute;
+//       top: 8px;
+//       left: 16px;
+//       color: $common-white;
+//       font-family: "Sanchez", serif;
+//       font-weight: 600;
+//     }
+//   }
+// }
