@@ -44,6 +44,8 @@ export const Main = () => {
         </Mui.Box>
         <Swiper
           loop={true}
+          slidesPerView={1}
+          spaceBetween={10}
           speed={500}
           breakpoints={{
             640: {
@@ -75,14 +77,6 @@ export const Main = () => {
                   component="img"
                   src={item.image}
                   className={styles.project__image}
-                  sx={{
-                    // width: { md: 200, xs: "80vw" },
-                    // height: { md: 330, xs: 300 },
-                    //   maxHeight: { md: 300 },
-                    //   maxWidth: { md: 150 },
-                    //   margin: "auto",
-                    objectFit: "contain",
-                  }}
                 />
                 <Mui.Box>
                   <Mui.Typography className={styles.project__title}>

@@ -13,7 +13,7 @@ export const Content = () => {
   const isInView = FramerMotion.useInView(scrollButtonRef, { once: true });
 
   return (
-    <Mui.Box sx={{ py: 2, px: 15 }}>
+    <Mui.Box sx={{ py: 2, px: { lg: 15, md: 7, sm: 3, xs: 2 } }}>
       <Pages.Home.Views.IntroSection.Main />
       <Mui.Divider className={styles.section__splitter} />
       <Pages.Home.Views.SkillsSection.Main />

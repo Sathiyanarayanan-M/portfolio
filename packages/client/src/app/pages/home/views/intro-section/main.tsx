@@ -8,7 +8,14 @@ export const Main = () => {
   return (
     <Mui.Box className={styles.intro__section}>
       {/* <Mui.Box sx={{ m: "20px auto", textAlign: "center" }}> */}
-      <Mui.Typography variant="h4" className={styles.name__text}>
+      <Mui.Typography
+        variant="h4"
+        sx={{
+          fontSize: { lg: "5rem", md: "4.5rem", sm: "3.5rem", xs: "2.5rem" },
+          lineHeight: "1.2",
+        }}
+        className={styles.name__text}
+      >
         Sathiyanarayanan
       </Mui.Typography>
       {/* <Mui.Typography>Sathiyanarayanan</Mui.Typography> */}
@@ -16,7 +23,7 @@ export const Main = () => {
       <Mui.Typography
         variant="h4"
         sx={{
-          fontSize: "5rem",
+          fontSize: { lg: "5rem", md: "4rem", sm: "3rem", xs: "2rem" },
           lineHeight: 1.1,
         }}
       >
@@ -57,15 +64,28 @@ export const Main = () => {
         </Mui.Box> */}
 
       <Mui.Stack
-        direction="row"
-        justifyContent="space-between"
+        direction={{ md: "row", xs: "column" }}
+        justifyContent={{ md: "space-between" }}
+        spacing={{ md: 0, xs: 5 }}
         alignItems="center"
         className={styles.short__intro}
       >
+        <Mui.Box display={{ md: "none", xs: "block" }}>
+          <Mui.CardMedia
+            component="img"
+            src={Hooks.useCDNBucket("images/programming.svg")}
+            sx={{
+              width: { md: 523, xs: "80vw" },
+              height: { md: 330, xs: 300 },
+              objectFit: "contain",
+              m: { md: "0 20px", xs: "30px 0" },
+            }}
+            className={styles.media}
+          />
+        </Mui.Box>
         <Mui.Stack
           spacing={10}
-          sx={{ width: "20vw" }}
-          className={styles.left__stack}
+          sx={{ width: { md: "20vw", xs: "100%" }, textAlign: "left" }}
         >
           <Mui.Box>
             <Mui.Typography className={styles.title}>BIOGRAPHY</Mui.Typography>
@@ -90,7 +110,7 @@ export const Main = () => {
             </Mui.Link>
           </Mui.Box>
         </Mui.Stack>
-        <Mui.Box>
+        <Mui.Box display={{ md: "block", xs: "none" }}>
           <Mui.CardMedia
             component="img"
             src={Hooks.useCDNBucket("images/programming.svg")}
@@ -98,14 +118,17 @@ export const Main = () => {
               width: { md: 523, xs: "80vw" },
               height: { md: 330, xs: 300 },
               objectFit: "contain",
+              m: { md: "0 20px", xs: "30px 0" },
             }}
             className={styles.media}
           />
         </Mui.Box>
         <Mui.Stack
           spacing={10}
-          sx={{ width: "20vw" }}
-          className={styles.right__stack}
+          sx={{
+            width: { md: "20vw", xs: "100%" },
+            textAlign: { md: "right", xs: "left" },
+          }}
         >
           <Mui.Box>
             <Mui.Typography className={styles.title}>

@@ -72,23 +72,28 @@ export const Main = () => {
         }}
         loop={true}
         breakpoints={{
-          640: {
+          575: {
             slidesPerView: 2,
             spaceBetween: 20,
           },
-          768: {
-            slidesPerView: 4,
-            spaceBetween: 40,
-          },
           1024: {
+            slidesPerView: 3,
+            spaceBetween: 50,
+          },
+          1200: {
+            slidesPerView: 4,
+            spaceBetween: 50,
+          },
+          1475: {
             slidesPerView: 5,
             spaceBetween: 50,
           },
         }}
         modules={[Autoplay, Navigation]}
+        className={styles.swiper__container}
       >
         {skillSet().map((item, idx) => (
-          <SwiperSlide key={idx}>
+          <SwiperSlide key={idx} className={styles.swiper__slide}>
             <Mui.Stack
               alignItems="center"
               sx={{
@@ -98,6 +103,7 @@ export const Main = () => {
                 p: 3,
                 borderRadius: "75px",
                 userSelect: "none",
+                cursor: "pointer",
               }}
             >
               <Mui.CardMedia
@@ -106,8 +112,8 @@ export const Main = () => {
                 sx={{
                   // width: { md: 200, xs: "80vw" },
                   // height: { md: 330, xs: 300 },
-                  maxHeight: { md: 180 },
-                  maxWidth: { md: 150 },
+                  maxHeight: 180,
+                  maxWidth: 150,
                   margin: "auto",
                   objectFit: "contain",
                 }}
