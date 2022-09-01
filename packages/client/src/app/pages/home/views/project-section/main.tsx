@@ -3,7 +3,7 @@ import * as Router from "react-router-dom";
 import * as Mui from "@mui/material";
 import * as MuiIcons from "@mui/icons-material";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Navigation } from "swiper";
+import { Navigation } from "swiper";
 import * as Hooks from "src/app/hooks";
 import * as Pages from "src/app/pages";
 import "swiper/css";
@@ -43,21 +43,21 @@ export const Main = () => {
           <MuiIcons.ChevronLeft />
         </Mui.Box>
         <Swiper
+          speed={400}
           loop={true}
           slidesPerView={1}
           spaceBetween={10}
-          speed={500}
           breakpoints={{
-            640: {
-              slidesPerView: 1,
-              spaceBetween: 20,
-            },
-            768: {
+            600: {
               slidesPerView: 2,
-              spaceBetween: 30,
+              spaceBetween: 10,
             },
-            1024: {
+            1200: {
               slidesPerView: 3,
+              spaceBetween: 40,
+            },
+            1536: {
+              slidesPerView: 4,
               spaceBetween: 40,
             },
           }}
@@ -68,7 +68,7 @@ export const Main = () => {
           modules={[Navigation]}
         >
           {projectData.map((item, idx) => (
-            <SwiperSlide className={styles.swiper__slide} key={idx}>
+            <SwiperSlide key={idx}>
               <Mui.Box
                 className={styles.project__box}
                 onClick={() => window.open(item.detailsUrl)}

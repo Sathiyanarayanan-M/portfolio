@@ -18,8 +18,46 @@ $swatch_7: #5e2d1f;
 
 $content-font: "Amiri";
 $paragraph-font: "Roboto", sans-serif;
+
+$x-large-screen: 1536px;
+$large-screen: 1200px;
+$medium-screen: 900px;
+$small-screen: 600px;
+$x-small-screen: 0px;
+
 @function cdnHost($name) {
   @return $cdn-url + $name;
+}
+
+@mixin breakpoints($breakpoint) {
+  @if ($breakpoint == x-large-screen) {
+    @media (max-width: $x-large-screen) {
+      @content;
+    }
+  }
+  @if ($breakpoint == large-screen) {
+    @media (max-width: $large-screen) {
+      @content;
+    }
+  }
+  @if ($breakpoint == medium-screen) {
+    @media (max-width: $medium-screen) {
+      @content;
+    }
+  }
+  @if ($breakpoint == small-screen) {
+    @media (max-width: $small-screen) {
+      @content;
+    }
+  }
+  @if ($breakpoint == x-small-screen) {
+    @media (max-width: $x-small-screen) {
+      @content;
+    }
+  }
+  @media (max-width: $breakpoint) {
+    @content;
+  }
 }
 
 @mixin text-btn {
