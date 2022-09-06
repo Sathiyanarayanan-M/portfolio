@@ -6,6 +6,7 @@ $primary-main: #b46e53;
 $primary-100: #5e2d1f;
 $primary-200: #54bab9;
 $primary-300: #5f5e5e;
+$primary-400: #3f3d56;
 $common-white: #fafafa;
 $common-black: #161515;
 $background-light: #fff;
@@ -24,6 +25,8 @@ $large-screen: 1200px;
 $medium-screen: 900px;
 $small-screen: 600px;
 $x-small-screen: 0px;
+
+$navigations-count: 3;
 
 @function cdnHost($name) {
   @return $cdn-url + $name;
@@ -85,5 +88,23 @@ $x-small-screen: 0px;
   &:hover::after {
     transform: scaleX(1);
     transform-origin: bottom left;
+  }
+}
+
+@mixin keyframes($animation-name) {
+  @-webkit-keyframes #{$animation-name} {
+    @content;
+  }
+  @-moz-keyframes #{$animation-name} {
+    @content;
+  }
+  @-ms-keyframes #{$animation-name} {
+    @content;
+  }
+  @-o-keyframes #{$animation-name} {
+    @content;
+  }
+  @keyframes #{$animation-name} {
+    @content;
   }
 }

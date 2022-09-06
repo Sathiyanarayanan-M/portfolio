@@ -153,6 +153,7 @@
       object-fit: contain;
       @include breakpoints(small-screen) {
         max-height: 220px;
+        filter: grayscale(0);
       }
     }
 

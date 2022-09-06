@@ -26,3 +26,69 @@
     // }
   }
 }
+
+@include keyframes(blink) {
+  50% {
+    opacity: 0.25;
+  }
+}
+
+.fab-wrapper {
+  position: fixed;
+  bottom: 3rem;
+  right: 3rem;
+}
+
+.fab-checkbox {
+  display: none;
+  &:checked {
+    ~ {
+      .fab-wheel {
+        transform: scale(1);
+        .fab-action {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+    }
+  }
+}
+
+.fab {
+  position: absolute;
+  bottom: -1rem;
+  right: -1rem;
+  background: $primary-200;
+  box-shadow: 0px 5px 20px $primary-200;
+  transition: all 0.3s ease;
+  z-index: 1;
+  color: $common-white;
+}
+
+.fab-wheel {
+  // Subtract -70px for each action btn
+  @for $i from 0 through $navigations-count {
+    .fab-action-#{$i} {
+      right: -1rem;
+      bottom: 60px + ($i * 70px);
+    }
+  }
+}
+
+.fab-action {
+  position: absolute;
+  background: #0f1941;
+  color: $common-white;
+  transition: all 0.5s ease;
+  opacity: 0;
+  transform-origin: bottom;
+  transform: scale(0);
+
+  .fab__action__btn {
+    color: $common-white;
+  }
+
+  &:hover {
+    background-color: $primary-100;
+  }
+}

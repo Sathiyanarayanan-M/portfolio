@@ -27,7 +27,7 @@ export const Main = () => {
       </Mui.Box>
 
       <Mui.Box display={{ md: "none", xs: "block" }}>
-        <Layouts.Master.Views.BottomNavigation />
+        <Layouts.Master.Views.FloatingActionButton />
       </Mui.Box>
     </React.Fragment>
   );
