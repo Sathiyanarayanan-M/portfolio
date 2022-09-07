@@ -25,13 +25,21 @@ export const FloatingActionButton = () => {
       </Mui.IconButton>
       <div className={styles["fab-wheel"]}>
         {Constants.Navigations.map((item, idx) => (
-          <Mui.IconButton
-            size="large"
-            onClick={() => navigate(item.path)}
-            className={`${styles["fab-action"]} ${styles[`fab-action-${idx}`]}`}
+          <div
+            className={`${styles[`fab-action-${idx}`]} ${styles["fab-action"]}`}
           >
-            <item.icon />
-          </Mui.IconButton>
+            <Mui.Typography className={styles.text}>{item.name}</Mui.Typography>
+            <Mui.IconButton
+              size="large"
+              onClick={() => {
+                setInputChecked(false);
+                navigate(item.path);
+              }}
+              className={styles.icon__btn}
+            >
+              <item.icon />
+            </Mui.IconButton>
+          </div>
         ))}
       </div>
     </div>

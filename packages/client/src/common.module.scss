@@ -68,7 +68,7 @@ $navigations-count: 3;
   cursor: pointer;
 }
 
-@mixin underline-transition {
+@mixin underline-text {
   display: inline-block;
   position: relative;
 
@@ -84,6 +84,10 @@ $navigations-count: 3;
     transform-origin: bottom right;
     transition: transform 0.25s ease-out;
   }
+}
+
+@mixin underline-transition {
+  @include underline-text;
 
   &:hover::after {
     transform: scaleX(1);

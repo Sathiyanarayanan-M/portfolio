@@ -60,7 +60,7 @@
   right: -1rem;
   background: $primary-200;
   box-shadow: 0px 5px 20px $primary-200;
-  transition: all 0.3s ease;
+  transition: all 0.3s ease-in-out;
   z-index: 1;
   color: $common-white;
 }
@@ -77,18 +77,35 @@
 
 .fab-action {
   position: absolute;
-  background: #0f1941;
-  color: $common-white;
-  transition: all 0.5s ease;
+  display: flex;
+  align-items: center;
+  transition: all 0.5s ease-in-out;
   opacity: 0;
-  transform-origin: bottom;
+  transform-origin: 70% bottom;
   transform: scale(0);
 
   .fab__action__btn {
     color: $common-white;
   }
 
+  .icon__btn {
+    background: $primary-400;
+    color: $common-white;
+    margin-left: 10px;
+  }
+  .text {
+    font-family: $content-font;
+    font-weight: 600;
+    font-size: 1.1em;
+    color: $primary-400;
+  }
+
   &:hover {
-    background-color: $primary-100;
+    .icon__btn {
+      background: $primary-100;
+    }
+    .text {
+      @include underline-text;
+    }
   }
 }
