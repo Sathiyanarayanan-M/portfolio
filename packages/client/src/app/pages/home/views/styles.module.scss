@@ -16,13 +16,10 @@
   text-align: center;
   .name__text {
     width: fit-content;
-    margin: 0 auto;
-    // font-size: 5rem;
-    // line-height: 1.2;
+
     &::after {
       content: "";
       width: 25%;
-      // margin: 0 auto;
       background: $primary-main;
       height: 3px;
       display: block;

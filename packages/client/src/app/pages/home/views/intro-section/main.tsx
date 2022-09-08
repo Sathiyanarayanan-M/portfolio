@@ -13,6 +13,8 @@ export const Main = () => {
         sx={{
           fontSize: { lg: "5rem", md: "4.5rem", sm: "3.5rem", xs: "2.5rem" },
           lineHeight: "1.2",
+          m: "0 auto",
+          mt: { xs: 3, md: 0 },
         }}
         className={styles.name__text}
       >
