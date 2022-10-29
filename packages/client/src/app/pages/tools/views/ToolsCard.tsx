@@ -18,6 +18,12 @@ export const ToolsCard = (props: Pages.Tools.ToolsListType) => {
             alignItems: "center",
             width: "fit-content",
             textDecoration: "none",
+            transition: "background 1s",
+            p: 1,
+            borderRadius: 2,
+            ":hover": {
+              bgcolor: "primary.500",
+            },
           }}
           to={props.path}
         >

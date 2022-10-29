@@ -87,10 +87,22 @@ export const Content = () => {
   return (
     <Mui.Box
       sx={{
-        p: 5,
+        px: { xs: 2, md: 5 },
+        py: { xs: 2, md: 0 },
         overflowY: { xs: "scroll", lg: "auto" },
       }}
     >
+      <Mui.Typography
+        sx={{
+          mb: 1,
+          fontSize: "18px",
+          fontWeight: "600",
+        }}
+      >{`${
+        Pages.Tools.Pages.CodeEditor.Constants.languagesAvailable.find(
+          (item) => item.id === language
+        )?.name
+      } Compiler`}</Mui.Typography>
       <Mui.Stack
         direction={{ xs: "column", lg: "row" }}
         justifyContent="space-evenly"
@@ -101,7 +113,9 @@ export const Content = () => {
           sx={{
             width: { xs: "100%", lg: "70vw" },
             height: "80vh",
-            p: "20px 10px",
+            p: 2,
+            boxShadow:
+              "rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, rgb(209, 213, 219) 0px 0px 0px 1px inset",
           }}
         >
           <Editor
@@ -143,13 +157,18 @@ export const Content = () => {
                 WebkitBackdropFilter: "blur( 0.5px )",
                 borderRadius: "10px",
                 border: "1px solid rgba( 255, 255, 255, 0.18 )",
-                color: "common.white",
+                fontSize: "14px",
               },
               MenuProps: {
                 sx: {
                   maxHeight: "50vh",
                   marginTop: "4px",
                 },
+              },
+            }}
+            menuItemProps={{
+              sx: {
+                fontSize: "14px",
               },
             }}
           />
@@ -168,13 +187,19 @@ export const Content = () => {
                 WebkitBackdropFilter: "blur( 0.5px )",
                 borderRadius: "10px",
                 border: "1px solid rgba( 255, 255, 255, 0.18 )",
-                color: "common.white",
+                // color: "common.white",
+                fontSize: "14px",
               },
               MenuProps: {
                 sx: {
                   maxHeight: "50vh",
                   marginTop: "4px",
                 },
+              },
+            }}
+            menuItemProps={{
+              sx: {
+                fontSize: "14px",
               },
             }}
           />
@@ -198,7 +223,8 @@ export const Content = () => {
           >
             <Mui.AccordionSummary
               sx={{
-                color: "common.white",
+                // color: "common.white",
+                fontSize: "14px",
               }}
               expandIcon={<MuiIcons.ExpandMore />}
             >
@@ -213,7 +239,7 @@ export const Content = () => {
                   sx: {
                     p: 1,
                     fontSize: 12,
-                    color: "common.white",
+                    // color: "common.white",
                     border: (theme) => "1px solid" + theme.palette.primary.main,
                   },
                 }}

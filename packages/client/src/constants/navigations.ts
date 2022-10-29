@@ -7,12 +7,12 @@ export const Navigations = [
         path: '/home',
         icon: MuiIcons.Home,
     },
-    {
-        name: 'Blog',
-        value: 'blog',
-        path: '/blog',
-        icon: MuiIcons.Article,
-    },
+    // {
+    //     name: 'Blog',
+    //     value: 'blog',
+    //     path: '/blog',
+    //     icon: MuiIcons.Article,
+    // },
     {
         name: 'Tools',
         value: 'tools',

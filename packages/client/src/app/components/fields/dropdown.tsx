@@ -9,6 +9,7 @@ export const Dropdown = (props: IThemeDropDown.Props) => {
     label = "",
     size = "small",
     selectProps = {},
+    menuItemProps = {},
   } = props;
   return (
     <Mui.FormControl fullWidth size={size}>
@@ -21,7 +22,7 @@ export const Dropdown = (props: IThemeDropDown.Props) => {
         {...selectProps}
       >
         {dataList.map((item) => (
-          <Mui.MenuItem key={item.value} value={item.value}>
+          <Mui.MenuItem key={item.value} value={item.value} {...menuItemProps}>
             {item.label}
           </Mui.MenuItem>
         ))}
@@ -41,5 +42,6 @@ export namespace IThemeDropDown {
     label?: string;
     size?: "small" | "medium";
     selectProps?: Mui.SelectProps;
+    menuItemProps?: Mui.MenuItemProps;
   }
 }
