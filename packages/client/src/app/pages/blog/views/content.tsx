@@ -28,10 +28,11 @@ export const Content = () => {
   return (
     <Mui.Stack
       direction="row"
-      sx={{ py: 4, px: 20, color: "common.white" }}
+      sx={{ py: 4, px: { xs: 2, md: 12 }, color: "common.white" }}
       spacing={4}
       justifyContent="space-between"
     >
+      <Pages.Blog.Views.FloatingActionButton />
       <Pages.Blog.Views.SideBarWrapper />
       <Pages.Blog.Views.BlogContainer />
       {/* <Pages.Blog.Views.RightSideBar /> */}

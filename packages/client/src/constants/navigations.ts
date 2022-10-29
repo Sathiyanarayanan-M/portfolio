@@ -17,7 +17,7 @@ export const Navigations = [
         name: 'Tools',
         value: 'tools',
         path: '/tools',
-        icon: MuiIcons.Face,
+        icon: MuiIcons.Extension,
     }
 ]
 

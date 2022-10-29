@@ -8,15 +8,13 @@ import styles from "src/app/pages/blog/views/styles.module.scss";
 export const FloatingActionButton = () => {
   const navigate = Router.useNavigate();
   return (
-    <div className={styles.blog__fab__wrapper}>
-      <Mui.IconButton
-        size="large"
-        disableRipple
-        className={styles.fab}
-        onClick={() => navigate("/blog/post-blog")}
-      >
-        <MuiIcons.Create />
-      </Mui.IconButton>
-    </div>
+    <Mui.IconButton
+      size="large"
+      disableRipple
+      className={styles.fab}
+      onClick={() => navigate("/blog/post-blog")}
+    >
+      <MuiIcons.Create />
+    </Mui.IconButton>
   );
 };

@@ -5,9 +5,12 @@ export const Palette = (): Pick<Mui.ThemeOptions, "palette"> => ({
     palette: {
         primary: {
             main: "#b46e53",
-            100: '#393E46',
+            100: '#5e2d1f',
             200: '#54bab9',
-            300: '#5f5e5e'
+            300: '#5f5e5e',
+            400: '#3f3d56'
+
+
         },
         common: {
             white: '#fafafa',

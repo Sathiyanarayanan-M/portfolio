@@ -1,10 +1,8 @@
 @import "src/common.module.scss";
 
-.blog__fab__wrapper {
-  .fab {
-    position: fixed;
-    bottom: 15vh;
-    right: 20px;
-    border: 1px solid $primary-main;
-  }
+.fab {
+  position: fixed;
+  bottom: 15vh;
+  right: 20px;
+  border: 1px solid $primary-main;
 }

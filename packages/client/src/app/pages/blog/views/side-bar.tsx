@@ -15,13 +15,13 @@ export const SideBarWrapper = () => {
 
   return (
     <Mui.Stack spacing={3} sx={{ width: "25vw" }}>
-      <Mui.Button
+      {/* <Mui.Button
         variant="contained"
         sx={{ textTransform: "none", color: "common.white" }}
         onClick={() => navigate("post-blog")}
       >
         Create a Post?
-      </Mui.Button>
+      </Mui.Button> */}
       <Mui.Stack spacing={1}>
         <Mui.Typography variant="h5">Search</Mui.Typography>
         <Mui.TextField
