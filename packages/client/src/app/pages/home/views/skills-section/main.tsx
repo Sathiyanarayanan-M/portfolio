@@ -108,6 +108,7 @@ export const Main = () => {
             >
               <Mui.CardMedia
                 component="img"
+                alt={item.value}
                 src={Hooks.useCDNBucket(`images/skillset/${item.value}.svg`)}
                 sx={{
                   // width: { md: 200, xs: "80vw" },

@@ -31,6 +31,7 @@ export const ProjectDetailView = (props: ProjectDetailViewType.Props) => {
           <Components.MuiComponents.CustomCardMedia
             image={props.projectData?.image}
             className={styles.bg__image}
+            alt={props.projectData?.title}
           />
           <Mui.Typography variant="h4" className={styles.title}>
             {props.projectData?.title}

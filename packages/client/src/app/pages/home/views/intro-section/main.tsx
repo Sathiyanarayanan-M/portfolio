@@ -56,6 +56,7 @@ export const Main = () => {
       {/* <Mui.Box>
           <Mui.CardMedia
             component="img"
+            alt="programming"
             src={Hooks.useCDNBucket("images/programming.svg")}
             sx={{
               width: { md: 523, xs: "80vw" },
@@ -75,6 +76,7 @@ export const Main = () => {
         <Mui.Box display={{ md: "none", xs: "block" }}>
           <Mui.CardMedia
             component="img"
+            alt="programming"
             src={Hooks.useCDNBucket("images/programming.svg")}
             sx={{
               width: { md: 523, xs: "80vw" },
@@ -115,6 +117,7 @@ export const Main = () => {
         <Mui.Box display={{ md: "block", xs: "none" }}>
           <Mui.CardMedia
             component="img"
+            alt="programming"
             src={Hooks.useCDNBucket("images/programming.svg")}
             sx={{
               width: { md: 523, xs: "80vw" },
