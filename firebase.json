@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "site": "sathiyanarayanan1",
+    "site": "sathiyanarayanan-m",
     "public": "packages/client/dist",
     "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
     "rewrites": [

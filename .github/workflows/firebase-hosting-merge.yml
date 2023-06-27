@@ -36,4 +36,4 @@ jobs:
           firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT_SATHIYANARAYANAN_M }}"
           channelId: live
           projectId: sathiyanarayanan-m
-          target: sathiyanarayanan1
+          target: sathiyanarayanan-m
