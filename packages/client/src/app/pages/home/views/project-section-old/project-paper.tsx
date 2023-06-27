@@ -14,7 +14,7 @@ export const ProjectPaper = (props: ProjectPaperType.Props) => {
         color: "common.white",
       }}
     >
-      <img src={props.image} className={styles.card__image} />
+      <img src={props.image} className={styles.card__image} alt={props.title} />
       <Mui.Stack justifyContent="flex-end" className={styles.text__box}>
         <Mui.Typography
           variant="h6"

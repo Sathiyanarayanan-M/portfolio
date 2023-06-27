@@ -76,6 +76,7 @@ export const Main = () => {
                 <Mui.CardMedia
                   component="img"
                   src={item.image}
+                  alt={item.title}
                   className={styles.project__image}
                 />
                 <Mui.Box>
