@@ -9,57 +9,14 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import styles from "src/app/pages/home/views/styles.module.scss";
 
-const skillSet = () => [
-  {
-    name: "React",
-    value: "react",
-  },
-  {
-    name: "Node JS",
-    value: "nodejs",
-  },
-  {
-    name: "Python",
-    value: "python",
-  },
-  {
-    name: "HTML",
-    value: "html",
-  },
-  {
-    name: "Sass",
-    value: "sass",
-  },
-  {
-    name: "Solidity",
-    value: "solidity",
-  },
-  {
-    name: "Django",
-    value: "django",
-  },
-  {
-    name: "Firebase",
-    value: "firebase",
-  },
-  {
-    name: "Flask",
-    value: "flask",
-  },
-  {
-    name: "MongoDB",
-    value: "mongodb",
-  },
-  {
-    name: "Cassandra",
-    value: "cassandra",
-  },
-  {
-    name: "AWS",
-    value: "aws",
-  },
-];
+
 export const Main = () => {
+  const {
+    data: skillSet = [],
+    isLoading,
+    error,
+  } = Pages.Home.Hooks.useSkillList();
+
   return (
     <Mui.Box className={styles.skills__section}>
       <Mui.Typography className={styles.section__title}>
@@ -92,7 +49,7 @@ export const Main = () => {
         modules={[Autoplay, Navigation]}
         className={styles.swiper__container}
       >
-        {skillSet().map((item, idx) => (
+        {skillSet.map((item, idx) => (
           <SwiperSlide key={idx} className={styles.swiper__slide}>
             <Mui.Stack
               alignItems="center"
@@ -108,11 +65,9 @@ export const Main = () => {
             >
               <Mui.CardMedia
                 component="img"
-                alt={item.value}
-                src={Hooks.useCDNBucket(`images/skillset/${item.value}.svg`)}
+                alt={item.title}
+                src={item.imgUrl}
                 sx={{
-                  // width: { md: 200, xs: "80vw" },
-                  // height: { md: 330, xs: 300 },
                   maxHeight: 180,
                   maxWidth: 150,
                   margin: "auto",
@@ -120,7 +75,7 @@ export const Main = () => {
                 }}
               />
               <Mui.Typography variant="h6" sx={{ justifyContent: "flex-end" }}>
-                {item.name}
+                {item.title}
               </Mui.Typography>
             </Mui.Stack>
           </SwiperSlide>
