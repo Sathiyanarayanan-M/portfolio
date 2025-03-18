@@ -19,28 +19,40 @@ const skillSet = () => [
     value: "nodejs",
   },
   {
-    name: "Python",
-    value: "python",
+    name: "Next JS",
+    value: "nextJs"
   },
   {
-    name: "HTML",
-    value: "html",
+    name: "Redux",
+    value: "redux"
+  },
+  {
+    name: "GraphQL",
+    value: "graphQL"
+  },
+  {
+    name: "Vue",
+    value: "vue"
+  },
+  {
+    name: "Typescript",
+    value: "typescript"
+  },
+  {
+    name: "PostgreSQL",
+    value: "postgresSQL"
   },
   {
     name: "Sass",
     value: "sass",
   },
   {
-    name: "Solidity",
-    value: "solidity",
-  },
-  {
-    name: "Django",
-    value: "django",
-  },
-  {
     name: "Firebase",
     value: "firebase",
+  },
+  {
+    name: "Python",
+    value: "python",
   },
   {
     name: "Flask",
@@ -49,10 +61,6 @@ const skillSet = () => [
   {
     name: "MongoDB",
     value: "mongodb",
-  },
-  {
-    name: "Cassandra",
-    value: "cassandra",
   },
   {
     name: "AWS",
